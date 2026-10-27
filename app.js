@@ -151,6 +151,8 @@
     camera = { x: 0, y: 0, scale: 1 },
     drawFrame;
   const compareLimit = 3;
+  // A 36px map control remains larger than 24px after this transform.
+  const minMapScale = 0.7;
   const collator = new Intl.Collator("en", { sensitivity: "base" });
   const viewport = $("#map-viewport");
   const pointers = new Map();
@@ -206,12 +208,12 @@
   }
   function avatar(tool, large = false) {
     const palette = [
-      ["#e8eee3", "#6c8359"],
-      ["#fff0e6", "#c37b45"],
-      ["#eae9f6", "#8074af"],
-      ["#e5f0f1", "#598b94"],
-      ["#f5e9eb", "#b87582"],
-      ["#e7f1e9", "#598369"],
+      ["#e8eee3", "#425b32"],
+      ["#fff0e6", "#87491f"],
+      ["#eae9f6", "#594880"],
+      ["#e5f0f1", "#35616a"],
+      ["#f5e9eb", "#854653"],
+      ["#e7f1e9", "#365e44"],
     ];
     const hash = [...tool.id].reduce((n, c) => n + c.charCodeAt(0), 0);
     const [bg, fg] = palette[hash % palette.length];
@@ -489,7 +491,7 @@
     const rowHeights = [];
     activeGroups.forEach((g, i) => {
       g.height =
-        67 + Math.min(g.tools.length, 3) * 40 + (g.tools.length > 3 ? 29 : 0);
+        90 + Math.min(g.tools.length, 3) * 44 + (g.tools.length > 3 ? 36 : 0);
       const row = Math.floor(i / columns);
       rowHeights[row] = Math.max(rowHeights[row] || 0, g.height);
     });
@@ -578,17 +580,17 @@
       1.35,
     );
     camera.scale = Math.max(
-      0.15,
+      minMapScale,
       initial && rect.width < 600 ? Math.max(0.9, fit) : fit,
     );
     camera.x =
       initial && rect.width < 600
         ? 10
-        : (rect.width - world.width * camera.scale) / 2;
+        : Math.max(10, (rect.width - world.width * camera.scale) / 2);
     camera.y =
       initial && rect.width < 600
         ? 10
-        : (rect.height - world.height * camera.scale) / 2;
+        : Math.max(10, (rect.height - world.height * camera.scale) / 2);
     applyCamera();
   }
   function zoomMap(
@@ -596,7 +598,7 @@
     cx = viewport.clientWidth / 2,
     cy = viewport.clientHeight / 2,
   ) {
-    const next = Math.max(0.15, Math.min(2.4, camera.scale * factor));
+    const next = Math.max(minMapScale, Math.min(2.4, camera.scale * factor));
     const ratio = next / camera.scale;
     camera.x = cx - (cx - camera.x) * ratio;
     camera.y = cy - (cy - camera.y) * ratio;

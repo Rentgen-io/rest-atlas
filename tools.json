@@ -70,9 +70,113 @@
       "color": "#6c9c88",
       "icon": "monitor",
       "shortLabel": "OBSERVE & ALERT"
+    },
+    {
+      "id": "recording",
+      "name": "Traffic recording & replay",
+      "description": "Capture HTTP traffic and replay it as repeatable regression tests or service mocks.",
+      "color": "#a88863",
+      "icon": "git-branch",
+      "shortLabel": "RECORD & REPLAY"
     }
   ],
   "tools": [
+    {
+      "id": "advanced-rest-client",
+      "name": "Advanced REST Client",
+      "description": "A desktop HTTP client for composing REST requests, inspecting responses, and organizing reusable API requests.",
+      "website": "https://github.com/advanced-rest-client/arc-electron",
+      "categories": ["clients"],
+      "licenseModel": "open-source",
+      "license": "Apache-2.0",
+      "pricing": "free",
+      "interfaces": ["desktop"],
+      "execution": ["local"],
+      "testCreation": ["manual"],
+      "ci": null,
+      "features": [
+        "HTTP request composition",
+        "Response inspection",
+        "Reusable request history"
+      ],
+      "notes": "This entry covers the ARC Electron desktop application. Current maintenance status and a dedicated CI runner have not been confirmed.",
+      "status": "unknown",
+      "sources": [
+        "https://github.com/advanced-rest-client/arc-electron",
+        "https://github.com/advanced-rest-client/arc-electron/blob/master/LICENSE.md"
+      ],
+      "repository": "https://github.com/advanced-rest-client/arc-electron",
+      "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "apidog",
+      "name": "Apidog",
+      "description": "Design and explore REST APIs, validate responses against schemas, build automated test scenarios, and simulate services with mocks.",
+      "website": "https://apidog.com/",
+      "categories": [
+        "clients",
+        "functional",
+        "contract",
+        "mocking",
+        "generation"
+      ],
+      "licenseModel": "proprietary",
+      "license": "Proprietary",
+      "pricing": "freemium",
+      "interfaces": ["desktop", "web", "cli"],
+      "execution": ["local", "cloud", "self-hosted"],
+      "testCreation": ["manual", "scripted", "generated"],
+      "ci": true,
+      "features": [
+        "OpenAPI-based API design and response validation",
+        "Chained test scenarios and data-driven runs",
+        "Mock servers and CLI execution"
+      ],
+      "notes": "Free and paid plans are available. Hosted, local, and on-premises capabilities depend on the selected edition and execution mode.",
+      "status": "active",
+      "sources": [
+        "https://apidog.com/",
+        "https://apidog.com/pricing/",
+        "https://apidog.com/blog/apidog-cli-test-rest-api-command-line/",
+        "https://apidog.com/blog/canary-testing-apis/",
+        "https://apidog.com/blog/apidog-cli-vs-keploy/"
+      ],
+      "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "bowire",
+      "name": "Bowire",
+      "description": "A multi-protocol API workbench with REST discovery, request assertions, traffic recording and replay, mocks, and command-line automation.",
+      "website": "https://bowire.io/",
+      "categories": [
+        "clients",
+        "functional",
+        "mocking",
+        "recording",
+        "security",
+        "performance"
+      ],
+      "licenseModel": "open-source",
+      "license": "Apache-2.0",
+      "pricing": "free",
+      "interfaces": ["web", "cli", "ide", "library"],
+      "execution": ["local", "self-hosted"],
+      "testCreation": ["manual", "scripted", "recorded"],
+      "ci": true,
+      "features": [
+        "REST endpoint discovery from OpenAPI",
+        "Response assertions and CLI execution",
+        "Recorded sessions, replay mocks, security scans, and latency measurements"
+      ],
+      "notes": "Runs standalone or embedded in an ASP.NET application. Protocols use plugins; this entry describes its REST capabilities.",
+      "status": "active",
+      "sources": [
+        "https://bowire.io/",
+        "https://github.com/Kuestenlogik/Bowire"
+      ],
+      "repository": "https://github.com/Kuestenlogik/Bowire",
+      "lastVerified": "2026-10-27"
+    },
     {
       "id": "bruno",
       "name": "Bruno",
@@ -101,6 +205,33 @@
       "repository": "https://github.com/usebruno/bruno"
     },
     {
+      "id": "chapar",
+      "name": "Chapar",
+      "description": "A local desktop REST client with file-based collections, Python scripts, chained test cases, and a CLI for repeatable API checks.",
+      "website": "https://chapar.rest/",
+      "categories": ["clients", "functional"],
+      "licenseModel": "open-source",
+      "license": "BSD-3-Clause",
+      "pricing": "free",
+      "interfaces": ["desktop", "cli"],
+      "execution": ["local"],
+      "testCreation": ["manual", "scripted"],
+      "ci": true,
+      "features": [
+        "Git-friendly YAML request collections",
+        "Python pre-request and response test scripts",
+        "Chained test cases and chapar-cli execution"
+      ],
+      "notes": "Also supports other API protocols. Collections and environments are stored locally.",
+      "status": "active",
+      "sources": [
+        "https://chapar.rest/",
+        "https://github.com/chapar-rest/chapar/blob/main/LICENSE"
+      ],
+      "repository": "https://github.com/chapar-rest/chapar",
+      "lastVerified": "2026-10-27"
+    },
+    {
       "id": "checkly",
       "name": "Checkly",
       "description": "Define REST API checks, run them on a schedule, and investigate failures with monitoring and alerting.",
@@ -126,6 +257,181 @@
       ],
       "lastVerified": "2026-10-27",
       "documentation": "https://www.checklyhq.com/docs/"
+    },
+    {
+      "id": "evomaster",
+      "name": "EvoMaster",
+      "description": "Automatically generate and execute REST API tests using search-based fuzzing, then export reproducible regression tests.",
+      "website": "https://github.com/WebFuzzing/EvoMaster",
+      "categories": ["generation", "functional", "security"],
+      "licenseModel": "open-source",
+      "license": "LGPL-3.0",
+      "pricing": "free",
+      "interfaces": ["cli"],
+      "execution": ["local"],
+      "testCreation": ["generated"],
+      "ci": true,
+      "features": [
+        "Black-box and instrumented white-box API fuzzing",
+        "Stateful request sequences and fault detection",
+        "Executable regression test generation"
+      ],
+      "notes": "REST testing uses API schema information. White-box exploration additionally requires integration with the application under test.",
+      "status": "active",
+      "sources": ["https://github.com/WebFuzzing/EvoMaster"],
+      "repository": "https://github.com/WebFuzzing/EvoMaster",
+      "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "firecamp",
+      "name": "Firecamp",
+      "description": "A multi-protocol API client for exploring REST endpoints, organizing collections, inspecting responses, and collaborating on API requests.",
+      "website": "https://firecamp.io/",
+      "categories": ["clients"],
+      "licenseModel": "open-source",
+      "license": "AGPL-3.0 (repository)",
+      "pricing": "unknown",
+      "interfaces": ["desktop", "web"],
+      "execution": ["local"],
+      "testCreation": ["manual"],
+      "ci": null,
+      "features": [
+        "REST request playground",
+        "Request collections and environments",
+        "Shared API workspaces"
+      ],
+      "notes": "The source repository is open source. Current hosted plan pricing, maintenance status, and CI runner availability have not been confirmed.",
+      "status": "unknown",
+      "sources": ["https://github.com/firecamp-dev/firecamp"],
+      "repository": "https://github.com/firecamp-dev/firecamp",
+      "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "flowtest",
+      "name": "Flowtest",
+      "description": "Build visual multi-step HTTP API tests, reuse values between requests, and monitor complete REST workflows with scheduled runs and alerts.",
+      "website": "https://flowtest.io/",
+      "categories": ["functional", "monitoring"],
+      "licenseModel": "proprietary",
+      "license": "Commercial service",
+      "pricing": "freemium",
+      "interfaces": ["web"],
+      "execution": ["cloud", "local"],
+      "testCreation": ["manual"],
+      "ci": null,
+      "features": [
+        "Visual request chaining and assertions",
+        "Scheduled workflow checks and notifications",
+        "Hosted execution and local or private agents"
+      ],
+      "notes": "Private-agent access, execution limits, and notification channels depend on the plan. A private agent does not imply a self-hosted control plane.",
+      "status": "active",
+      "sources": ["https://flowtest.io/"],
+      "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "frisby",
+      "name": "Frisby",
+      "description": "A JavaScript REST API testing framework built on Jest, with fluent HTTP requests and assertions for status codes, JSON values, and types.",
+      "website": "https://docs.frisbyjs.com/",
+      "categories": ["functional"],
+      "licenseModel": "open-source",
+      "license": "BSD-3-Clause",
+      "pricing": "free",
+      "interfaces": ["library"],
+      "execution": ["local"],
+      "testCreation": ["scripted"],
+      "ci": true,
+      "features": [
+        "Fluent JavaScript HTTP tests",
+        "JSON value and type assertions",
+        "Jest-based test execution"
+      ],
+      "notes": "Tests run in a Node.js project using Jest; expected behavior is authored by the user.",
+      "status": "unknown",
+      "sources": [
+        "https://docs.frisbyjs.com/",
+        "https://github.com/vlucas/frisby"
+      ],
+      "repository": "https://github.com/vlucas/frisby",
+      "documentation": "https://docs.frisbyjs.com/",
+      "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "hoppscotch",
+      "name": "Hoppscotch",
+      "description": "An API development platform for exploring REST endpoints, organizing collections, scripting response checks, and running tests from a CLI.",
+      "website": "https://hoppscotch.io/",
+      "categories": ["clients", "functional"],
+      "licenseModel": "open-source",
+      "license": "MIT (community edition)",
+      "pricing": "freemium",
+      "interfaces": ["web", "desktop", "cli"],
+      "execution": ["local", "self-hosted"],
+      "testCreation": ["manual", "scripted"],
+      "ci": true,
+      "features": [
+        "REST requests, collections, and environments",
+        "Response test scripts",
+        "CLI collection runs with JUnit reports"
+      ],
+      "notes": "The community edition is MIT licensed; commercial editions have separate terms. A hosted workspace does not necessarily mean requests execute in the cloud.",
+      "status": "active",
+      "sources": [
+        "https://github.com/hoppscotch/hoppscotch",
+        "https://docs.hoppscotch.io/documentation/getting-started/quick-start",
+        "https://docs.hoppscotch.io/documentation/clients/cli/overview"
+      ],
+      "repository": "https://github.com/hoppscotch/hoppscotch",
+      "documentation": "https://docs.hoppscotch.io/",
+      "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "httpie",
+      "name": "HTTPie",
+      "description": "A command-line HTTP client with readable request syntax, JSON support, sessions, and formatted output for exploring and debugging REST APIs.",
+      "website": "https://httpie.io/cli",
+      "categories": ["clients"],
+      "licenseModel": "open-source",
+      "license": "BSD-3-Clause (CLI)",
+      "pricing": "free",
+      "interfaces": ["cli"],
+      "execution": ["local"],
+      "testCreation": ["manual", "scripted"],
+      "ci": null,
+      "features": [
+        "Readable HTTP and JSON request syntax",
+        "Persistent sessions and authentication",
+        "Formatted response inspection"
+      ],
+      "notes": "This entry covers the open-source HTTPie CLI. HTTPie for Web and Desktop is a separate product with separate terms.",
+      "status": "active",
+      "sources": ["https://httpie.io/cli", "https://github.com/httpie/cli"],
+      "repository": "https://github.com/httpie/cli",
+      "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "hurl",
+      "name": "Hurl",
+      "description": "Run HTTP requests and REST API assertions from plain-text files, with chained requests, captured values, and command-line test reports.",
+      "website": "https://hurl.dev/",
+      "categories": ["functional", "clients"],
+      "licenseModel": "open-source",
+      "license": "Apache-2.0",
+      "pricing": "free",
+      "interfaces": ["cli"],
+      "execution": ["local"],
+      "testCreation": ["scripted"],
+      "ci": true,
+      "features": [
+        "Plain-text HTTP request and assertion files",
+        "Value capture and request chaining",
+        "CI execution and test reports"
+      ],
+      "status": "active",
+      "sources": ["https://hurl.dev/", "https://hurl.dev/docs/license.html"],
+      "documentation": "https://hurl.dev/docs/manual.html",
+      "lastVerified": "2026-10-27"
     },
     {
       "id": "insomnia",
@@ -204,6 +510,53 @@
       "repository": "https://github.com/karatelabs/karate"
     },
     {
+      "id": "keploy",
+      "name": "Keploy",
+      "description": "Capture REST API traffic and dependency interactions, generate tests and mocks, and replay them against new builds to detect regressions.",
+      "website": "https://keploy.io/",
+      "categories": ["recording", "functional", "generation", "mocking"],
+      "licenseModel": "open-source",
+      "license": "Apache-2.0 (core)",
+      "pricing": "freemium",
+      "interfaces": ["cli", "web"],
+      "execution": ["local", "cloud"],
+      "testCreation": ["recorded", "generated"],
+      "ci": true,
+      "features": [
+        "Traffic-derived API regression tests",
+        "Dependency recording and mocks",
+        "Local and CI replay with response comparison"
+      ],
+      "notes": "The local record-and-replay core is open source. Hosted AI generation and enterprise capabilities have separate limits and terms.",
+      "status": "active",
+      "sources": ["https://keploy.io/", "https://github.com/keploy/keploy"],
+      "repository": "https://github.com/keploy/keploy",
+      "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "kreya",
+      "name": "Kreya",
+      "description": "A desktop REST API client with local project files, scripted assertions, response snapshots, and a headless CLI for automated checks.",
+      "website": "https://kreya.app/",
+      "categories": ["clients", "functional"],
+      "licenseModel": "proprietary",
+      "license": "Proprietary",
+      "pricing": "freemium",
+      "interfaces": ["desktop", "cli"],
+      "execution": ["local"],
+      "testCreation": ["manual", "scripted"],
+      "ci": true,
+      "features": [
+        "REST request exploration",
+        "Scripted, data-driven, and snapshot tests",
+        "Headless CLI and JUnit reports"
+      ],
+      "notes": "Testing, scripting, snapshot, and CLI capabilities depend on the selected plan. Also supports other API protocols.",
+      "status": "active",
+      "sources": ["https://kreya.app/", "https://kreya.app/pricing/"],
+      "lastVerified": "2026-10-27"
+    },
+    {
       "id": "pact",
       "name": "Pact",
       "description": "Consumer-driven contract testing for HTTP integrations, verifying that consumers and providers agree on API interactions.",
@@ -226,6 +579,143 @@
       "sources": ["https://docs.pact.io/"],
       "lastVerified": "2026-10-27",
       "repository": "https://github.com/pact-foundation"
+    },
+    {
+      "id": "pactumjs",
+      "name": "PactumJS",
+      "description": "A JavaScript REST API testing library for end-to-end, integration, component, and contract checks, with HTTP mocks and reusable test steps.",
+      "website": "https://pactumjs.github.io/",
+      "categories": ["functional", "contract", "mocking"],
+      "licenseModel": "open-source",
+      "license": "MIT",
+      "pricing": "free",
+      "interfaces": ["library"],
+      "execution": ["local"],
+      "testCreation": ["scripted"],
+      "ci": true,
+      "features": [
+        "Fluent REST request and response assertions",
+        "Reusable integration and contract checks",
+        "HTTP mocking for component tests"
+      ],
+      "notes": "PactumJS and Pact are separate projects. This entry describes the Node.js PactumJS library.",
+      "status": "active",
+      "sources": [
+        "https://pactumjs.github.io/",
+        "https://github.com/pactumjs/pactum"
+      ],
+      "repository": "https://github.com/pactumjs/pactum",
+      "documentation": "https://pactumjs.github.io/",
+      "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "parasoft-soatest",
+      "name": "Parasoft SOAtest",
+      "description": "Automate REST API and integration tests using visual workflows, traffic-derived test generation, data-driven scenarios, and CI execution.",
+      "website": "https://www.parasoft.com/products/parasoft-soatest/",
+      "categories": [
+        "functional",
+        "generation",
+        "security",
+        "performance",
+        "recording"
+      ],
+      "licenseModel": "proprietary",
+      "license": "Commercial license",
+      "pricing": "paid",
+      "interfaces": ["desktop", "cli"],
+      "execution": ["local", "self-hosted"],
+      "testCreation": ["manual", "scripted", "generated", "recorded"],
+      "ci": true,
+      "features": [
+        "Visual data-driven REST and integration tests",
+        "Tests generated from recorded API traffic",
+        "Security and performance testing workflows"
+      ],
+      "notes": "Feature availability depends on licensed components. Parasoft Virtualize is a separate product; its capabilities are not attributed to SOAtest here.",
+      "status": "active",
+      "sources": [
+        "https://www.parasoft.com/products/parasoft-soatest/",
+        "https://www.parasoft.com/solutions/api-testing/"
+      ],
+      "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "pororoca",
+      "name": "Pororoca",
+      "description": "A desktop HTTP API client with collections, environments, HTTP/2 and HTTP/3 support, and a .NET library for automated REST checks.",
+      "website": "https://pororoca.io/",
+      "categories": ["clients", "functional"],
+      "licenseModel": "source-available",
+      "license": "GPL-3.0-or-later notice with additional project restrictions",
+      "pricing": "free",
+      "interfaces": ["desktop", "library"],
+      "execution": ["local"],
+      "testCreation": ["manual", "scripted"],
+      "ci": true,
+      "features": [
+        "HTTP request collections and environments",
+        "HTTP/2 and HTTP/3 requests",
+        ".NET test execution through Pororoca.Test"
+      ],
+      "notes": "The repository adds restrictions on commercial derivatives with server-syncing features to its GPL notice. Automated tests use Pororoca.Test and a .NET test runner.",
+      "status": "active",
+      "sources": [
+        "https://github.com/alexandrehtrb/Pororoca",
+        "https://pororoca.io/docs/automated-tests",
+        "https://github.com/alexandrehtrb/Pororoca/blob/develop/LICENCE.md"
+      ],
+      "repository": "https://github.com/alexandrehtrb/Pororoca",
+      "documentation": "https://pororoca.io/docs/",
+      "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "portman",
+      "name": "Portman",
+      "description": "Generate Postman collections and REST API contract, variation, and integration tests from OpenAPI specifications, then run them with Newman.",
+      "website": "https://github.com/apideck-libraries/portman",
+      "categories": ["generation", "contract", "functional"],
+      "licenseModel": "open-source",
+      "license": "Apache-2.0",
+      "pricing": "free",
+      "interfaces": ["cli"],
+      "execution": ["local"],
+      "testCreation": ["generated", "scripted"],
+      "ci": true,
+      "features": [
+        "OpenAPI-to-Postman collection conversion",
+        "Generated contract and variation assertions",
+        "Newman execution and CI configuration"
+      ],
+      "notes": "Requires an OpenAPI specification. Generated tests are Postman collections; execution uses Newman.",
+      "status": "active",
+      "sources": ["https://github.com/apideck-libraries/portman"],
+      "repository": "https://github.com/apideck-libraries/portman",
+      "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "posting",
+      "name": "Posting",
+      "description": "A terminal-based HTTP API client for composing REST requests, inspecting responses, and versioning local request collections as YAML files.",
+      "website": "https://github.com/darrenburns/posting",
+      "categories": ["clients"],
+      "licenseModel": "open-source",
+      "license": "Apache-2.0",
+      "pricing": "free",
+      "interfaces": ["cli"],
+      "execution": ["local"],
+      "testCreation": ["manual"],
+      "ci": null,
+      "features": [
+        "Keyboard-driven terminal user interface",
+        "Local YAML request collections",
+        "HTTP request and response inspection"
+      ],
+      "notes": "The cli interface denotes an interactive terminal UI. A dedicated unattended assertion runner has not been confirmed.",
+      "status": "active",
+      "sources": ["https://github.com/darrenburns/posting"],
+      "repository": "https://github.com/darrenburns/posting",
+      "lastVerified": "2026-10-27"
     },
     {
       "id": "postman",
@@ -253,6 +743,35 @@
       ],
       "lastVerified": "2026-10-27",
       "documentation": "https://learning.postman.com/"
+    },
+    {
+      "id": "readyapi",
+      "name": "ReadyAPI",
+      "description": "A commercial API testing platform for REST functional scenarios, automated security scans, performance workloads, and service virtualization.",
+      "website": "https://smartbear.com/product/ready-api/",
+      "categories": [
+        "functional",
+        "security",
+        "performance",
+        "mocking",
+        "generation"
+      ],
+      "licenseModel": "proprietary",
+      "license": "Commercial license",
+      "pricing": "paid",
+      "interfaces": ["desktop", "cli"],
+      "execution": ["local", "self-hosted"],
+      "testCreation": ["manual", "scripted", "generated", "recorded"],
+      "ci": true,
+      "features": [
+        "Visual and scripted REST test scenarios",
+        "Security scans and reusable performance tests",
+        "REST service virtualization and CI integration"
+      ],
+      "notes": "Functional, performance, virtualization, and execution capabilities depend on the purchased ReadyAPI components. SoapUI Open Source has its own entry.",
+      "status": "active",
+      "sources": ["https://smartbear.com/product/ready-api/"],
+      "lastVerified": "2026-10-27"
     },
     {
       "id": "rentgen",
@@ -309,6 +828,30 @@
       "repository": "https://github.com/rest-assured/rest-assured"
     },
     {
+      "id": "restler",
+      "name": "RESTler",
+      "description": "A stateful REST API fuzzer that derives request dependencies from OpenAPI specifications and generates sequences to find security and reliability faults.",
+      "website": "https://github.com/microsoft/restler-fuzzer",
+      "categories": ["generation", "security"],
+      "licenseModel": "open-source",
+      "license": "MIT",
+      "pricing": "free",
+      "interfaces": ["cli"],
+      "execution": ["local"],
+      "testCreation": ["generated"],
+      "ci": true,
+      "features": [
+        "OpenAPI-driven stateful API fuzzing",
+        "Producer-consumer request dependency inference",
+        "Security and reliability bug checks"
+      ],
+      "notes": "Requires an OpenAPI specification and configuration for the target service. Testing cloud APIs does not make the fuzzer a hosted service.",
+      "status": "active",
+      "sources": ["https://github.com/microsoft/restler-fuzzer"],
+      "repository": "https://github.com/microsoft/restler-fuzzer",
+      "lastVerified": "2026-10-27"
+    },
+    {
       "id": "schemathesis",
       "name": "Schemathesis",
       "description": "Generate property-based REST API tests from OpenAPI schemas to find server errors, invalid-input behavior, and response conformance issues.",
@@ -336,11 +879,99 @@
       "repository": "https://github.com/schemathesis/schemathesis"
     },
     {
+      "id": "soapui",
+      "name": "SoapUI",
+      "description": "An open-source desktop application for REST API functional tests, response assertions, security scans, load tests, and HTTP service mocks.",
+      "website": "https://www.soapui.org/tools/soapui/",
+      "categories": [
+        "clients",
+        "functional",
+        "security",
+        "performance",
+        "mocking"
+      ],
+      "licenseModel": "open-source",
+      "license": "EUPL-1.1-or-later",
+      "pricing": "free",
+      "interfaces": ["desktop", "cli"],
+      "execution": ["local"],
+      "testCreation": ["manual", "scripted"],
+      "ci": true,
+      "features": [
+        "REST request steps and response assertions",
+        "Security scans and basic load testing",
+        "HTTP mocking and command-line test execution"
+      ],
+      "notes": "This entry covers SoapUI Open Source. ReadyAPI is a separate commercial platform with additional automation and reporting capabilities.",
+      "status": "active",
+      "sources": [
+        "https://www.soapui.org/tools/soapui/",
+        "https://www.soapui.org/",
+        "https://github.com/SmartBear/soapui/blob/next/LICENSE.txt"
+      ],
+      "repository": "https://github.com/SmartBear/soapui",
+      "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "tavern",
+      "name": "Tavern",
+      "description": "Define REST API test scenarios in YAML and run them with pytest, with chained stages, response validation, and Python extensions.",
+      "website": "https://tavern.readthedocs.io/en/stable/",
+      "categories": ["functional"],
+      "licenseModel": "open-source",
+      "license": "MIT",
+      "pricing": "free",
+      "interfaces": ["library", "cli"],
+      "execution": ["local"],
+      "testCreation": ["scripted"],
+      "ci": true,
+      "features": [
+        "Declarative YAML request and response tests",
+        "Multi-stage scenarios with captured values",
+        "pytest integration and Python custom validation"
+      ],
+      "notes": "Also supports other protocols. This entry covers its REST API testing workflow.",
+      "status": "active",
+      "sources": [
+        "https://tavern.readthedocs.io/en/stable/",
+        "https://github.com/taverntesting/tavern"
+      ],
+      "repository": "https://github.com/taverntesting/tavern",
+      "documentation": "https://tavern.readthedocs.io/en/stable/",
+      "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "thunder-client",
+      "name": "Thunder Client",
+      "description": "A REST API client inside VS Code and JetBrains editors, with local collections, visual response assertions, and a CLI for automated runs.",
+      "website": "https://www.thunderclient.com/",
+      "categories": ["clients", "functional"],
+      "licenseModel": "proprietary",
+      "license": "Proprietary",
+      "pricing": "freemium",
+      "interfaces": ["ide", "cli"],
+      "execution": ["local"],
+      "testCreation": ["manual"],
+      "ci": true,
+      "features": [
+        "REST requests inside supported editors",
+        "Scriptless response assertions",
+        "Local collections and CLI collection runs"
+      ],
+      "notes": "The free tier has limits. CLI and CI/CD execution require a paid plan. Announced performance testing is not counted as an available capability.",
+      "status": "active",
+      "sources": [
+        "https://www.thunderclient.com/",
+        "https://www.thunderclient.com/pricing"
+      ],
+      "lastVerified": "2026-10-27"
+    },
+    {
       "id": "wiremock",
       "name": "WireMock",
       "description": "Create controllable HTTP service doubles to test REST integrations without relying on live downstream dependencies.",
       "website": "https://wiremock.org/",
-      "categories": ["mocking"],
+      "categories": ["mocking", "recording"],
       "licenseModel": "open-source",
       "license": "Apache-2.0 (core)",
       "pricing": "freemium",
@@ -358,6 +989,29 @@
       "sources": ["https://wiremock.org/", "https://wiremock.org/docs/"],
       "lastVerified": "2026-10-27",
       "repository": "https://github.com/wiremock/wiremock"
+    },
+    {
+      "id": "yaak",
+      "name": "Yaak",
+      "description": "A local-first REST API client with desktop and command-line interfaces, request chaining, environments, and Git-friendly workspace files.",
+      "website": "https://yaak.app/",
+      "categories": ["clients"],
+      "licenseModel": "open-source",
+      "license": "MIT (source); separate prebuilt binary terms",
+      "pricing": "freemium",
+      "interfaces": ["desktop", "cli"],
+      "execution": ["local"],
+      "testCreation": ["manual"],
+      "ci": null,
+      "features": [
+        "Local REST request workspaces",
+        "Request chaining and environment variables",
+        "Desktop and CLI access to the same requests"
+      ],
+      "notes": "Source code is MIT licensed. Official prebuilt binaries are free for personal use; work use requires a commercial license after the trial.",
+      "status": "active",
+      "sources": ["https://yaak.app/", "https://yaak.app/pricing"],
+      "lastVerified": "2026-10-27"
     },
     {
       "id": "zap",

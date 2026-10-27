@@ -152,7 +152,7 @@
     drawFrame;
   const compareLimit = 3;
   // A 36px map control remains larger than 24px after this transform.
-  const minMapScale = 0.7;
+  const minMapScale = 0.55;
   const collator = new Intl.Collator("en", { sensitivity: "base" });
   const viewport = $("#map-viewport");
   const pointers = new Map();

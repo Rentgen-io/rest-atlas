@@ -1,0 +1,258 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "REST Atlas catalogue",
+  "description": "One file powers the map, directory, tool details, and filters.",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "minLength": 1,
+      "maxLength": 60
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://",
+      "maxLength": 2000
+    },
+    "licenseModel": {
+      "type": "string",
+      "enum": ["open-source", "source-available", "proprietary", "unknown"]
+    },
+    "execution": {
+      "type": "string",
+      "enum": ["local", "cloud", "self-hosted", "unknown"]
+    },
+    "interfaces": {
+      "type": "string",
+      "enum": ["desktop", "cli", "web", "library", "ide", "unknown"]
+    },
+    "testCreation": {
+      "type": "string",
+      "enum": ["manual", "scripted", "generated", "recorded", "unknown"]
+    },
+    "pricing": {
+      "type": "string",
+      "enum": ["free", "freemium", "paid", "unknown"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "maintenance", "archived", "unknown"]
+    },
+    "icon": {
+      "type": "string",
+      "enum": [
+        "terminal",
+        "check-circle",
+        "sparkles",
+        "file",
+        "shield",
+        "activity",
+        "layers",
+        "monitor",
+        "globe",
+        "map",
+        "list",
+        "git-branch",
+        "columns"
+      ]
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "project", "categories", "tools"],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "repository", "branch"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 60
+        },
+        "repository": {
+          "type": "string",
+          "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$",
+          "format": "uri"
+        },
+        "branch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        }
+      }
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "description", "color"],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 28
+          },
+          "description": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 250
+          },
+          "color": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "icon": {
+            "$ref": "#/$defs/icon"
+          },
+          "shortLabel": {
+            "type": "string",
+            "maxLength": 28
+          }
+        }
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "description",
+          "website",
+          "categories",
+          "sources",
+          "lastVerified"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 60
+          },
+          "description": {
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 300
+          },
+          "website": {
+            "$ref": "#/$defs/url"
+          },
+          "repository": {
+            "$ref": "#/$defs/url"
+          },
+          "documentation": {
+            "$ref": "#/$defs/url"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/id"
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "licenseModel": {
+            "$ref": "#/$defs/licenseModel"
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "pricing": {
+            "$ref": "#/$defs/pricing"
+          },
+          "interfaces": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/interfaces"
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "execution": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/execution"
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "testCreation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/testCreation"
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "ci": {
+            "type": ["boolean", "null"]
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 160
+            },
+            "uniqueItems": true,
+            "maxItems": 10
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            },
+            "uniqueItems": true,
+            "maxItems": 15
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 700
+          },
+          "status": {
+            "$ref": "#/$defs/status"
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/url"
+            },
+            "uniqueItems": true,
+            "minItems": 1,
+            "maxItems": 8
+          },
+          "lastVerified": {
+            "type": "string",
+            "format": "date",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          }
+        }
+      },
+      "uniqueItems": true
+    }
+  }
+}

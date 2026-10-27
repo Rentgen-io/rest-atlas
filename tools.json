@@ -1,0 +1,534 @@
+{
+  "$schema": "./tools.schema.json",
+  "schemaVersion": 1,
+  "project": {
+    "name": "REST Atlas",
+    "repository": "https://github.com/Rentgen-io/rest-atlas",
+    "branch": "main"
+  },
+  "categories": [
+    {
+      "id": "clients",
+      "name": "API clients",
+      "description": "Compose requests, inspect responses, and explore endpoints.",
+      "color": "#668c68",
+      "icon": "terminal",
+      "shortLabel": "EXPLORE & DEBUG"
+    },
+    {
+      "id": "functional",
+      "name": "Functional testing",
+      "description": "Validate REST behavior and maintain repeatable regression checks.",
+      "color": "#568d8d",
+      "icon": "check-circle",
+      "shortLabel": "ASSERT & AUTOMATE"
+    },
+    {
+      "id": "generation",
+      "name": "Test generation",
+      "description": "Generate test inputs and explore behavior with automated mutations or fuzzing.",
+      "color": "#9280b8",
+      "icon": "sparkles",
+      "shortLabel": "DISCOVER & GENERATE"
+    },
+    {
+      "id": "contract",
+      "name": "Contract & schema",
+      "description": "Check consumer-provider agreements and OpenAPI response conformance.",
+      "color": "#788fbd",
+      "icon": "file",
+      "shortLabel": "DEFINE & VALIDATE"
+    },
+    {
+      "id": "security",
+      "name": "Security testing",
+      "description": "Assess authentication behavior, API vulnerabilities, and security controls.",
+      "color": "#b88378",
+      "icon": "shield",
+      "shortLabel": "PROBE & PROTECT"
+    },
+    {
+      "id": "performance",
+      "name": "Performance",
+      "description": "Measure REST API response behavior, throughput, and load.",
+      "color": "#b69b59",
+      "icon": "activity",
+      "shortLabel": "LOAD & MEASURE"
+    },
+    {
+      "id": "mocking",
+      "name": "Mocking",
+      "description": "Simulate HTTP services and isolate dependencies during testing.",
+      "color": "#b48baf",
+      "icon": "layers",
+      "shortLabel": "SIMULATE & ISOLATE"
+    },
+    {
+      "id": "monitoring",
+      "name": "Monitoring",
+      "description": "Run scheduled REST API checks and alert on failures.",
+      "color": "#6c9c88",
+      "icon": "monitor",
+      "shortLabel": "OBSERVE & ALERT"
+    }
+  ],
+  "tools": [
+    {
+      "id": "bruno",
+      "name": "Bruno",
+      "description": "A local, Git-friendly API client with file-based collections, scripted assertions, and a CLI runner.",
+      "website": "https://www.usebruno.com/",
+      "categories": [
+        "clients",
+        "functional"
+      ],
+      "licenseModel": "open-source",
+      "license": "MIT (open-source core)",
+      "pricing": "freemium",
+      "interfaces": [
+        "desktop",
+        "cli"
+      ],
+      "execution": [
+        "local"
+      ],
+      "testCreation": [
+        "manual",
+        "scripted"
+      ],
+      "ci": true,
+      "features": [
+        "File-based request collections",
+        "Assertions and test scripts",
+        "CLI collection execution"
+      ],
+      "notes": "Paid editions add features. The open-source license describes the core, not every commercial component.",
+      "status": "active",
+      "sources": [
+        "https://www.usebruno.com/",
+        "https://www.usebruno.com/pricing"
+      ],
+      "lastVerified": "2026-10-27",
+      "repository": "https://github.com/usebruno/bruno"
+    },
+    {
+      "id": "checkly",
+      "name": "Checkly",
+      "description": "Define REST API checks, run them on a schedule, and investigate failures with monitoring and alerting.",
+      "website": "https://www.checklyhq.com/",
+      "categories": [
+        "monitoring",
+        "functional"
+      ],
+      "licenseModel": "proprietary",
+      "license": "Commercial service",
+      "pricing": "freemium",
+      "interfaces": [
+        "web",
+        "cli"
+      ],
+      "execution": [
+        "cloud"
+      ],
+      "testCreation": [
+        "manual",
+        "scripted"
+      ],
+      "ci": true,
+      "features": [
+        "Scheduled HTTP API checks",
+        "Monitoring as code",
+        "Alerts and execution history"
+      ],
+      "notes": "This entry describes the hosted monitoring service. Limits and capabilities vary by plan.",
+      "status": "active",
+      "sources": [
+        "https://www.checklyhq.com/",
+        "https://www.checklyhq.com/docs/api-checks/"
+      ],
+      "lastVerified": "2026-10-27",
+      "documentation": "https://www.checklyhq.com/docs/"
+    },
+    {
+      "id": "insomnia",
+      "name": "Insomnia",
+      "description": "Explore REST endpoints, organize requests, write API tests, and execute collections from a desktop client or CLI.",
+      "website": "https://insomnia.rest/",
+      "categories": [
+        "clients",
+        "functional",
+        "mocking"
+      ],
+      "licenseModel": "open-source",
+      "license": "Apache-2.0 (open-source core)",
+      "pricing": "freemium",
+      "interfaces": [
+        "desktop",
+        "cli"
+      ],
+      "execution": [
+        "local",
+        "cloud"
+      ],
+      "testCreation": [
+        "manual",
+        "scripted"
+      ],
+      "ci": true,
+      "features": [
+        "Request collections and environments",
+        "API test scripting",
+        "CLI automation"
+      ],
+      "notes": "Cloud collaboration and enterprise capabilities depend on the selected plan.",
+      "status": "active",
+      "sources": [
+        "https://insomnia.rest/",
+        "https://insomnia.rest/pricing"
+      ],
+      "lastVerified": "2026-10-27",
+      "repository": "https://github.com/Kong/insomnia"
+    },
+    {
+      "id": "k6",
+      "name": "k6",
+      "description": "A developer-oriented load testing tool for scripting HTTP workloads, measuring performance, and enforcing thresholds.",
+      "website": "https://grafana.com/oss/k6/",
+      "categories": [
+        "performance"
+      ],
+      "licenseModel": "open-source",
+      "license": "AGPL-3.0 (core)",
+      "pricing": "freemium",
+      "interfaces": [
+        "cli"
+      ],
+      "execution": [
+        "local",
+        "cloud"
+      ],
+      "testCreation": [
+        "scripted"
+      ],
+      "ci": true,
+      "features": [
+        "HTTP load generation",
+        "Performance thresholds",
+        "Local and CI execution"
+      ],
+      "notes": "The local k6 engine is open source. Grafana Cloud k6 is a separate hosted offering.",
+      "status": "active",
+      "sources": [
+        "https://grafana.com/docs/k6/latest/"
+      ],
+      "lastVerified": "2026-10-27",
+      "repository": "https://github.com/grafana/k6",
+      "documentation": "https://grafana.com/docs/k6/latest/"
+    },
+    {
+      "id": "karate",
+      "name": "Karate",
+      "description": "A test automation framework for expressing REST requests, assertions, and multi-step API scenarios in a readable DSL.",
+      "website": "https://karatelabs.io/",
+      "categories": [
+        "functional",
+        "performance",
+        "mocking"
+      ],
+      "licenseModel": "open-source",
+      "license": "MIT (open-source core)",
+      "pricing": "freemium",
+      "interfaces": [
+        "library",
+        "cli",
+        "ide"
+      ],
+      "execution": [
+        "local"
+      ],
+      "testCreation": [
+        "scripted"
+      ],
+      "ci": true,
+      "features": [
+        "Data-driven API scenarios",
+        "HTTP assertions and mocks",
+        "API test reuse for performance workflows"
+      ],
+      "notes": "Plugins and enterprise components have separate commercial terms.",
+      "status": "active",
+      "sources": [
+        "https://karatelabs.io/",
+        "https://github.com/karatelabs/karate"
+      ],
+      "lastVerified": "2026-10-27",
+      "repository": "https://github.com/karatelabs/karate"
+    },
+    {
+      "id": "pact",
+      "name": "Pact",
+      "description": "Consumer-driven contract testing for HTTP integrations, verifying that consumers and providers agree on API interactions.",
+      "website": "https://docs.pact.io/",
+      "categories": [
+        "contract"
+      ],
+      "licenseModel": "open-source",
+      "license": "MIT / Apache-2.0 (implementation-dependent)",
+      "pricing": "free",
+      "interfaces": [
+        "library",
+        "cli"
+      ],
+      "execution": [
+        "local"
+      ],
+      "testCreation": [
+        "scripted"
+      ],
+      "ci": true,
+      "features": [
+        "Consumer-driven contracts",
+        "Provider verification",
+        "Language-specific test libraries"
+      ],
+      "notes": "Pact is an ecosystem of implementations. License details vary; hosted commercial contract services are outside this entry.",
+      "status": "active",
+      "sources": [
+        "https://docs.pact.io/"
+      ],
+      "lastVerified": "2026-10-27",
+      "repository": "https://github.com/pact-foundation"
+    },
+    {
+      "id": "postman",
+      "name": "Postman",
+      "description": "An API development platform for composing REST requests, organizing collections, and running scripted tests and monitors.",
+      "website": "https://www.postman.com/",
+      "categories": [
+        "clients",
+        "functional",
+        "mocking",
+        "monitoring"
+      ],
+      "licenseModel": "proprietary",
+      "license": "Proprietary",
+      "pricing": "freemium",
+      "interfaces": [
+        "desktop",
+        "web",
+        "cli"
+      ],
+      "execution": [
+        "local",
+        "cloud"
+      ],
+      "testCreation": [
+        "manual",
+        "scripted"
+      ],
+      "ci": true,
+      "features": [
+        "Request collections and environments",
+        "Scripted response assertions",
+        "Collection runners, mocks, and monitors"
+      ],
+      "notes": "Availability, collaboration, and execution limits vary by plan. A free plan does not make the product open source.",
+      "status": "active",
+      "sources": [
+        "https://www.postman.com/",
+        "https://www.postman.com/pricing/"
+      ],
+      "lastVerified": "2026-10-27",
+      "documentation": "https://learning.postman.com/"
+    },
+    {
+      "id": "rentgen",
+      "name": "Rentgen",
+      "description": "Generate and execute REST API discovery tests from a working cURL request, covering invalid inputs, boundaries, HTTP behavior, and security checks.",
+      "website": "https://rentgen.io",
+      "categories": [
+        "functional",
+        "generation",
+        "security",
+        "performance"
+      ],
+      "licenseModel": "source-available",
+      "license": "RSAL-1.0",
+      "pricing": "free",
+      "interfaces": [
+        "desktop",
+        "cli"
+      ],
+      "execution": [
+        "local"
+      ],
+      "testCreation": [
+        "generated"
+      ],
+      "ci": true,
+      "features": [
+        "Negative and boundary input tests",
+        "Authentication and protocol checks",
+        "Security headers and performance insights"
+      ],
+      "notes": "Official binaries are free, including for internal commercial use. Source-code use has RSAL-1.0 restrictions. Maintained by the team behind REST Atlas.",
+      "status": "active",
+      "sources": [
+        "https://github.com/Rentgen-io/Rentgen",
+        "https://github.com/Rentgen-io/Rentgen/blob/main/LICENSE"
+      ],
+      "lastVerified": "2026-10-27",
+      "repository": "https://github.com/Rentgen-io/Rentgen"
+    },
+    {
+      "id": "rest-assured",
+      "name": "REST Assured",
+      "description": "A Java library for writing expressive REST API tests with HTTP requests, response assertions, and reusable test code.",
+      "website": "https://rest-assured.io/",
+      "categories": [
+        "functional"
+      ],
+      "licenseModel": "open-source",
+      "license": "Apache-2.0",
+      "pricing": "free",
+      "interfaces": [
+        "library"
+      ],
+      "execution": [
+        "local"
+      ],
+      "testCreation": [
+        "scripted"
+      ],
+      "ci": true,
+      "features": [
+        "Java request and response DSL",
+        "JSON and XML assertions",
+        "JUnit and TestNG integration"
+      ],
+      "notes": "Requires a Java-based test project. Test scenarios and expected outcomes are authored by the user.",
+      "status": "active",
+      "sources": [
+        "https://rest-assured.io/",
+        "https://github.com/rest-assured/rest-assured"
+      ],
+      "lastVerified": "2026-10-27",
+      "repository": "https://github.com/rest-assured/rest-assured"
+    },
+    {
+      "id": "schemathesis",
+      "name": "Schemathesis",
+      "description": "Generate property-based REST API tests from OpenAPI schemas to find server errors, invalid-input behavior, and response conformance issues.",
+      "website": "https://schemathesis.io/",
+      "categories": [
+        "generation",
+        "contract"
+      ],
+      "licenseModel": "open-source",
+      "license": "MIT",
+      "pricing": "free",
+      "interfaces": [
+        "cli",
+        "library"
+      ],
+      "execution": [
+        "local"
+      ],
+      "testCreation": [
+        "generated"
+      ],
+      "ci": true,
+      "features": [
+        "OpenAPI-driven test generation",
+        "Negative inputs and response validation",
+        "Reproducible failures and CI execution"
+      ],
+      "notes": "REST testing requires an OpenAPI specification. The entry covers the open-source test runner.",
+      "status": "active",
+      "sources": [
+        "https://schemathesis.io/",
+        "https://github.com/schemathesis/schemathesis"
+      ],
+      "lastVerified": "2026-10-27",
+      "repository": "https://github.com/schemathesis/schemathesis"
+    },
+    {
+      "id": "wiremock",
+      "name": "WireMock",
+      "description": "Create controllable HTTP service doubles to test REST integrations without relying on live downstream dependencies.",
+      "website": "https://wiremock.org/",
+      "categories": [
+        "mocking"
+      ],
+      "licenseModel": "open-source",
+      "license": "Apache-2.0 (core)",
+      "pricing": "freemium",
+      "interfaces": [
+        "library",
+        "cli",
+        "web"
+      ],
+      "execution": [
+        "local",
+        "self-hosted",
+        "cloud"
+      ],
+      "testCreation": [
+        "manual",
+        "scripted",
+        "recorded"
+      ],
+      "ci": true,
+      "features": [
+        "HTTP request matching and stubbing",
+        "Stateful service simulation",
+        "Record and replay workflows"
+      ],
+      "notes": "The open-source server and WireMock Cloud have different deployment options and terms.",
+      "status": "active",
+      "sources": [
+        "https://wiremock.org/",
+        "https://wiremock.org/docs/"
+      ],
+      "lastVerified": "2026-10-27",
+      "repository": "https://github.com/wiremock/wiremock"
+    },
+    {
+      "id": "zap",
+      "name": "ZAP",
+      "description": "A dynamic security testing tool with HTTP inspection, automated scanning, and API scanning workflows for REST services.",
+      "website": "https://www.zaproxy.org/",
+      "categories": [
+        "security"
+      ],
+      "licenseModel": "open-source",
+      "license": "Apache-2.0",
+      "pricing": "free",
+      "interfaces": [
+        "desktop",
+        "cli"
+      ],
+      "execution": [
+        "local"
+      ],
+      "testCreation": [
+        "manual",
+        "generated"
+      ],
+      "ci": true,
+      "features": [
+        "HTTP interception and inspection",
+        "API scanning automation",
+        "CI-friendly packaged scans"
+      ],
+      "notes": "Configure authentication and API definitions for the target. Scan only systems you are authorized to test.",
+      "status": "active",
+      "sources": [
+        "https://www.zaproxy.org/docs/",
+        "https://www.zaproxy.org/docs/docker/api-scan/"
+      ],
+      "lastVerified": "2026-10-27",
+      "repository": "https://github.com/zaproxy/zaproxy"
+    }
+  ]
+}

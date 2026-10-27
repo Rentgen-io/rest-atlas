@@ -17,60 +17,27 @@
     },
     "licenseModel": {
       "type": "string",
-      "enum": [
-        "open-source",
-        "source-available",
-        "proprietary",
-        "unknown"
-      ]
+      "enum": ["open-source", "source-available", "proprietary", "unknown"]
     },
     "execution": {
       "type": "string",
-      "enum": [
-        "local",
-        "cloud",
-        "self-hosted",
-        "unknown"
-      ]
+      "enum": ["local", "cloud", "self-hosted", "unknown"]
     },
     "interfaces": {
       "type": "string",
-      "enum": [
-        "desktop",
-        "cli",
-        "web",
-        "library",
-        "ide",
-        "unknown"
-      ]
+      "enum": ["desktop", "cli", "web", "library", "ide", "unknown"]
     },
     "testCreation": {
       "type": "string",
-      "enum": [
-        "manual",
-        "scripted",
-        "generated",
-        "recorded",
-        "unknown"
-      ]
+      "enum": ["manual", "scripted", "generated", "recorded", "unknown"]
     },
     "pricing": {
       "type": "string",
-      "enum": [
-        "free",
-        "freemium",
-        "paid",
-        "unknown"
-      ]
+      "enum": ["free", "freemium", "paid", "unknown"]
     },
     "status": {
       "type": "string",
-      "enum": [
-        "active",
-        "maintenance",
-        "archived",
-        "unknown"
-      ]
+      "enum": ["active", "maintenance", "archived", "unknown"]
     },
     "icon": {
       "type": "string",
@@ -93,12 +60,7 @@
   },
   "type": "object",
   "additionalProperties": false,
-  "required": [
-    "schemaVersion",
-    "project",
-    "categories",
-    "tools"
-  ],
+  "required": ["schemaVersion", "project", "categories", "tools"],
   "properties": {
     "$schema": {
       "type": "string"
@@ -109,11 +71,7 @@
     "project": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "name",
-        "repository",
-        "branch"
-      ],
+      "required": ["name", "repository", "branch"],
       "properties": {
         "name": {
           "type": "string",
@@ -137,12 +95,7 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "id",
-          "name",
-          "description",
-          "color"
-        ],
+        "required": ["id", "name", "description", "color"],
         "properties": {
           "id": {
             "$ref": "#/$defs/id"
@@ -254,10 +207,7 @@
             "minItems": 1
           },
           "ci": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": ["boolean", "null"]
           },
           "features": {
             "type": "array",

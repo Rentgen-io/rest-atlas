@@ -19,18 +19,18 @@ The starter catalogue contains 12 tools in eight categories. It is deliberately 
 
 ## Files — all in the root
 
-| File | Purpose |
-| --- | --- |
-| `index.html` | Application shell, dialogs, semantic navigation. |
-| `styles.css` | Responsive desktop/mobile layout and visual design. |
-| `app.js` | Rendering, search, filters, map interactions, details, saved tools, comparison. |
-| `tools.json` | Single source for all tools, category definitions, and contribution settings. |
-| `tools.schema.json` | Data contract and editor hints. |
-| `validate-tools.mjs` | Dependency-free data validation for contributors. |
-| `favicon.svg` | Local vector app icon. |
-| `.nojekyll` | Tell GitHub Pages to serve the project as static files. |
-| `CONTRIBUTING.md` | Field reference, formats, enums, and PR instructions. |
-| `LICENSE` | MIT license for this project. Listed tools retain their own licenses. |
+| File                 | Purpose                                                                         |
+| -------------------- | ------------------------------------------------------------------------------- |
+| `index.html`         | Application shell, dialogs, semantic navigation.                                |
+| `styles.css`         | Responsive desktop/mobile layout and visual design.                             |
+| `app.js`             | Rendering, search, filters, map interactions, details, saved tools, comparison. |
+| `tools.json`         | Single source for all tools, category definitions, and contribution settings.   |
+| `tools.schema.json`  | Data contract and editor hints.                                                 |
+| `validate-tools.mjs` | Dependency-free data validation for contributors.                               |
+| `favicon.svg`        | Local vector app icon.                                                          |
+| `.nojekyll`          | Tell GitHub Pages to serve the project as static files.                         |
+| `CONTRIBUTING.md`    | Field reference, formats, enums, and PR instructions.                           |
+| `LICENSE`            | MIT license for this project. Listed tools retain their own licenses.           |
 
 ## Run locally
 
@@ -71,15 +71,15 @@ Optional fields are not required to get started. Unknown is an explicit state, n
 
 ## Keyboard and touch
 
-| Action | Control |
-| --- | --- |
-| Focus search | `/` outside a text field or dialog |
-| Navigate controls | `Tab` / `Shift+Tab` |
-| Close a dialog or mobile drawer | `Escape` |
-| Pan the map | Drag; or arrow keys when the canvas is focused |
-| Zoom the map | `+` / `-` when the canvas is focused; zoom buttons; pinch; Ctrl/Cmd + scroll |
-| Fit the map | Fit button; or `0` when the canvas is focused |
-| Scroll the page | Normal wheel or touch outside the map; normal wheel also works over the map |
+| Action                          | Control                                                                      |
+| ------------------------------- | ---------------------------------------------------------------------------- |
+| Focus search                    | `/` outside a text field or dialog                                           |
+| Navigate controls               | `Tab` / `Shift+Tab`                                                          |
+| Close a dialog or mobile drawer | `Escape`                                                                     |
+| Pan the map                     | Drag; or arrow keys when the canvas is focused                               |
+| Zoom the map                    | `+` / `-` when the canvas is focused; zoom buttons; pinch; Ctrl/Cmd + scroll |
+| Fit the map                     | Fit button; or `0` when the canvas is focused                                |
+| Scroll the page                 | Normal wheel or touch outside the map; normal wheel also works over the map  |
 
 The mobile map starts at a readable zoom. Pan to explore or use Fit for an overview. The directory is an alternative for browsing every tool without navigating the canvas. Native dialogs trap focus; motion is reduced when requested by the OS.
 

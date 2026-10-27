@@ -1,86 +1,562 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f7f6">
-  <meta name="description" content="Explore the REST API testing ecosystem. An interactive, community-maintained map to discover, filter, save, and compare testing tools.">
-  <title>REST Atlas — Find your next testing tool</title>
-  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./styles.css">
-  <script src="./app.js" defer></script>
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to tools</a>
-  <header class="topbar">
-    <a class="brand" href="./" aria-label="REST Atlas home">
-      <svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="10" fill="#153e35"/><path d="m10 25 8-15 8 15M13 20h10" fill="none" stroke="#c3f58a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="10" r="3" fill="#c3f58a"/><circle cx="10" cy="25" r="2" fill="#c3f58a"/><circle cx="26" cy="25" r="2" fill="#c3f58a"/></svg>
-      <span>REST<span class="brand-light"> Atlas</span></span>
-    </a>
-    <div class="topbar-context"><span class="context-slash">/</span><span>Community edition</span><span class="version-tag">v1.0</span></div>
-    <div class="topbar-actions">
-      <button class="text-button desktop-only" data-action="about"><span data-icon="info"></span> About the atlas</button>
-      <a class="button button-small source-link" href="https://github.com/Rentgen-io/rest-atlas" target="_blank" rel="noopener noreferrer"><span data-icon="github"></span><span>View source</span><span data-icon="arrow-up-right"></span></a>
-      <button class="icon-button mobile-menu" id="mobile-menu" aria-label="Open navigation and categories" aria-controls="sidebar" aria-expanded="false"><span data-icon="menu"></span></button>
-    </div>
-  </header>
-  <button class="sidebar-backdrop" id="sidebar-backdrop" aria-label="Close navigation" hidden></button>
-  <aside class="sidebar" id="sidebar" aria-label="Explore tools">
-    <div class="sidebar-mobile-heading"><strong>Explore the atlas</strong><button class="icon-button" data-action="close-nav" aria-label="Close navigation"><span data-icon="close"></span></button></div>
-    <div class="nav-label">WORKSPACE</div>
-    <nav class="workspace-nav" aria-label="Workspace">
-      <button class="nav-item active" data-workspace="map"><span data-icon="map"></span><span>Landscape</span><span class="nav-end" data-icon="arrow-up-right"></span></button>
-      <button class="nav-item" data-workspace="list"><span data-icon="list"></span><span>All tools</span><span class="nav-count" id="all-count">—</span></button>
-      <button class="nav-item" data-workspace="saved"><span data-icon="bookmark"></span><span>Saved tools</span><span class="nav-count" id="saved-count">0</span></button>
-    </nav>
-    <div class="sidebar-rule"></div>
-    <div class="nav-label category-label">TESTING CATEGORIES <span id="category-count">—</span></div>
-    <nav id="category-nav" class="category-nav" aria-label="Filter by testing category"></nav>
-    <div class="sidebar-bottom">
-      <button class="contribute-card" data-action="contribute"><span class="contribute-icon" data-icon="git-pull-request"></span><strong>Know a tool we’re missing?</strong><span>Help make the map better.</span><span class="contribute-link">Add a tool <span data-icon="arrow-right"></span></span></button>
-      <div class="sidebar-credit">A community research project.<br>Maintained by <a href="https://github.com/Rentgen-io" target="_blank" rel="noopener noreferrer">Rentgen.io <span data-icon="arrow-up-right"></span></a></div>
-    </div>
-  </aside>
-  <main id="main" class="main" tabindex="-1">
-    <section class="intro" aria-labelledby="page-title">
-      <div><div class="eyebrow"><span class="live-dot"></span> THE REST TESTING ECOSYSTEM</div><h1 id="page-title">Find your next testing tool.</h1><p class="intro-copy">One landscape. Every stage of REST API testing.</p></div>
-      <div class="intro-stats"><div><strong id="total-stat">—</strong><span>TOOLS MAPPED</span></div><span class="stat-divider"></span><div><strong id="categories-stat">—</strong><span>CATEGORIES</span></div></div>
-    </section>
-    <section class="controls" aria-label="Search and filter tools">
-      <div class="search-row">
-        <div class="search-box"><span data-icon="search"></span><label class="sr-only" for="search">Search tools, capabilities, or keywords</label><input id="search" type="search" placeholder="Search tools, capabilities, or keywords…" autocomplete="off" spellcheck="false"><kbd>/</kbd></div>
-        <div class="view-switch" role="group" aria-label="Display mode"><button id="map-button" data-view="map" class="selected" aria-pressed="true"><span data-icon="map"></span>Map</button><button id="list-button" data-view="list" aria-pressed="false"><span data-icon="list"></span>Directory</button></div>
-        <button class="icon-button share-button" data-action="share" aria-label="Copy a link to this view" title="Copy a link to this view"><span data-icon="link"></span></button>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f7f6" />
+    <meta
+      name="description"
+      content="Explore the REST API testing ecosystem. An interactive, community-maintained map to discover, filter, save, and compare testing tools."
+    />
+    <title>REST Atlas — Find your next testing tool</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to tools</a>
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="REST Atlas home">
+        <svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true">
+          <rect width="36" height="36" rx="10" fill="#153e35" />
+          <path
+            d="m10 25 8-15 8 15M13 20h10"
+            fill="none"
+            stroke="#c3f58a"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <circle cx="18" cy="10" r="3" fill="#c3f58a" />
+          <circle cx="10" cy="25" r="2" fill="#c3f58a" />
+          <circle cx="26" cy="25" r="2" fill="#c3f58a" />
+        </svg>
+        <span>REST<span class="brand-light"> Atlas</span></span>
+      </a>
+      <div class="topbar-context">
+        <span class="context-slash">/</span><span>Community edition</span
+        ><span class="version-tag">v1.0</span>
       </div>
-      <div class="filter-row">
-        <span class="filter-caption"><span data-icon="sliders"></span><span>Filter by</span></span>
-        <label class="filter-select"><span class="sr-only">License model</span><select id="license-filter" aria-label="License model"><option value="">Any license</option><option value="open-source">Open source</option><option value="source-available">Source available</option><option value="proprietary">Proprietary</option><option value="unknown">Unknown license</option></select></label>
-        <label class="filter-select"><span class="sr-only">Execution</span><select id="execution-filter" aria-label="Execution"><option value="">Runs anywhere</option><option value="local">Runs locally</option><option value="cloud">Cloud execution</option><option value="self-hosted">Self-hosted</option><option value="unknown">Unknown execution</option></select></label>
-        <label class="filter-select"><span class="sr-only">Pricing</span><select id="pricing-filter" aria-label="Pricing"><option value="">Any pricing</option><option value="free">Free</option><option value="freemium">Free + paid</option><option value="paid">Paid</option><option value="unknown">Unknown pricing</option></select></label>
-        <label class="filter-select creation-select"><span class="sr-only">Test creation</span><select id="creation-filter" aria-label="Test creation"><option value="">Any test creation</option><option value="manual">Manual</option><option value="scripted">Scripted</option><option value="generated">Generated</option><option value="recorded">Recorded</option><option value="unknown">Unknown creation</option></select></label>
-        <label class="ci-filter"><input id="ci-filter" type="checkbox"><span>CI/CD ready</span></label>
-        <button class="reset-button" data-action="reset" id="reset-filters" hidden>Reset filters <span data-icon="close"></span></button>
+      <div class="topbar-actions">
+        <button class="text-button desktop-only" data-action="about">
+          <span data-icon="info"></span> About the atlas
+        </button>
+        <a
+          class="button button-small source-link"
+          href="https://github.com/Rentgen-io/rest-atlas"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span data-icon="github"></span><span>View source</span
+          ><span data-icon="arrow-up-right"></span
+        ></a>
+        <button
+          class="icon-button mobile-menu"
+          id="mobile-menu"
+          aria-label="Open navigation and categories"
+          aria-controls="sidebar"
+          aria-expanded="false"
+        >
+          <span data-icon="menu"></span>
+        </button>
       </div>
-      <div class="active-filters" id="active-filters" hidden></div>
-    </section>
-    <div class="results-heading"><div><strong id="result-count" role="status" aria-live="polite">Loading tools…</strong><span class="result-separator">/</span><span id="result-context">the whole ecosystem</span></div><button class="text-button" data-action="contribute"><span data-icon="plus"></span> Add a tool</button></div>
-    <section id="map-view" class="map-panel" aria-label="Interactive tool landscape">
-      <div class="map-topline"><div><span class="live-dot"></span><strong>REST ecosystem</strong><span class="map-top-divider"></span><span>Tools grouped by capability</span></div><button class="icon-button connection-toggle is-on" id="connection-toggle" aria-label="Show shared-capability connections" aria-pressed="true" title="Connections indicate tools shared between categories"><span data-icon="git-branch"></span></button></div>
-      <div id="map-viewport" class="map-viewport" tabindex="0" role="region" aria-label="Tool map. Drag to pan, pinch or use controls to zoom. Use arrow keys to pan and 0 to fit."><div id="map-scene" class="map-scene"><svg id="map-connections" class="map-connections" aria-hidden="true"></svg><div id="map-clusters"></div></div></div>
-      <div class="map-bottomline"><span class="map-hint"><span data-icon="hand"></span><span>Drag to explore <span class="hint-dot">·</span> Pinch or Ctrl + scroll to zoom</span></span><div class="map-zoom"><button class="icon-button" id="zoom-out" aria-label="Zoom out"><span data-icon="minus"></span></button><output id="zoom-level" aria-label="Zoom level">100%</output><button class="icon-button" id="zoom-in" aria-label="Zoom in"><span data-icon="plus"></span></button><span class="zoom-divider"></span><button class="icon-button" id="zoom-fit" aria-label="Fit map to screen" title="Fit map (0)"><span data-icon="maximize"></span></button></div></div>
-    </section>
-    <section id="list-view" class="directory-panel" aria-label="Tool directory" hidden><div class="directory-topline"><span>Browse, shortlist, compare.</span><label>Sort by <select id="sort" aria-label="Sort tools"><option value="name">Name A–Z</option><option value="category">Category</option><option value="verified">Recently verified</option></select></label></div><div class="table-scroll"><table class="tools-table"><thead><tr><th scope="col" class="compare-col"><span class="sr-only">Compare</span><span data-icon="columns"></span></th><th scope="col">Tool</th><th scope="col">Capabilities</th><th scope="col">License</th><th scope="col">Runs on</th><th scope="col">Pricing</th><th scope="col"><span class="sr-only">Save</span></th></tr></thead><tbody id="tools-table-body"></tbody></table></div></section>
-    <section id="empty-state" class="empty-state" hidden><span class="empty-icon" data-icon="search"></span><h2>No tools in this corner. Yet.</h2><p id="empty-message">Try a broader search or clear a filter to explore more of the atlas.</p><button class="button button-primary" data-action="reset">Clear filters</button></section>
-    <section id="load-error" class="empty-state" hidden role="alert"><span class="empty-icon" data-icon="info"></span><h2>We couldn’t load the atlas.</h2><p id="load-error-message"></p><button class="button button-primary" data-action="reload">Try again</button></section>
-    <div class="map-note" id="map-note"><span data-icon="info"></span><span>A tool can live in more than one category. Connections show shared tools, not integrations.</span></div>
-    <footer class="workspace-footer"><span><span class="footer-dot"></span>Community-maintained. Always evolving.</span><button class="text-button" data-action="about">How this map works <span data-icon="arrow-up-right"></span></button></footer>
-    <noscript><div class="empty-state">REST Atlas needs JavaScript to search and display tools. You can also read <a href="./tools.json">the complete tools dataset</a>.</div></noscript>
-  </main>
-  <div class="compare-tray" id="compare-tray" hidden><div class="compare-tray-label"><span data-icon="columns"></span><strong>Compare</strong><span id="compare-count">0/3</span></div><div id="compare-pills" class="compare-pills"></div><button class="button button-primary" id="open-compare">Compare tools <span data-icon="arrow-right"></span></button><button class="icon-button" id="clear-compare" aria-label="Clear comparison"><span data-icon="close"></span></button></div>
-  <dialog class="detail-dialog" id="detail-dialog" aria-labelledby="detail-title"><div id="detail-content"></div></dialog>
-  <dialog class="wide-dialog" id="compare-dialog" aria-labelledby="compare-title"><div class="dialog-header"><div><div class="eyebrow">SIDE BY SIDE</div><h2 id="compare-title">Find your fit.</h2><p>Different tools. Different jobs. Your choice.</p></div><button class="icon-button" data-close="compare-dialog" aria-label="Close comparison"><span data-icon="close"></span></button></div><div id="comparison-content" class="comparison-content"></div></dialog>
-  <dialog class="info-dialog" id="about-dialog" aria-labelledby="about-title"><div class="dialog-header"><div><div class="eyebrow">A LITTLE CONTEXT</div><h2 id="about-title">A map, not a leaderboard.</h2></div><button class="icon-button" data-close="about-dialog" aria-label="Close about"><span data-icon="close"></span></button></div><div class="prose"><p>REST Atlas helps you navigate the REST API testing ecosystem by the work you need to do. No scores, sponsored positions, or claims that one tool does everything.</p><h3>What belongs here?</h3><p>Tools that help test REST APIs: clients, functional automation, generated tests, contracts, security, performance, mocking, and monitoring. Multi-protocol tools are included for their REST capabilities.</p><h3>How to read the map</h3><p>Each region previews up to three tools in a testing category, sorted by name. Use “View all” or the directory to see every match. A tool may appear in several regions. Lines connect categories that share tools; they do not imply integrations or vendor partnerships. Map positions are automatic and carry no ranking.</p><h3>A small, growing collection</h3><p>This first collection is a starting point, not an exhaustive market survey. Each entry links to its sources and a verification date. Features and pricing can vary by edition. Unknown means unverified, not unsupported.</p><h3>Who is behind this?</h3><p>Maintained by the Rentgen.io team as a community research project. Rentgen is listed under the same criteria as every other tool. Contributions and factual corrections are welcome.</p><h3>Your workspace stays yours</h3><p>Search and filters run in your browser. Saved tools stay in this browser’s local storage. REST Atlas has no analytics, accounts, or third-party scripts. Outbound links take you to the relevant website.</p><div class="dialog-actions"><a class="button button-primary" href="https://github.com/Rentgen-io/rest-atlas" target="_blank" rel="noopener noreferrer"><span data-icon="github"></span> Explore the repository</a><button class="button" data-action="contribute">Contribute a tool</button></div></div></dialog>
-  <dialog class="info-dialog" id="contribute-dialog" aria-labelledby="contribute-title"><div class="dialog-header"><div><div class="eyebrow">BUILD THE ATLAS TOGETHER</div><h2 id="contribute-title">One tool. One simple PR.</h2></div><button class="icon-button" data-close="contribute-dialog" aria-label="Close contribution guide"><span data-icon="close"></span></button></div><div class="prose"><p>All tools live in <code>tools.json</code>. Add one object to its <code>tools</code> array — no HTML or JavaScript changes needed.</p><ol class="contribution-steps"><li><strong>Copy the starter entry.</strong><span>Replace the example details with verified information.</span></li><li><strong>Edit tools.json on GitHub.</strong><span>GitHub will guide you through creating a fork.</span></li><li><strong>Open a pull request.</strong><span>Link to official sources. Disclose any connection to the tool.</span></li></ol><div class="code-toolbar"><span>Minimum tool entry</span><button class="text-button" id="copy-template"><span data-icon="copy"></span> Copy JSON</button></div><pre id="tool-template" class="code-block"></pre><div class="dialog-actions"><a id="edit-data-link" class="button button-primary" href="https://github.com/Rentgen-io/rest-atlas/edit/main/tools.json" target="_blank" rel="noopener noreferrer">Add your tool on GitHub <span data-icon="arrow-up-right"></span></a><a id="field-guide-link" class="button" href="https://github.com/Rentgen-io/rest-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Field guide <span data-icon="arrow-up-right"></span></a></div></div></dialog>
-  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
-</body>
+    </header>
+    <button
+      class="sidebar-backdrop"
+      id="sidebar-backdrop"
+      aria-label="Close navigation"
+      hidden
+    ></button>
+    <aside class="sidebar" id="sidebar" aria-label="Explore tools">
+      <div class="sidebar-mobile-heading">
+        <strong>Explore the atlas</strong
+        ><button
+          class="icon-button"
+          data-action="close-nav"
+          aria-label="Close navigation"
+        >
+          <span data-icon="close"></span>
+        </button>
+      </div>
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="workspace-nav" aria-label="Workspace">
+        <button class="nav-item active" data-workspace="map">
+          <span data-icon="map"></span><span>Landscape</span
+          ><span class="nav-end" data-icon="arrow-up-right"></span>
+        </button>
+        <button class="nav-item" data-workspace="list">
+          <span data-icon="list"></span><span>All tools</span
+          ><span class="nav-count" id="all-count">—</span>
+        </button>
+        <button class="nav-item" data-workspace="saved">
+          <span data-icon="bookmark"></span><span>Saved tools</span
+          ><span class="nav-count" id="saved-count">0</span>
+        </button>
+      </nav>
+      <div class="sidebar-rule"></div>
+      <div class="nav-label category-label">
+        TESTING CATEGORIES <span id="category-count">—</span>
+      </div>
+      <nav
+        id="category-nav"
+        class="category-nav"
+        aria-label="Filter by testing category"
+      ></nav>
+      <div class="sidebar-bottom">
+        <button class="contribute-card" data-action="contribute">
+          <span class="contribute-icon" data-icon="git-pull-request"></span
+          ><strong>Know a tool we’re missing?</strong
+          ><span>Help make the map better.</span
+          ><span class="contribute-link"
+            >Add a tool <span data-icon="arrow-right"></span
+          ></span>
+        </button>
+        <div class="sidebar-credit">
+          A community research project.<br />Maintained by
+          <a
+            href="https://github.com/Rentgen-io"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Rentgen.io <span data-icon="arrow-up-right"></span
+          ></a>
+        </div>
+      </div>
+    </aside>
+    <main id="main" class="main" tabindex="-1">
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <div class="eyebrow">
+            <span class="live-dot"></span> THE REST TESTING ECOSYSTEM
+          </div>
+          <h1 id="page-title">Find your next testing tool.</h1>
+          <p class="intro-copy">
+            One landscape. Every stage of REST API testing.
+          </p>
+        </div>
+        <div class="intro-stats">
+          <div><strong id="total-stat">—</strong><span>TOOLS MAPPED</span></div>
+          <span class="stat-divider"></span>
+          <div>
+            <strong id="categories-stat">—</strong><span>CATEGORIES</span>
+          </div>
+        </div>
+      </section>
+      <section class="controls" aria-label="Search and filter tools">
+        <div class="search-row">
+          <div class="search-box">
+            <span data-icon="search"></span
+            ><label class="sr-only" for="search"
+              >Search tools, capabilities, or keywords</label
+            ><input
+              id="search"
+              type="search"
+              placeholder="Search tools, capabilities, or keywords…"
+              autocomplete="off"
+              spellcheck="false"
+            /><kbd>/</kbd>
+          </div>
+          <div class="view-switch" role="group" aria-label="Display mode">
+            <button
+              id="map-button"
+              data-view="map"
+              class="selected"
+              aria-pressed="true"
+            >
+              <span data-icon="map"></span>Map</button
+            ><button id="list-button" data-view="list" aria-pressed="false">
+              <span data-icon="list"></span>Directory
+            </button>
+          </div>
+          <button
+            class="icon-button share-button"
+            data-action="share"
+            aria-label="Copy a link to this view"
+            title="Copy a link to this view"
+          >
+            <span data-icon="link"></span>
+          </button>
+        </div>
+        <div class="filter-row">
+          <span class="filter-caption"
+            ><span data-icon="sliders"></span><span>Filter by</span></span
+          >
+          <label class="filter-select"
+            ><span class="sr-only">License model</span
+            ><select id="license-filter" aria-label="License model">
+              <option value="">Any license</option>
+              <option value="open-source">Open source</option>
+              <option value="source-available">Source available</option>
+              <option value="proprietary">Proprietary</option>
+              <option value="unknown">Unknown license</option>
+            </select></label
+          >
+          <label class="filter-select"
+            ><span class="sr-only">Execution</span
+            ><select id="execution-filter" aria-label="Execution">
+              <option value="">Runs anywhere</option>
+              <option value="local">Runs locally</option>
+              <option value="cloud">Cloud execution</option>
+              <option value="self-hosted">Self-hosted</option>
+              <option value="unknown">Unknown execution</option>
+            </select></label
+          >
+          <label class="filter-select"
+            ><span class="sr-only">Pricing</span
+            ><select id="pricing-filter" aria-label="Pricing">
+              <option value="">Any pricing</option>
+              <option value="free">Free</option>
+              <option value="freemium">Free + paid</option>
+              <option value="paid">Paid</option>
+              <option value="unknown">Unknown pricing</option>
+            </select></label
+          >
+          <label class="filter-select creation-select"
+            ><span class="sr-only">Test creation</span
+            ><select id="creation-filter" aria-label="Test creation">
+              <option value="">Any test creation</option>
+              <option value="manual">Manual</option>
+              <option value="scripted">Scripted</option>
+              <option value="generated">Generated</option>
+              <option value="recorded">Recorded</option>
+              <option value="unknown">Unknown creation</option>
+            </select></label
+          >
+          <label class="ci-filter"
+            ><input id="ci-filter" type="checkbox" /><span
+              >CI/CD ready</span
+            ></label
+          >
+          <button
+            class="reset-button"
+            data-action="reset"
+            id="reset-filters"
+            hidden
+          >
+            Reset filters <span data-icon="close"></span>
+          </button>
+        </div>
+        <div class="active-filters" id="active-filters" hidden></div>
+      </section>
+      <div class="results-heading">
+        <div>
+          <strong id="result-count" role="status" aria-live="polite"
+            >Loading tools…</strong
+          ><span class="result-separator">/</span
+          ><span id="result-context">the whole ecosystem</span>
+        </div>
+        <button class="text-button" data-action="contribute">
+          <span data-icon="plus"></span> Add a tool
+        </button>
+      </div>
+      <section
+        id="map-view"
+        class="map-panel"
+        aria-label="Interactive tool landscape"
+      >
+        <div class="map-topline">
+          <div>
+            <span class="live-dot"></span><strong>REST ecosystem</strong
+            ><span class="map-top-divider"></span
+            ><span>Tools grouped by capability</span>
+          </div>
+          <button
+            class="icon-button connection-toggle is-on"
+            id="connection-toggle"
+            aria-label="Show shared-capability connections"
+            aria-pressed="true"
+            title="Connections indicate tools shared between categories"
+          >
+            <span data-icon="git-branch"></span>
+          </button>
+        </div>
+        <div
+          id="map-viewport"
+          class="map-viewport"
+          tabindex="0"
+          role="region"
+          aria-label="Tool map. Drag to pan, pinch or use controls to zoom. Use arrow keys to pan and 0 to fit."
+        >
+          <div id="map-scene" class="map-scene">
+            <svg
+              id="map-connections"
+              class="map-connections"
+              aria-hidden="true"
+            ></svg>
+            <div id="map-clusters"></div>
+          </div>
+        </div>
+        <div class="map-bottomline">
+          <span class="map-hint"
+            ><span data-icon="hand"></span
+            ><span
+              >Drag to explore <span class="hint-dot">·</span> Pinch or Ctrl +
+              scroll to zoom</span
+            ></span
+          >
+          <div class="map-zoom">
+            <button class="icon-button" id="zoom-out" aria-label="Zoom out">
+              <span data-icon="minus"></span></button
+            ><output id="zoom-level" aria-label="Zoom level">100%</output
+            ><button class="icon-button" id="zoom-in" aria-label="Zoom in">
+              <span data-icon="plus"></span></button
+            ><span class="zoom-divider"></span
+            ><button
+              class="icon-button"
+              id="zoom-fit"
+              aria-label="Fit map to screen"
+              title="Fit map (0)"
+            >
+              <span data-icon="maximize"></span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section
+        id="list-view"
+        class="directory-panel"
+        aria-label="Tool directory"
+        hidden
+      >
+        <div class="directory-topline">
+          <span>Browse, shortlist, compare.</span
+          ><label
+            >Sort by
+            <select id="sort" aria-label="Sort tools">
+              <option value="name">Name A–Z</option>
+              <option value="category">Category</option>
+              <option value="verified">Recently verified</option>
+            </select></label
+          >
+        </div>
+        <div class="table-scroll">
+          <table class="tools-table">
+            <thead>
+              <tr>
+                <th scope="col" class="compare-col">
+                  <span class="sr-only">Compare</span
+                  ><span data-icon="columns"></span>
+                </th>
+                <th scope="col">Tool</th>
+                <th scope="col">Capabilities</th>
+                <th scope="col">License</th>
+                <th scope="col">Runs on</th>
+                <th scope="col">Pricing</th>
+                <th scope="col"><span class="sr-only">Save</span></th>
+              </tr>
+            </thead>
+            <tbody id="tools-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+      <section id="empty-state" class="empty-state" hidden>
+        <span class="empty-icon" data-icon="search"></span>
+        <h2>No tools in this corner. Yet.</h2>
+        <p id="empty-message">
+          Try a broader search or clear a filter to explore more of the atlas.
+        </p>
+        <button class="button button-primary" data-action="reset">
+          Clear filters
+        </button>
+      </section>
+      <section id="load-error" class="empty-state" hidden role="alert">
+        <span class="empty-icon" data-icon="info"></span>
+        <h2>We couldn’t load the atlas.</h2>
+        <p id="load-error-message"></p>
+        <button class="button button-primary" data-action="reload">
+          Try again
+        </button>
+      </section>
+      <div class="map-note" id="map-note">
+        <span data-icon="info"></span
+        ><span
+          >A tool can live in more than one category. Connections show shared
+          tools, not integrations.</span
+        >
+      </div>
+      <footer class="workspace-footer">
+        <span
+          ><span class="footer-dot"></span>Community-maintained. Always
+          evolving.</span
+        ><button class="text-button" data-action="about">
+          How this map works <span data-icon="arrow-up-right"></span>
+        </button>
+      </footer>
+      <noscript
+        ><div class="empty-state">
+          REST Atlas needs JavaScript to search and display tools. You can also
+          read <a href="./tools.json">the complete tools dataset</a>.
+        </div></noscript
+      >
+    </main>
+    <div class="compare-tray" id="compare-tray" hidden>
+      <div class="compare-tray-label">
+        <span data-icon="columns"></span><strong>Compare</strong
+        ><span id="compare-count">0/3</span>
+      </div>
+      <div id="compare-pills" class="compare-pills"></div>
+      <button class="button button-primary" id="open-compare">
+        Compare tools <span data-icon="arrow-right"></span></button
+      ><button
+        class="icon-button"
+        id="clear-compare"
+        aria-label="Clear comparison"
+      >
+        <span data-icon="close"></span>
+      </button>
+    </div>
+    <dialog
+      class="detail-dialog"
+      id="detail-dialog"
+      aria-labelledby="detail-title"
+    >
+      <div id="detail-content"></div>
+    </dialog>
+    <dialog
+      class="wide-dialog"
+      id="compare-dialog"
+      aria-labelledby="compare-title"
+    >
+      <div class="dialog-header">
+        <div>
+          <div class="eyebrow">SIDE BY SIDE</div>
+          <h2 id="compare-title">Find your fit.</h2>
+          <p>Different tools. Different jobs. Your choice.</p>
+        </div>
+        <button
+          class="icon-button"
+          data-close="compare-dialog"
+          aria-label="Close comparison"
+        >
+          <span data-icon="close"></span>
+        </button>
+      </div>
+      <div id="comparison-content" class="comparison-content"></div>
+    </dialog>
+    <dialog class="info-dialog" id="about-dialog" aria-labelledby="about-title">
+      <div class="dialog-header">
+        <div>
+          <div class="eyebrow">A LITTLE CONTEXT</div>
+          <h2 id="about-title">A map, not a leaderboard.</h2>
+        </div>
+        <button
+          class="icon-button"
+          data-close="about-dialog"
+          aria-label="Close about"
+        >
+          <span data-icon="close"></span>
+        </button>
+      </div>
+      <div class="prose">
+        <p>
+          REST Atlas helps you navigate the REST API testing ecosystem by the
+          work you need to do. No scores, sponsored positions, or claims that
+          one tool does everything.
+        </p>
+        <h3>What belongs here?</h3>
+        <p>
+          Tools that help test REST APIs: clients, functional automation,
+          generated tests, contracts, security, performance, mocking, and
+          monitoring. Multi-protocol tools are included for their REST
+          capabilities.
+        </p>
+        <h3>How to read the map</h3>
+        <p>
+          Each region previews up to three tools in a testing category, sorted
+          by name. Use “View all” or the directory to see every match. A tool
+          may appear in several regions. Lines connect categories that share
+          tools; they do not imply integrations or vendor partnerships. Map
+          positions are automatic and carry no ranking.
+        </p>
+        <h3>Who is behind this?</h3>
+        <p>
+          Maintained by the Rentgen.io team as a community research project.
+          Rentgen is listed under the same criteria as every other tool.
+          Contributions and factual corrections are welcome.
+        </p>
+        <h3>Your workspace stays yours</h3>
+        <p>
+          Search and filters run in your browser. Saved tools stay in this
+          browser’s local storage. REST Atlas has no analytics, accounts, or
+          third-party scripts. Outbound links take you to the relevant website.
+        </p>
+        <div class="dialog-actions">
+          <a
+            class="button button-primary"
+            href="https://github.com/Rentgen-io/rest-atlas"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span data-icon="github"></span> Explore the repository</a
+          ><button class="button" data-action="contribute">
+            Contribute a tool
+          </button>
+        </div>
+      </div>
+    </dialog>
+    <dialog
+      class="info-dialog"
+      id="contribute-dialog"
+      aria-labelledby="contribute-title"
+    >
+      <div class="dialog-header">
+        <div>
+          <div class="eyebrow">BUILD THE ATLAS TOGETHER</div>
+          <h2 id="contribute-title">One tool. One simple PR.</h2>
+        </div>
+        <button
+          class="icon-button"
+          data-close="contribute-dialog"
+          aria-label="Close contribution guide"
+        >
+          <span data-icon="close"></span>
+        </button>
+      </div>
+      <div class="prose">
+        <p>
+          All tools live in <code>tools.json</code>. Add one object to its
+          <code>tools</code> array — no HTML or JavaScript changes needed.
+        </p>
+        <ol class="contribution-steps">
+          <li>
+            <strong>Copy the starter entry.</strong
+            ><span>Replace the example details with verified information.</span>
+          </li>
+          <li>
+            <strong>Edit tools.json on GitHub.</strong
+            ><span>GitHub will guide you through creating a fork.</span>
+          </li>
+          <li>
+            <strong>Open a pull request.</strong
+            ><span
+              >Link to official sources. Disclose any connection to the
+              tool.</span
+            >
+          </li>
+        </ol>
+        <div class="code-toolbar">
+          <span>Minimum tool entry</span
+          ><button class="text-button" id="copy-template">
+            <span data-icon="copy"></span> Copy JSON
+          </button>
+        </div>
+        <pre id="tool-template" class="code-block"></pre>
+        <div class="dialog-actions">
+          <a
+            id="edit-data-link"
+            class="button button-primary"
+            href="https://github.com/Rentgen-io/rest-atlas/edit/main/tools.json"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Add your tool on GitHub <span data-icon="arrow-up-right"></span></a
+          ><a
+            id="field-guide-link"
+            class="button"
+            href="https://github.com/Rentgen-io/rest-atlas/blob/main/CONTRIBUTING.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Field guide <span data-icon="arrow-up-right"></span
+          ></a>
+        </div>
+      </div>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  </body>
 </html>

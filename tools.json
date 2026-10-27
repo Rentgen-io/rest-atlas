@@ -63,7 +63,7 @@
       "icon": "layers",
       "shortLabel": "SIMULATE & ISOLATE"
     },
-    {
+        {
       "id": "monitoring",
       "name": "Monitoring",
       "description": "Run scheduled REST API checks and alert on failures.",
@@ -911,6 +911,35 @@
       ],
       "repository": "https://github.com/SmartBear/soapui",
       "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "swagger-ui",
+      "name": "Swagger UI",
+      "description": "An interactive, OpenAPI-powered REST API explorer for sending requests, supplying authentication, and inspecting live responses directly in a browser.",
+      "website": "https://swagger.io/open-source/swagger-ui/",
+      "categories": ["clients"],
+      "licenseModel": "open-source",
+      "license": "Apache-2.0",
+      "pricing": "free",
+      "interfaces": ["web"],
+      "execution": ["local", "self-hosted"],
+      "testCreation": ["manual"],
+      "ci": null,
+      "features": [
+        "Interactive API documentation generated from OpenAPI",
+        "Try it out requests with parameters, bodies, and authentication",
+        "Live response status, headers, and body inspection"
+      ],
+      "notes": "Requires an OpenAPI definition. This entry covers the open-source Swagger UI component; commercial Swagger products have separate plans and capabilities.",
+      "status": "active",
+      "sources": [
+        "https://swagger.io/open-source/swagger-ui/",
+        "https://github.com/swagger-api/swagger-ui",
+        "https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/"
+      ],
+      "lastVerified": "2026-10-27",
+      "repository": "https://github.com/swagger-api/swagger-ui",
+      "documentation": "https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/"
     },
     {
       "id": "tavern",

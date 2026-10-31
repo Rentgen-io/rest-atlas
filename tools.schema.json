@@ -198,6 +198,18 @@
             "uniqueItems": true,
             "minItems": 1
           },
+          "testingPurposes": {
+            "description": "Testing purposes supported by the listed REST capabilities; absence means not classified.",
+            "type": "array",
+            "items": { "type": "string", "enum": ["discovery", "verification"] },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "purposeNotes": {
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 700
+          },
           "testCreation": {
             "type": "array",
             "items": {

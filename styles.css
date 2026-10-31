@@ -2825,3 +2825,19 @@ body.has-compare .toast {
 html {
   scrollbar-gutter: stable;
 }
+
+/* Testing purpose guidance stays available beside the filter. */
+.purpose-help {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.purpose-help summary {
+  cursor: pointer;
+  width: fit-content;
+}
+.purpose-help p {
+  max-width: 85ch;
+  margin: 6px 0 0;
+}

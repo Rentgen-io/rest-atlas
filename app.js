@@ -87,6 +87,10 @@
       ide: "IDE extension",
       unknown: "Unknown",
     },
+    testingPurposes: {
+      discovery: "Discovery",
+      verification: "Verification / regression",
+    },
     testCreation: {
       manual: "Manual",
       scripted: "Scripted",
@@ -136,6 +140,7 @@
     execution: "",
     pricing: "",
     creation: "",
+    purpose: "",
     ci: false,
     view: "map",
     saved: false,
@@ -250,6 +255,7 @@
     for (const [key, field] of [
       ["execution", "execution"],
       ["creation", "testCreation"],
+      ["purpose", "testingPurposes"],
     ]) {
       if (
         state[key] &&
@@ -264,6 +270,7 @@
         tool.description,
         ...(tool.features || []),
         ...(tool.tags || []),
+        ...(tool.testingPurposes || []).map((id) => labels.testingPurposes[id] || ""),
         ...tool.categories.map((id) => categoryById.get(id)?.name || ""),
         tool.license || "",
       ]
@@ -307,6 +314,7 @@
       ["execution", "execution"],
       ["pricing", "pricing"],
       ["creation", "testCreation"],
+      ["purpose", "testingPurposes"],
     ]) {
       state[key] = Object.hasOwn(labels[type], p.get(key)) ? p.get(key) : "";
     }
@@ -329,6 +337,7 @@
       "execution",
       "pricing",
       "creation",
+      "purpose",
     ])
       if (state[key]) p.set(key, state[key]);
     if (state.view !== "map") p.set("view", state.view);
@@ -355,6 +364,7 @@
       "execution",
       "pricing",
       "creation",
+      "purpose",
       "ci",
     ].filter((key) => state[key]).length;
   }
@@ -369,6 +379,7 @@
       ["execution", "execution"],
       ["pricing", "pricing"],
       ["creation", "testCreation"],
+      ["purpose", "testingPurposes"],
     ])
       if (state[key]) chips.push([key, label(type, state[key])]);
     if (state.ci) chips.push(["ci", "CI/CD ready"]);
@@ -412,7 +423,7 @@
       $("#search").value.trim() !== state.q
     )
       $("#search").value = state.q;
-    for (const key of ["license", "execution", "pricing", "creation"]) {
+    for (const key of ["license", "execution", "pricing", "creation", "purpose"]) {
       const el = $(`#${key}-filter`);
       el.value = state[key];
       el.classList.toggle("is-active", !!state[key]);
@@ -700,7 +711,7 @@
       safeURL(data.project.repository) +
       `/issues/new?title=${encodeURIComponent("Update tool: " + tool.name)}&body=${encodeURIComponent("Tool: " + tool.name + " (" + tool.id + ")\n\nSuggested correction:\n\nOfficial source:\n")}`;
     $("#detail-content").innerHTML =
-      `<div class="detail-topbar"><span>TOOL OVERVIEW</span><div><button class="icon-button" data-action="share" aria-label="Copy a link to ${escape(tool.name)}">${icon("link")}</button><button class="icon-button" data-close="detail-dialog" aria-label="Close tool details">${icon("close")}</button></div></div><div class="detail-body"><div class="detail-heading">${avatar(tool, true)}<div><h2 id="detail-title">${escape(tool.name)}</h2><span class="license-badge">${icon("file")}${escape(label("licenseModel", tool.licenseModel))}</span></div></div><p class="detail-description">${escape(tool.description)}</p><div class="detail-categories">${tool.categories.map(categoryTag).join("")}</div><div class="detail-links"><a class="button button-primary" href="${escape(website)}" target="_blank" rel="noopener noreferrer">Visit website ${icon("arrow-up-right")}</a>${repo ? `<a class="button" href="${escape(repo)}" target="_blank" rel="noopener noreferrer">${icon("github")} Source code</a>` : ""}${!repo && docs ? `<a class="button" href="${escape(docs)}" target="_blank" rel="noopener noreferrer">Documentation ${icon("arrow-up-right")}</a>` : ""}</div><dl class="detail-facts"><div><dt>PRICING MODEL</dt><dd>${escape(label("pricing", tool.pricing))}</dd></div><div><dt>EXECUTION</dt><dd>${escape(joined("execution", tool.execution))}</dd></div><div><dt>INTERFACES</dt><dd>${escape(joined("interfaces", tool.interfaces))}</dd></div><div><dt>TEST CREATION</dt><dd>${escape(joined("testCreation", tool.testCreation))}</dd></div><div><dt>CI/CD SUPPORT</dt><dd>${tool.ci === true ? "Supported" : tool.ci === false ? "Not supported" : "Unknown"}</dd></div><div><dt>LICENSE</dt><dd>${escape(tool.license || "Unknown")}</dd></div></dl>${tool.features?.length ? `<section class="detail-section"><h3>What it brings to your workflow</h3><ul class="feature-list">${tool.features.map((feature) => `<li>${icon("check")}<span>${escape(feature)}</span></li>`).join("")}</ul></section>` : ""}${tool.notes ? `<section class="detail-section"><h3>Good to know</h3><p>${escape(tool.notes)}</p></section>` : ""}<section class="detail-section"><h3>Sources & verification</h3><ul class="source-list">${tool.sources
+      `<div class="detail-topbar"><span>TOOL OVERVIEW</span><div><button class="icon-button" data-action="share" aria-label="Copy a link to ${escape(tool.name)}">${icon("link")}</button><button class="icon-button" data-close="detail-dialog" aria-label="Close tool details">${icon("close")}</button></div></div><div class="detail-body"><div class="detail-heading">${avatar(tool, true)}<div><h2 id="detail-title">${escape(tool.name)}</h2><span class="license-badge">${icon("file")}${escape(label("licenseModel", tool.licenseModel))}</span></div></div><p class="detail-description">${escape(tool.description)}</p><div class="detail-categories">${tool.categories.map(categoryTag).join("")}</div><div class="detail-links"><a class="button button-primary" href="${escape(website)}" target="_blank" rel="noopener noreferrer">Visit website ${icon("arrow-up-right")}</a>${repo ? `<a class="button" href="${escape(repo)}" target="_blank" rel="noopener noreferrer">${icon("github")} Source code</a>` : ""}${!repo && docs ? `<a class="button" href="${escape(docs)}" target="_blank" rel="noopener noreferrer">Documentation ${icon("arrow-up-right")}</a>` : ""}</div><dl class="detail-facts"><div><dt>PRICING MODEL</dt><dd>${escape(label("pricing", tool.pricing))}</dd></div><div><dt>EXECUTION</dt><dd>${escape(joined("execution", tool.execution))}</dd></div><div><dt>INTERFACES</dt><dd>${escape(joined("interfaces", tool.interfaces))}</dd></div><div><dt>TESTING PURPOSE</dt><dd>${tool.testingPurposes?.length ? escape(joined("testingPurposes", tool.testingPurposes)) : "Not classified"}</dd></div><div><dt>TEST CREATION</dt><dd>${escape(joined("testCreation", tool.testCreation))}</dd></div><div><dt>CI/CD SUPPORT</dt><dd>${tool.ci === true ? "Supported" : tool.ci === false ? "Not supported" : "Unknown"}</dd></div><div><dt>LICENSE</dt><dd>${escape(tool.license || "Unknown")}</dd></div></dl>${tool.features?.length ? `<section class="detail-section"><h3>What it brings to your workflow</h3><ul class="feature-list">${tool.features.map((feature) => `<li>${icon("check")}<span>${escape(feature)}</span></li>`).join("")}</ul></section>` : ""}${tool.purposeNotes ? `<section class="detail-section"><h3>Testing purpose</h3><p>${escape(tool.purposeNotes)}</p></section>` : ""}${tool.notes ? `<section class="detail-section"><h3>Good to know</h3><p>${escape(tool.notes)}</p></section>` : ""}<section class="detail-section"><h3>Sources & verification</h3><ul class="source-list">${tool.sources
         .filter((s) => safeURL(s))
         .map(
           (source, i) =>
@@ -717,7 +728,7 @@
     const row = (name, fn) =>
       `<tr><th scope="row">${name}</th>${list.map((tool) => `<td>${fn(tool)}</td>`).join("")}</tr>`;
     $("#comparison-content").innerHTML =
-      `<table class="comparison-table"><thead><tr><th scope="col"><span class="sr-only">Capability</span></th>${list.map((tool) => `<th scope="col"><div class="comparison-tool">${avatar(tool)}<strong>${escape(tool.name)}</strong><span class="comparison-description">${escape(tool.description)}</span><button class="text-button" data-remove-compare="${escape(tool.id)}">Remove ${icon("close")}</button></div></th>`).join("")}</tr></thead><tbody>${row("Categories", (t) => t.categories.map(categoryTag).join(""))}${row("License model", (t) => escape(label("licenseModel", t.licenseModel)))}${row("License", (t) => escape(t.license || "Unknown"))}${row("Pricing", (t) => escape(label("pricing", t.pricing)))}${row("Execution", (t) => escape(joined("execution", t.execution)))}${row("Interfaces", (t) => escape(joined("interfaces", t.interfaces)))}${row("Test creation", (t) => escape(joined("testCreation", t.testCreation)))}${row("CI/CD", (t) => (t.ci === true ? "Supported" : t.ci === false ? "Not supported" : "Unknown"))}${row("Capabilities", (t) => (t.features?.length ? `<ul class="feature-list">${t.features.map((f) => `<li>${escape(f)}</li>`).join("")}</ul>` : "Unknown"))}${row("Good to know", (t) => escape(t.notes || "No additional notes."))}${row("Verified", (t) => escape(t.lastVerified))}${row("Explore", (t) => `<a class="button" href="${escape(safeURL(t.website))}" target="_blank" rel="noopener noreferrer">Website ${icon("arrow-up-right")}</a>`)}</tbody></table>`;
+      `<table class="comparison-table"><thead><tr><th scope="col"><span class="sr-only">Capability</span></th>${list.map((tool) => `<th scope="col"><div class="comparison-tool">${avatar(tool)}<strong>${escape(tool.name)}</strong><span class="comparison-description">${escape(tool.description)}</span><button class="text-button" data-remove-compare="${escape(tool.id)}">Remove ${icon("close")}</button></div></th>`).join("")}</tr></thead><tbody>${row("Categories", (t) => t.categories.map(categoryTag).join(""))}${row("License model", (t) => escape(label("licenseModel", t.licenseModel)))}${row("License", (t) => escape(t.license || "Unknown"))}${row("Pricing", (t) => escape(label("pricing", t.pricing)))}${row("Execution", (t) => escape(joined("execution", t.execution)))}${row("Interfaces", (t) => escape(joined("interfaces", t.interfaces)))}${row("Testing purpose", (t) => t.testingPurposes?.length ? escape(joined("testingPurposes", t.testingPurposes)) : "Not classified")}${row("Purpose notes", (t) => escape(t.purposeNotes || "Not classified"))}${row("Test creation", (t) => escape(joined("testCreation", t.testCreation)))}${row("CI/CD", (t) => (t.ci === true ? "Supported" : t.ci === false ? "Not supported" : "Unknown"))}${row("Capabilities", (t) => (t.features?.length ? `<ul class="feature-list">${t.features.map((f) => `<li>${escape(f)}</li>`).join("")}</ul>` : "Unknown"))}${row("Good to know", (t) => escape(t.notes || "No additional notes."))}${row("Verified", (t) => escape(t.lastVerified))}${row("Explore", (t) => `<a class="button" href="${escape(safeURL(t.website))}" target="_blank" rel="noopener noreferrer">Website ${icon("arrow-up-right")}</a>`)}</tbody></table>`;
   }
   async function copyText(value, message) {
     let success = false;
@@ -752,6 +763,7 @@
       execution: "",
       pricing: "",
       creation: "",
+      purpose: "",
       ci: false,
     });
     render({ fit: true });
@@ -861,7 +873,7 @@
       state.q = event.target.value.trim().slice(0, 200);
       render({ fit: true });
     });
-    for (const key of ["license", "execution", "pricing", "creation"])
+    for (const key of ["license", "execution", "pricing", "creation", "purpose"])
       $(`#${key}-filter`).addEventListener("change", (event) => {
         state[key] = event.target.value;
         render({ fit: true });

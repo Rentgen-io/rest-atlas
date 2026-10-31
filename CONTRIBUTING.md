@@ -61,6 +61,19 @@ Replace the example values and date. Add a comma between neighboring objects. JS
 }
 ```
 
+## Testing purpose
+
+Use `testingPurposes` to describe the REST testing capabilities covered by an entry. The filter offers two purposes and tools can support both:
+
+- `discovery`: generates or mutates REST requests, executes them, and helps uncover unknown behavior or defects (for example, fuzzing, negative/boundary exploration, or active security probes).
+- `verification`: checks defined expectations through requests, assertions, contracts, rules, saved scenarios, or baselines. This includes regression suites and static specification verification. Mocks and fixture generators can support this purpose, but must be described as supporting infrastructure rather than standalone runners.
+
+Provide `purposeNotes` explaining the relevant mode, limitations, and evidence from the entry's official sources. Assess both purposes independently. Generic request generation, manual API exploration, replaying a fuzzing failure, or running a fuzzer in CI does not by itself establish an additional purpose. Saved requests without assertions may support manual verification but must not be described as a regression suite.
+
+Catalogue examples: Rentgen supports discovery and verification through generated probes and saved collections; Postman is classified as verification / regression through collections and assertions; Schemathesis is classified as discovery through property-based exploration. These are classifications of the workflows covered here, not claims that every possible integration has been exhaustively assessed.
+
+Review every entry. Omit `testingPurposes` when the listed capabilities do not establish either purpose (for example, passive telemetry alone), and explain that in `purposeNotes`. The UI displays **Not classified**. Apply the same criteria to all vendors. ABA is not used as the catalogue classification.
+
 ## Tool fields
 
 Names and values are case-sensitive. Unknown fields are rejected to catch typos. All text is plain text; HTML and Markdown are not rendered inside tool descriptions.
@@ -81,6 +94,8 @@ Names and values are case-sensitive. Unknown fields are rejected to catch typos.
 | `pricing` | No | Enum below | Access/pricing model. Defaults to `unknown`. Do not infer revenue. |
 | `interfaces` | No | Nonempty array of enums below | How users interact with the tool. |
 | `execution` | No | Nonempty array of enums below | Where tests/checks execute, not where a collection is stored. |
+| `testingPurposes` | No | Nonempty array of `discovery`, `verification` | Purposes supported by the listed REST capabilities; a tool may support both. |
+| `purposeNotes` | No | String, 20–700 characters | Explain the classification, relevant mode, and supporting-tool limitations. |
 | `testCreation` | No | Nonempty array of enums below | How test cases or inputs are created. |
 | `ci` | No | `true`, `false`, or `null` | `true` if a documented runner/library/CLI supports unattended CI execution. Omitted or `null` means unverified. |
 | `features` | No | Array, up to 10 unique strings; 3–160 characters each | Concrete REST-related capabilities, shown in details and comparisons. |

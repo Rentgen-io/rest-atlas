@@ -11,7 +11,7 @@
     <title>REST Atlas — Find your next testing tool</title>
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./styles.css" />
-    <script src="./app.js" defer></script>
+    <script src="./app.js?v=e19535550848" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to tools</a>
@@ -220,6 +220,14 @@
               <option value="unknown">Unknown creation</option>
             </select></label
           >
+          <label class="filter-select">
+            <span class="sr-only">Testing purpose</span>
+            <select id="purpose-filter" aria-label="Testing purpose" aria-describedby="purpose-explanation">
+              <option value="">Any testing purpose</option>
+              <option value="discovery">Discovery</option>
+              <option value="verification">Verification / regression</option>
+            </select>
+          </label>
           <label class="ci-filter"
             ><input id="ci-filter" type="checkbox" /><span
               >CI/CD ready</span
@@ -234,6 +242,10 @@
             Reset filters <span data-icon="close"></span>
           </button>
         </div>
+        <details class="purpose-help">
+          <summary>Discovery or verification?</summary>
+          <p id="purpose-explanation">Discovery tools generate or mutate REST requests to uncover unknown behavior and defects. Verification / regression tools check defined expectations, saved requests, contracts, or baselines. A tool can support both purposes. Mocking and fixture tools are classified by the testing purpose they support; this does not make them test runners. Passive telemetry tools remain unclassified. These labels describe the capabilities covered by this catalogue.</p>
+        </details>
         <div class="active-filters" id="active-filters" hidden></div>
       </section>
       <div class="results-heading">

@@ -82,6 +82,115 @@
   ],
   "tools": [
     {
+      "id": "42crunch",
+      "name": "42Crunch",
+      "description": "Audits REST API contracts for security issues and scans running APIs for conformance to their OpenAPI descriptions.",
+      "website": "https://42crunch.com/",
+      "categories": [
+        "contract",
+        "security"
+      ],
+      "interfaces": [
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://42crunch.com/"
+      ],
+      "lastVerified": "2026-10-31"
+    },
+    {
+      "id": "42crunch-intellij-openapi-editor",
+      "name": "42Crunch IntelliJ OpenAPI Editor",
+      "description": "A JetBrains IDE extension that audits OpenAPI descriptions and runs API conformance and security scans against REST implementations.",
+      "website": "https://plugins.jetbrains.com/plugin/14837-openapi-swagger-editor",
+      "categories": [
+        "contract",
+        "security"
+      ],
+      "interfaces": [
+        "ide"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/42Crunch/intellij-openapi-editor",
+        "https://plugins.jetbrains.com/plugin/14837-openapi-swagger-editor"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/42Crunch/intellij-openapi-editor"
+    },
+    {
+      "id": "vscode-openapi-editor",
+      "name": "42Crunch VS Code OpenAPI Editor",
+      "description": "A VS Code extension that validates OpenAPI descriptions and provides REST API security audit and conformance scan integrations.",
+      "website": "https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi",
+      "categories": [
+        "contract",
+        "security"
+      ],
+      "interfaces": [
+        "ide"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/42Crunch/vscode-openapi"
+    },
+    {
+      "id": "nest-openapi-mock",
+      "name": "@nest-openapi/mock",
+      "description": "Generates mock REST API responses from OpenAPI descriptions inside NestJS applications.",
+      "website": "https://nest-openapi.github.io/mock/",
+      "categories": [
+        "mocking"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/ts-oas/nest-openapi",
+        "https://nest-openapi.github.io/mock/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/ts-oas/nest-openapi"
+    },
+    {
+      "id": "nest-openapi-validator",
+      "name": "@nest-openapi/validator",
+      "description": "NestJS integration that validates REST requests and responses against an OpenAPI description using Ajv.",
+      "website": "https://nest-openapi.github.io/validator/",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://nest-openapi.github.io/validator/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/ts-oas/nest-openapi"
+    },
+    {
       "id": "advanced-rest-client",
       "name": "Advanced REST Client",
       "description": "A desktop HTTP client for composing REST requests, inspecting responses, and organizing reusable API requests.",
@@ -107,6 +216,95 @@
       ],
       "repository": "https://github.com/advanced-rest-client/arc-electron",
       "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "aiopenapi3",
+      "name": "aiopenapi3",
+      "description": "A Python client library that calls REST services from OpenAPI descriptions and validates request and response data with Pydantic.",
+      "website": "https://aiopenapi3.readthedocs.io/en/latest/",
+      "categories": [
+        "clients",
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/commonism/aiopenapi3",
+        "https://aiopenapi3.readthedocs.io/en/latest/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/commonism/aiopenapi3"
+    },
+    {
+      "id": "api-insights-treblle",
+      "name": "API Insights (Treblle)",
+      "description": "Reviews an OpenAPI description and a server request to assess REST API design, security, and response performance. These checks do not constitute a load test.",
+      "website": "https://docs.treblle.com/explore-treblle/api-toolkit/api-insights",
+      "categories": [
+        "contract",
+        "security"
+      ],
+      "interfaces": [
+        "web",
+        "desktop",
+        "cli",
+        "ide"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://docs.treblle.com/explore-treblle/api-toolkit/api-insights"
+      ],
+      "lastVerified": "2026-10-31"
+    },
+    {
+      "id": "api-smart-diff",
+      "name": "api-smart-diff",
+      "description": "Compares OpenAPI descriptions and classifies changes to help identify REST API contract compatibility risks.",
+      "website": "https://github.com/udamir/api-smart-diff",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/udamir/api-smart-diff"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/udamir/api-smart-diff"
+    },
+    {
+      "id": "apidevtools-swagger-parser",
+      "name": "APIDevTools Swagger Parser",
+      "description": "Parses and validates Swagger and OpenAPI descriptions, resolves references, and bundles contracts for REST API verification workflows.",
+      "website": "https://github.com/APIDevTools/swagger-parser",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/APIDevTools/swagger-parser"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/APIDevTools/swagger-parser"
     },
     {
       "id": "apidog",
@@ -142,6 +340,223 @@
         "https://apidog.com/blog/apidog-cli-vs-keploy/"
       ],
       "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "apifuzzer",
+      "name": "APIFuzzer",
+      "description": "Generates and executes fuzz tests from Swagger or OpenAPI descriptions to discover failures in REST API implementations.",
+      "website": "https://github.com/KissPeter/APIFuzzer",
+      "categories": [
+        "generation",
+        "security"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/KissPeter/APIFuzzer"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/KissPeter/APIFuzzer"
+    },
+    {
+      "id": "apigit",
+      "name": "APIGit",
+      "description": "A Git-based API collaboration platform with REST requests, automated tests, and mock servers for checking API behavior.",
+      "website": "https://apigit.com",
+      "categories": [
+        "clients",
+        "functional",
+        "mocking"
+      ],
+      "interfaces": [
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://apigit.com"
+      ],
+      "lastVerified": "2026-10-31"
+    },
+    {
+      "id": "apimatic-openapi-linter-github-app",
+      "name": "APIMatic OpenAPI Linter - GitHub App",
+      "description": "Validates and lints OpenAPI descriptions in GitHub pull requests to check REST API contract syntax and semantic rules.",
+      "website": "https://github.com/marketplace/apimatic-openapi-linter",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/marketplace/apimatic-openapi-linter"
+      ],
+      "lastVerified": "2026-10-31"
+    },
+    {
+      "id": "apiquality",
+      "name": "APIQuality",
+      "description": "An API-first workflow platform that integrates OpenAPI quality checks, API mocking, and tests before REST services are deployed.",
+      "website": "https://apiquality.io",
+      "categories": [
+        "contract",
+        "functional",
+        "mocking"
+      ],
+      "interfaces": [
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://apiquality.io"
+      ],
+      "lastVerified": "2026-10-31"
+    },
+    {
+      "id": "apitally",
+      "name": "Apitally",
+      "description": "Monitors REST API usage, errors, latency, and uptime through framework integrations and provides request logs and alerts for troubleshooting.",
+      "website": "https://apitally.io",
+      "categories": [
+        "monitoring"
+      ],
+      "interfaces": [
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://apitally.io"
+      ],
+      "lastVerified": "2026-10-31"
+    },
+    {
+      "id": "arazzo-cli",
+      "name": "arazzo-cli",
+      "description": "Executes multi-step API workflows described with Arazzo, chaining REST requests and evaluating workflow checks against live services.",
+      "website": "https://strefethen.github.io/arazzo-cli/",
+      "categories": [
+        "functional",
+        "contract"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/strefethen/arazzo-cli",
+        "https://strefethen.github.io/arazzo-cli/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/strefethen/arazzo-cli"
+    },
+    {
+      "id": "assertible",
+      "name": "Assertible",
+      "description": "Runs repeatable HTTP API checks with response assertions, OpenAPI imports, and scheduled monitoring for REST endpoints.",
+      "website": "https://assertible.com",
+      "categories": [
+        "functional",
+        "contract",
+        "monitoring"
+      ],
+      "interfaces": [
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://assertible.com"
+      ],
+      "lastVerified": "2026-10-31"
+    },
+    {
+      "id": "atlassian-openapi-request-validators",
+      "name": "Atlassian OpenAPI Request Validators",
+      "description": "Java libraries that validate HTTP requests and responses against OpenAPI contracts, with integrations for REST Assured, WireMock, and MockMvc.",
+      "website": "https://github.com/atlassian/openapi-request-validator",
+      "categories": [
+        "contract",
+        "functional"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/atlassian/openapi-request-validator",
+        "https://raw.githubusercontent.com/atlassian/openapi-request-validator/HEAD/README.md"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/atlassian/openapi-request-validator"
+    },
+    {
+      "id": "beeceptor-openapi-mock-server",
+      "name": "Beeceptor OpenAPI Mock Server",
+      "description": "Creates hosted REST API mock servers from OpenAPI descriptions so clients can test integrations and simulated response behavior.",
+      "website": "https://beeceptor.com/openapi-mock-server/",
+      "categories": [
+        "mocking"
+      ],
+      "interfaces": [
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://beeceptor.com/openapi-mock-server/"
+      ],
+      "lastVerified": "2026-10-31"
+    },
+    {
+      "id": "blocklyautomation",
+      "name": "BlocklyAutomation",
+      "description": "Builds visual Blockly operations from OpenAPI descriptions so users can compose and execute calls to REST APIs.",
+      "website": "https://ignatandrei.github.io/BlocklyAutomation/",
+      "categories": [
+        "clients",
+        "functional"
+      ],
+      "interfaces": [
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/ignatandrei/BlocklyAutomation",
+        "https://ignatandrei.github.io/BlocklyAutomation/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/ignatandrei/BlocklyAutomation"
     },
     {
       "id": "bowire",
@@ -205,6 +620,71 @@
       "repository": "https://github.com/usebruno/bruno"
     },
     {
+      "id": "cats",
+      "name": "CATS",
+      "description": "Generates and runs negative and fuzz tests against REST APIs described with OpenAPI, reporting unexpected behavior and response mismatches.",
+      "website": "https://github.com/Endava/cats",
+      "categories": [
+        "generation",
+        "security"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/Endava/cats"
+      ],
+      "lastVerified": "2026-10-31"
+    },
+    {
+      "id": "php-openapi",
+      "name": "cebe/php-openapi",
+      "description": "A PHP library for reading and validating OpenAPI descriptions and references in REST API contracts.",
+      "website": "https://github.com/cebe/php-openapi",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/cebe/php-openapi"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/cebe/php-openapi"
+    },
+    {
+      "id": "chai-openapi-response-validator",
+      "name": "Chai OpenAPI Response Validator",
+      "description": "Adds Chai assertions that check HTTP responses against an OpenAPI description in JavaScript REST API tests.",
+      "website": "https://github.com/openapi-library/OpenAPIValidators/tree/master/packages/chai-openapi-response-validator",
+      "categories": [
+        "contract",
+        "functional"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/openapi-library/OpenAPIValidators/tree/master/packages/chai-openapi-response-validator"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/openapi-library/OpenAPIValidators/tree/master/packages/chai-openapi-response-validator"
+    },
+    {
       "id": "chapar",
       "name": "Chapar",
       "description": "A local desktop REST client with file-based collections, Python scripts, chained test cases, and a CLI for repeatable API checks.",
@@ -259,6 +739,119 @@
       "documentation": "https://www.checklyhq.com/docs/"
     },
     {
+      "id": "committee",
+      "name": "Committee",
+      "description": "Ruby Rack middleware and test helpers that check REST API requests and responses against OpenAPI contracts.",
+      "website": "https://github.com/interagent/committee",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/interagent/committee"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/interagent/committee"
+    },
+    {
+      "id": "counterfact",
+      "name": "Counterfact",
+      "description": "Creates stateful REST API simulations from OpenAPI descriptions with editable TypeScript behavior, generated responses, and runtime controls.",
+      "website": "https://counterfact.dev",
+      "categories": [
+        "mocking",
+        "contract"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/counterfact/api-simulator",
+        "https://counterfact.dev"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/counterfact/api-simulator"
+    },
+    {
+      "id": "delimit",
+      "name": "Delimit",
+      "description": "Compares OpenAPI descriptions to detect breaking REST API changes and supports compatibility checks in pull requests and CI workflows.",
+      "website": "https://delimit.ai",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/delimit-ai/delimit-mcp-server",
+        "https://delimit.ai"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/delimit-ai/delimit-mcp-server"
+    },
+    {
+      "id": "django-contract-tester",
+      "name": "Django Contract Tester",
+      "description": "Checks Django REST Framework and Django Ninja API behavior against OpenAPI descriptions from an existing Python test suite.",
+      "website": "https://github.com/maticardenas/django-contract-tester",
+      "categories": [
+        "contract",
+        "functional"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/maticardenas/django-contract-tester"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/maticardenas/django-contract-tester"
+    },
+    {
+      "id": "dredd",
+      "name": "Dredd",
+      "description": "Runs requests derived from API descriptions against a backend and checks whether REST responses match the documented contract.",
+      "website": "https://dredd.org/en/latest/",
+      "categories": [
+        "contract",
+        "functional"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/apiaryio/dredd",
+        "https://dredd.org/en/latest/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/apiaryio/dredd",
+      "status": "archived",
+      "notes": "The official repository is archived. Listed for existing REST API testing and verification workflows."
+    },
+    {
       "id": "evomaster",
       "name": "EvoMaster",
       "description": "Automatically generate and execute REST API tests using search-based fuzzing, then export reproducible regression tests.",
@@ -283,6 +876,49 @@
       "lastVerified": "2026-10-27"
     },
     {
+      "id": "express-openapi-validator",
+      "name": "express-openapi-validator",
+      "description": "Express middleware that validates incoming REST requests and outgoing responses against an OpenAPI description.",
+      "website": "https://github.com/cdimascio/express-openapi-validator",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/cdimascio/express-openapi-validator"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/cdimascio/express-openapi-validator"
+    },
+    {
+      "id": "fakeit",
+      "name": "Fakeit",
+      "description": "Starts an OpenAPI-based mock server with generated responses and request validation for REST API integration testing.",
+      "website": "https://github.com/justinfeng/fakeit",
+      "categories": [
+        "mocking",
+        "contract"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/justinfeng/fakeit"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/justinfeng/fakeit"
+    },
+    {
       "id": "firecamp",
       "name": "Firecamp",
       "description": "A multi-protocol API client for exploring REST endpoints, organizing collections, inspecting responses, and collaborating on API requests.",
@@ -305,6 +941,48 @@
       "sources": ["https://github.com/firecamp-dev/firecamp"],
       "repository": "https://github.com/firecamp-dev/firecamp",
       "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "fitting",
+      "name": "Fitting",
+      "description": "Adds contract validation and documentation coverage information to Ruby RSpec and WebMock tests using OpenAPI or API Blueprint descriptions.",
+      "website": "https://github.com/tuwilof/fitting",
+      "categories": [
+        "contract",
+        "functional"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/tuwilof/fitting"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/tuwilof/fitting"
+    },
+    {
+      "id": "fix-my-openapi-a-vscode-extension-by-apimatic",
+      "name": "Fix My OpenAPI by APIMatic",
+      "description": "A VS Code extension that validates and lints OpenAPI descriptions and offers fixes for REST API contract issues.",
+      "website": "https://marketplace.visualstudio.com/items?itemName=apimatic-developers.apimatic-for-vscode",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "ide"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://marketplace.visualstudio.com/items?itemName=apimatic-developers.apimatic-for-vscode"
+      ],
+      "lastVerified": "2026-10-31"
     },
     {
       "id": "flowtest",
@@ -358,6 +1036,116 @@
       "lastVerified": "2026-10-27"
     },
     {
+      "id": "gesso",
+      "name": "Gesso",
+      "description": "PHPUnit contract testing helpers that validate REST requests and responses against OpenAPI and report API operation coverage.",
+      "website": "https://studio-design.github.io/gesso/",
+      "categories": [
+        "contract",
+        "functional"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/studio-design/gesso",
+        "https://studio-design.github.io/gesso/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/studio-design/gesso"
+    },
+    {
+      "id": "go-openapi-spec-code-diffs",
+      "name": "go-openapi-spec-code-diffs",
+      "description": "Compares routes declared in Go source with an OpenAPI description to find mismatches between REST API contracts and implementation routes.",
+      "website": "https://github.com/RHEcosystemAppEng/go-openapi-spec-code-diffs",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/RHEcosystemAppEng/go-openapi-spec-code-diffs"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/RHEcosystemAppEng/go-openapi-spec-code-diffs"
+    },
+    {
+      "id": "go-swagger",
+      "name": "go-swagger",
+      "description": "A Swagger 2.0 toolchain with specification validation and comparison commands for checking REST API contracts.",
+      "website": "https://goswagger.io/",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/go-swagger/go-swagger",
+        "https://goswagger.io/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/go-swagger/go-swagger"
+    },
+    {
+      "id": "hidi",
+      "name": "Hidi",
+      "description": "A command-line tool based on OpenAPI.NET that validates OpenAPI descriptions as part of REST API contract preparation workflows.",
+      "website": "https://github.com/microsoft/OpenAPI.NET.OData/tree/main/src/Microsoft.OpenApi.Hidi",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/microsoft/OpenAPI.NET.OData/blob/main/src/Microsoft.OpenApi.Hidi/readme.md"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/microsoft/OpenAPI.NET.OData"
+    },
+    {
+      "id": "hikaku",
+      "name": "hikaku",
+      "description": "A JVM library that compares a REST API implementation's endpoint definitions with its specification to find contract mismatches.",
+      "website": "https://github.com/codecentric/hikaku",
+      "categories": [
+        "contract",
+        "functional"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/codecentric/hikaku"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/codecentric/hikaku"
+    },
+    {
       "id": "hoppscotch",
       "name": "Hoppscotch",
       "description": "An API development platform for exploring REST endpoints, organizing collections, scripting response checks, and running tests from a CLI.",
@@ -385,6 +1173,28 @@
       "repository": "https://github.com/hoppscotch/hoppscotch",
       "documentation": "https://docs.hoppscotch.io/",
       "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "hot-potato",
+      "name": "Hot Potato",
+      "description": "A .NET reverse proxy and integration testing library that validates REST API responses against an OpenAPI description.",
+      "website": "https://github.com/davidmbillie/Hot-Potato",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/davidmbillie/Hot-Potato"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/davidmbillie/Hot-Potato"
     },
     {
       "id": "httpie",
@@ -434,6 +1244,28 @@
       "lastVerified": "2026-10-27"
     },
     {
+      "id": "openapi-validator",
+      "name": "IBM OpenAPI Validator",
+      "description": "Validates and lints OpenAPI description documents using configurable rules for REST API contract quality checks.",
+      "website": "https://github.com/IBM/openapi-validator",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/IBM/openapi-validator"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/IBM/openapi-validator"
+    },
+    {
       "id": "insomnia",
       "name": "Insomnia",
       "description": "Explore REST endpoints, organize requests, write API tests, and execute collections from a desktop client or CLI.",
@@ -456,6 +1288,97 @@
       "sources": ["https://insomnia.rest/", "https://insomnia.rest/pricing"],
       "lastVerified": "2026-10-27",
       "repository": "https://github.com/Kong/insomnia"
+    },
+    {
+      "id": "inspectr",
+      "name": "Inspectr",
+      "description": "Inspects HTTP requests and responses, mocks API behavior, and helps debug REST integrations using OpenAPI descriptions.",
+      "website": "https://inspectr.dev",
+      "categories": [
+        "clients",
+        "mocking",
+        "recording"
+      ],
+      "interfaces": [
+        "cli",
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/inspectr-hq/inspectr",
+        "https://inspectr.dev"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/inspectr-hq/inspectr"
+    },
+    {
+      "id": "jest-openapi",
+      "name": "jest-openapi",
+      "description": "Adds Jest matchers that assert HTTP responses conform to an OpenAPI description in REST API test suites.",
+      "website": "https://github.com/openapi-library/OpenAPIValidators/tree/master/packages/jest-openapi",
+      "categories": [
+        "contract",
+        "functional"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/openapi-library/OpenAPIValidators/tree/master/packages/jest-openapi"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/openapi-library/OpenAPIValidators/tree/master/packages/jest-openapi"
+    },
+    {
+      "id": "jetbrains-tools-intellij-idea-pycharm-etc",
+      "name": "JetBrains HTTP Client and OpenAPI Tools",
+      "description": "JetBrains IDE tools validate OpenAPI descriptions and let users send REST requests and write response checks in HTTP request files.",
+      "website": "https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html",
+      "categories": [
+        "clients",
+        "functional",
+        "contract"
+      ],
+      "interfaces": [
+        "ide"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html"
+      ],
+      "lastVerified": "2026-10-31"
+    },
+    {
+      "id": "jsonschema-validator",
+      "name": "JSONSchema::Validator",
+      "description": "A Perl library that validates HTTP requests and responses against OpenAPI descriptions for REST API contract checking.",
+      "website": "https://metacpan.org/pod/JSONSchema::Validator",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/skbkontur/perl-jsonschema-validator",
+        "https://metacpan.org/pod/JSONSchema::Validator"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/skbkontur/perl-jsonschema-validator"
     },
     {
       "id": "k6",
@@ -481,6 +1404,48 @@
       "lastVerified": "2026-10-27",
       "repository": "https://github.com/grafana/k6",
       "documentation": "https://grafana.com/docs/k6/latest/"
+    },
+    {
+      "id": "kaizen-openapi-parser",
+      "name": "KaiZen OpenAPI Parser",
+      "description": "A Java library that parses and validates OpenAPI descriptions and reports problems in REST API contracts.",
+      "website": "https://github.com/RepreZen/KaiZen-OpenApi-Parser",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/RepreZen/KaiZen-OpenApi-Parser"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/RepreZen/KaiZen-OpenApi-Parser"
+    },
+    {
+      "id": "kappa",
+      "name": "Kappa",
+      "description": "Java middleware for validating REST API requests and responses against OpenAPI descriptions, with Spring and Vert.x integrations.",
+      "website": "https://github.com/erosb/kappa",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/erosb/kappa"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/erosb/kappa"
     },
     {
       "id": "karate",
@@ -510,6 +1475,30 @@
       "repository": "https://github.com/karatelabs/karate"
     },
     {
+      "id": "karate-ide",
+      "name": "Karate-IDE",
+      "description": "A VS Code extension that supports Karate API tests and generates REST test and mock scaffolding from OpenAPI descriptions.",
+      "website": "https://marketplace.visualstudio.com/items?itemName=KarateIDE.karate-ide",
+      "categories": [
+        "functional",
+        "generation",
+        "mocking"
+      ],
+      "interfaces": [
+        "ide"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/ZenWave360/karate-ide",
+        "https://marketplace.visualstudio.com/items?itemName=KarateIDE.karate-ide"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/ZenWave360/karate-ide"
+    },
+    {
       "id": "keploy",
       "name": "Keploy",
       "description": "Capture REST API traffic and dependency interactions, generate tests and mocks, and replay them against new builds to detect regressions.",
@@ -534,6 +1523,27 @@
       "lastVerified": "2026-10-27"
     },
     {
+      "id": "kin-openapi",
+      "name": "kin-openapi",
+      "description": "Go libraries for loading and validating OpenAPI descriptions and checking REST API requests and responses against their contracts.",
+      "website": "https://github.com/getkin/kin-openapi",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/getkin/kin-openapi"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/getkin/kin-openapi"
+    },
+    {
       "id": "kreya",
       "name": "Kreya",
       "description": "A desktop REST API client with local project files, scripted assertions, response snapshots, and a headless CLI for automated checks.",
@@ -555,6 +1565,1068 @@
       "status": "active",
       "sources": ["https://kreya.app/", "https://kreya.app/pricing/"],
       "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "mayhem-for-api",
+      "name": "Mayhem for API",
+      "description": "Generates test inputs from API specifications and fuzzes REST endpoints to find security and reliability failures.",
+      "website": "https://mayhem.security/api-security",
+      "categories": [
+        "generation",
+        "security"
+      ],
+      "interfaces": [
+        "cli",
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/ForAllSecure/mapi-action",
+        "https://mayhem.security/api-security"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/ForAllSecure/mapi-action"
+    },
+    {
+      "id": "microcks",
+      "name": "Microcks",
+      "description": "Turns OpenAPI descriptions and examples into REST API mocks and runs conformance tests against deployed implementations.",
+      "website": "https://microcks.io",
+      "categories": [
+        "mocking",
+        "contract",
+        "functional"
+      ],
+      "interfaces": [
+        "web",
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://microcks.io"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/microcks/microcks"
+    },
+    {
+      "id": "microsoft-openapi-net",
+      "name": "Microsoft OpenAPI.NET",
+      "description": ".NET libraries for reading, writing, and validating OpenAPI descriptions used as REST API contracts.",
+      "website": "https://github.com/Microsoft/OpenAPI.NET",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/Microsoft/OpenAPI.NET"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/Microsoft/OpenAPI.NET"
+    },
+    {
+      "id": "middlebrick",
+      "name": "middleBrick",
+      "description": "Scans REST APIs for security issues and reports risk findings through a command-line workflow and CI integration.",
+      "website": "https://middlebrick.com",
+      "categories": [
+        "security"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://middlebrick.com"
+      ],
+      "lastVerified": "2026-10-31"
+    },
+    {
+      "id": "mockintosh",
+      "name": "Mockintosh",
+      "description": "Simulates HTTP services with configurable responses and OpenAPI-based mock definitions for isolated REST API integration tests.",
+      "website": "https://mockintosh.io",
+      "categories": [
+        "mocking"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://mockintosh.io"
+      ],
+      "lastVerified": "2026-10-31"
+    },
+    {
+      "id": "mockzilla",
+      "name": "Mockzilla",
+      "description": "Runs OpenAPI-based REST API mocks with request validation and optional forwarding to real backends.",
+      "website": "https://mockzilla.org",
+      "categories": [
+        "mocking",
+        "contract"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/mockzilla/mockzilla",
+        "https://mockzilla.org"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/mockzilla/mockzilla"
+    },
+    {
+      "id": "mokapi",
+      "name": "Mokapi",
+      "description": "Runs configurable REST API simulations from OpenAPI descriptions, with JavaScript behavior for testing integration scenarios.",
+      "website": "https://mokapi.io",
+      "categories": [
+        "mocking"
+      ],
+      "interfaces": [
+        "cli",
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://mokapi.io"
+      ],
+      "lastVerified": "2026-10-31"
+    },
+    {
+      "id": "oa-client",
+      "name": "oa-client",
+      "description": "A JavaScript helper that makes REST requests from OpenAPI descriptions and validates API calls without generating a client SDK.",
+      "website": "https://github.com/ninofiliu/oa-client",
+      "categories": [
+        "clients",
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/ninofiliu/oa-client"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/ninofiliu/oa-client"
+    },
+    {
+      "id": "oas-tools",
+      "name": "OAS Tools",
+      "description": "Express tooling that validates REST API requests, responses, and security requirements against an OpenAPI description.",
+      "website": "https://github.com/isa-group/oas-tools",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://raw.githubusercontent.com/isa-group/oas-tools/HEAD/README.md"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/isa-group/oas-tools"
+    },
+    {
+      "id": "oas-normalize",
+      "name": "oas-normalize",
+      "description": "Loads and validates Swagger or OpenAPI descriptions so REST API contract files can be checked before use in other tools.",
+      "website": "https://github.com/readmeio/oas/tree/main/packages/oas-normalize",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/readmeio/oas/tree/main/packages/oas-normalize"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/readmeio/oas"
+    },
+    {
+      "id": "oasdiff",
+      "name": "oasdiff",
+      "description": "Compares OpenAPI descriptions and detects breaking REST API contract changes, with command-line and Go interfaces for CI checks.",
+      "website": "https://www.oasdiff.com/",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/oasdiff/oasdiff",
+        "https://www.oasdiff.com/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/oasdiff/oasdiff"
+    },
+    {
+      "id": "oasforge",
+      "name": "OASForge",
+      "description": "A browser-based OpenAPI workbench with description validation and an in-browser stateful mock server for REST API experiments.",
+      "website": "https://oasforge.dev",
+      "categories": [
+        "contract",
+        "mocking"
+      ],
+      "interfaces": [
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/dikeckaan/swagger-dark-ui",
+        "https://oasforge.dev"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/dikeckaan/swagger-dark-ui"
+    },
+    {
+      "id": "openapi-breaking-change-checker",
+      "name": "OpenAPI Breaking Change Checker",
+      "description": "Compares OpenAPI descriptions in the browser and flags potentially breaking changes to REST API contracts.",
+      "website": "https://martingruner.com/tools/openapi-breaking-change-checker",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://martingruner.com/tools/openapi-breaking-change-checker"
+      ],
+      "lastVerified": "2026-10-31"
+    },
+    {
+      "id": "openapi-dev-tool",
+      "name": "OpenAPI Dev Tool",
+      "description": "Validates OpenAPI descriptions and embedded examples and serves interactive REST API reference views for development and contract review.",
+      "website": "https://github.com/lyra/openapi-dev-tool",
+      "categories": [
+        "clients",
+        "contract"
+      ],
+      "interfaces": [
+        "cli",
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/lyra/openapi-dev-tool"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/lyra/openapi-dev-tool"
+    },
+    {
+      "id": "openapi-enforcer",
+      "name": "OpenAPI Enforcer",
+      "description": "Validates OpenAPI descriptions and REST request and response data, with serialization and mock data generation helpers.",
+      "website": "https://github.com/Gi60s/openapi-enforcer",
+      "categories": [
+        "contract",
+        "mocking"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/Gi60s/openapi-enforcer"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/Gi60s/openapi-enforcer"
+    },
+    {
+      "id": "openapi-enforcer-middleware",
+      "name": "OpenAPI Enforcer Middleware",
+      "description": "Express middleware built on OpenAPI Enforcer for contract-aware REST request handling, response validation, and mocking.",
+      "website": "https://github.com/Gi60s/openapi-enforcer-middleware",
+      "categories": [
+        "contract",
+        "mocking"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/Gi60s/openapi-enforcer-middleware"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/Gi60s/openapi-enforcer-middleware"
+    },
+    {
+      "id": "openapi-explorer",
+      "name": "OpenAPI Explorer",
+      "description": "Renders OpenAPI reference documentation with an integrated console for sending REST API requests and viewing responses.",
+      "website": "https://github.com/Authress-Engineering/openapi-explorer",
+      "categories": [
+        "clients"
+      ],
+      "interfaces": [
+        "web",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/Authress-Engineering/openapi-explorer"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/Authress-Engineering/openapi-explorer"
+    },
+    {
+      "id": "openapi-httpfoundation-testing",
+      "name": "OpenAPI HttpFoundation Testing",
+      "description": "Validates Symfony HttpFoundation requests and responses against OpenAPI contracts in PHP REST API tests.",
+      "website": "https://github.com/osteel/openapi-httpfoundation-testing",
+      "categories": [
+        "contract",
+        "functional"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/osteel/openapi-httpfoundation-testing"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/osteel/openapi-httpfoundation-testing"
+    },
+    {
+      "id": "openapi-mocker",
+      "name": "OpenAPI Mocker",
+      "description": "Runs a Node.js OpenAPI mock server with request validation and automatic reload for REST integration testing.",
+      "website": "https://github.com/jormaechea/open-api-mocker",
+      "categories": [
+        "mocking",
+        "contract"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/jormaechea/open-api-mocker"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/jormaechea/open-api-mocker"
+    },
+    {
+      "id": "openapi-psr7-validator",
+      "name": "OpenAPI PSR-7 Validator",
+      "description": "PHP validators and middleware that check PSR-7 REST requests and responses against an OpenAPI description.",
+      "website": "https://github.com/thephpleague/openapi-psr7-validator",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/thephpleague/openapi-psr7-validator"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/thephpleague/openapi-psr7-validator"
+    },
+    {
+      "id": "openapi-spring-webflux-validator",
+      "name": "OpenAPI Spring WebFlux Validator",
+      "description": "A Kotlin library that validates Spring WebFlux REST API requests and responses against an OpenAPI description.",
+      "website": "https://github.com/cdimascio/openapi-spring-webflux-validator",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://raw.githubusercontent.com/cdimascio/openapi-spring-webflux-validator/HEAD/README.md"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/cdimascio/openapi-spring-webflux-validator"
+    },
+    {
+      "id": "openapi-style-validator",
+      "name": "OpenAPI Style Validator",
+      "description": "Checks OpenAPI descriptions against configurable style rules to verify consistency in REST API contracts.",
+      "website": "https://github.com/OpenAPITools/openapi-style-validator",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/OpenAPITools/openapi-style-validator"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/OpenAPITools/openapi-style-validator"
+    },
+    {
+      "id": "openapi-to-postman",
+      "name": "OpenAPI to Postman",
+      "description": "Converts Swagger and OpenAPI descriptions into Postman collections for exploring and manually checking REST endpoints.",
+      "website": "https://github.com/postmanlabs/openapi-to-postman",
+      "categories": [
+        "clients"
+      ],
+      "interfaces": [
+        "cli",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/postmanlabs/openapi-to-postman"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/postmanlabs/openapi-to-postman"
+    },
+    {
+      "id": "openapi-validator-bundle",
+      "name": "OpenAPI Validator Bundle",
+      "description": "A Symfony bundle that validates REST API requests and responses against an OpenAPI contract.",
+      "website": "https://github.com/cydrickn/openapi-validator-bundle",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/cydrickn/openapi-validator-bundle"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/cydrickn/openapi-validator-bundle"
+    },
+    {
+      "id": "openapi-validator-junit",
+      "name": "OpenAPI Validator JUnit",
+      "description": "A JUnit extension for testing properties of OpenAPI descriptions as part of REST API contract verification.",
+      "website": "https://github.com/stefankoppier/openapi-validator",
+      "categories": [
+        "contract",
+        "functional"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/stefankoppier/openapi-validator"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/stefankoppier/openapi-validator"
+    },
+    {
+      "id": "openapi-backend",
+      "name": "openapi-backend",
+      "description": "Framework-independent JavaScript tooling for REST request validation and OpenAPI-driven mock responses.",
+      "website": "https://github.com/openapistack/openapi-backend",
+      "categories": [
+        "contract",
+        "mocking"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/openapistack/openapi-backend"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/openapistack/openapi-backend"
+    },
+    {
+      "id": "openapi-changes",
+      "name": "openapi-changes",
+      "description": "Compares OpenAPI descriptions or their Git history to report REST API contract changes, including breaking changes.",
+      "website": "https://pb33f.io/openapi-changes/",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://pb33f.io/openapi-changes/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/pb33f/openapi-changes"
+    },
+    {
+      "id": "openapi-comparator",
+      "name": "openapi-comparator",
+      "description": "A C# library that compares OpenAPI descriptions to help review compatibility changes in REST API contracts.",
+      "website": "https://github.com/criteo/openapi-comparator",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/criteo/openapi-comparator"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/criteo/openapi-comparator"
+    },
+    {
+      "id": "openapi-core",
+      "name": "openapi-core",
+      "description": "A Python library that validates and unmarshals REST API requests and responses using an OpenAPI description.",
+      "website": "https://github.com/python-openapi/openapi-core",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/python-openapi/openapi-core"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/python-openapi/openapi-core"
+    },
+    {
+      "id": "openapi-data-mocker",
+      "name": "openapi-data-mocker",
+      "description": "Generates fake values for OpenAPI data types and formats to build REST API test fixtures and mock responses.",
+      "website": "https://github.com/ybelenko/openapi-data-mocker",
+      "categories": [
+        "mocking"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/ybelenko/openapi-data-mocker"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/ybelenko/openapi-data-mocker"
+    },
+    {
+      "id": "openapi-data-validator",
+      "name": "openapi-data-validator",
+      "description": "A JavaScript library for validating REST API request data against OpenAPI schemas independently of a server framework.",
+      "website": "https://github.com/Authress-Engineering/openapi-data-validator.js/blob/main/README.md",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/Authress-Engineering/openapi-data-validator.js",
+        "https://github.com/Authress-Engineering/openapi-data-validator.js/blob/main/README.md"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/Authress-Engineering/openapi-data-validator.js"
+    },
+    {
+      "id": "openapi-diff",
+      "name": "openapi-diff",
+      "description": "Compares OpenAPI descriptions and reports compatibility differences to help detect breaking REST API changes.",
+      "website": "https://github.com/OpenAPITools/openapi-diff",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/OpenAPITools/openapi-diff"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/OpenAPITools/openapi-diff"
+    },
+    {
+      "id": "openapi-examples-validator",
+      "name": "openapi-examples-validator",
+      "description": "Checks embedded examples in OpenAPI descriptions against their schemas to catch inconsistent REST API contract fixtures.",
+      "website": "https://github.com/codekie/openapi-examples-validator",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/codekie/openapi-examples-validator"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/codekie/openapi-examples-validator"
+    },
+    {
+      "id": "openapi-fuzzer",
+      "name": "openapi-fuzzer",
+      "description": "Uses an OpenAPI description to generate random REST API inputs and exercise endpoints for unexpected failures.",
+      "website": "https://github.com/matusf/openapi-fuzzer",
+      "categories": [
+        "generation",
+        "security"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/matusf/openapi-fuzzer"
+      ],
+      "lastVerified": "2026-10-31"
+    },
+    {
+      "id": "openapi-processor-openapi-parser",
+      "name": "openapi-processor OpenAPI Parser",
+      "description": "A Java OpenAPI parser with schema validation and reference resolution for checking REST API description documents.",
+      "website": "https://github.com/openapi-processor/openapi-parser",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/openapi-processor/openapi-parser"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/openapi-processor/openapi-parser"
+    },
+    {
+      "id": "openapi-request-response-validation",
+      "name": "openapi-request-response-validation",
+      "description": "Validates REST requests and responses against OpenAPI descriptions and exposes validation through an HTTP service for other applications and CI.",
+      "website": "https://github.com/gcatanese/openapi-request-response-validation",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/gcatanese/openapi-request-response-validation"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/gcatanese/openapi-request-response-validation"
+    },
+    {
+      "id": "openapi-schema-validator",
+      "name": "openapi-schema-validator",
+      "description": "A JavaScript library that checks OpenAPI description documents against the specification's schema.",
+      "website": "https://github.com/seriousme/openapi-schema-validator",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/seriousme/openapi-schema-validator"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/seriousme/openapi-schema-validator"
+    },
+    {
+      "id": "openapi-spec-validator",
+      "name": "openapi-spec-validator",
+      "description": "A Python library and command-line validator for checking Swagger and OpenAPI REST API descriptions.",
+      "website": "https://github.com/python-openapi/openapi-spec-validator",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/python-openapi/openapi-spec-validator"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/python-openapi/openapi-spec-validator"
+    },
+    {
+      "id": "openapi-to-hurl",
+      "name": "openapi-to-hurl",
+      "description": "Converts OpenAPI descriptions into Hurl files that can be edited and run to exercise REST endpoints.",
+      "website": "https://github.com/ethancarlsson/openapi-to-hurl",
+      "categories": [
+        "functional"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/ethancarlsson/openapi-to-hurl"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/ethancarlsson/openapi-to-hurl"
+    },
+    {
+      "id": "openapi-validator-middleware",
+      "name": "openapi-validator-middleware",
+      "description": "Middleware that validates REST API data against OpenAPI descriptions in Express, Koa, or Fastify applications.",
+      "website": "https://github.com/PayU/openapi-validator-middleware",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/PayU/openapi-validator-middleware"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/PayU/openapi-validator-middleware"
+    },
+    {
+      "id": "openapi-viewer",
+      "name": "openapi-viewer",
+      "description": "A browser interface for browsing an OpenAPI description and sending requests to test the described REST API.",
+      "website": "https://koumoul.com/openapi-viewer/",
+      "categories": [
+        "clients"
+      ],
+      "interfaces": [
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/data-fair/openapi-viewer",
+        "https://koumoul.com/openapi-viewer/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/data-fair/openapi-viewer"
+    },
+    {
+      "id": "openapi-tanna-dev-go-validator",
+      "name": "openapi.tanna.dev/go/validator",
+      "description": "Go test helpers that validate HTTP requests and responses against OpenAPI descriptions using kin-openapi.",
+      "website": "https://gitlab.com/jamietanna/httptest-openapi/",
+      "categories": [
+        "contract",
+        "functional"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://gitlab.com/jamietanna/httptest-openapi/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://gitlab.com/jamietanna/httptest-openapi/"
+    },
+    {
+      "id": "openapi3",
+      "name": "openapi3",
+      "description": "A Python OpenAPI client and validator that checks descriptions and supports data validation when calling REST services.",
+      "website": "https://github.com/Dorthu/openapi3",
+      "categories": [
+        "clients",
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/Dorthu/openapi3"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/Dorthu/openapi3"
+    },
+    {
+      "id": "openapi3-fuzzer",
+      "name": "OpenAPI3 Fuzzer",
+      "description": "Fuzzes REST endpoints from OpenAPI descriptions with generated inputs and attack patterns and checks API responses.",
+      "website": "https://pypi.org/project/openapi3-fuzzer/",
+      "categories": [
+        "generation",
+        "security"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/vwt-digital/openapi3-fuzzer/tree/master",
+        "https://pypi.org/project/openapi3-fuzzer/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/vwt-digital/openapi3-fuzzer/tree/master"
+    },
+    {
+      "id": "openapi3-parser",
+      "name": "openapi3_parser",
+      "description": "A Ruby parser and validator for checking OpenAPI description documents used as REST API contracts.",
+      "website": "https://github.com/kevindew/openapi3_parser",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/kevindew/openapi3_parser"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/kevindew/openapi3_parser"
+    },
+    {
+      "id": "openapi-modern",
+      "name": "OpenAPI::Modern",
+      "description": "A Perl library that validates OpenAPI descriptions and HTTP request and response data against REST API contracts.",
+      "website": "https://metacpan.org/dist/OpenAPI-Modern",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/karenetheridge/OpenAPI-Modern",
+        "https://metacpan.org/dist/OpenAPI-Modern"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/karenetheridge/OpenAPI-Modern"
+    },
+    {
+      "id": "openapi-first",
+      "name": "openapi_first",
+      "description": "Ruby Rack middleware and lower-level helpers that validate REST API requests and responses against an OpenAPI description.",
+      "website": "https://github.com/ahx/openapi_first",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/ahx/openapi_first"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/ahx/openapi_first"
+    },
+    {
+      "id": "openapikit",
+      "name": "OpenAPIKit",
+      "description": "Swift types and validation helpers for decoding and checking OpenAPI descriptions used in REST API contract workflows.",
+      "website": "https://github.com/mattpolzin/openapikit",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/mattpolzin/openapikit"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/mattpolzin/openapikit"
+    },
+    {
+      "id": "orval",
+      "name": "Orval",
+      "description": "Generates REST API mock handlers from OpenAPI descriptions, alongside typed client code, for frontend integration tests.",
+      "website": "https://orval.dev",
+      "categories": [
+        "mocking"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/orval-labs/orval",
+        "https://orval.dev"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/orval-labs/orval"
     },
     {
       "id": "pact",
@@ -639,6 +2711,27 @@
         "https://www.parasoft.com/solutions/api-testing/"
       ],
       "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "php-openapi-faker",
+      "name": "php-openapi-faker",
+      "description": "Generates fake OpenAPI request, response, and schema data for PHP REST API test fixtures and mocks.",
+      "website": "https://github.com/canvural/php-openapi-faker",
+      "categories": [
+        "mocking"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/canvural/php-openapi-faker"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/canvural/php-openapi-faker"
     },
     {
       "id": "pororoca",
@@ -745,6 +2838,76 @@
       "documentation": "https://learning.postman.com/"
     },
     {
+      "id": "prism",
+      "name": "Prism",
+      "description": "An HTTP mock server and validation proxy that checks REST API requests and responses against OpenAPI descriptions.",
+      "website": "https://stoplight.io/open-source/prism",
+      "categories": [
+        "mocking",
+        "contract"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/stoplightio/prism",
+        "https://stoplight.io/open-source/prism"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/stoplightio/prism"
+    },
+    {
+      "id": "rapidoc",
+      "name": "RapiDoc",
+      "description": "An OpenAPI reference web component with a Try console for manually calling REST endpoints and inspecting responses.",
+      "website": "https://rapidocui.com/",
+      "categories": [
+        "clients"
+      ],
+      "interfaces": [
+        "web",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/rapi-doc/RapiDoc",
+        "https://rapidocui.com/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/rapi-doc/RapiDoc"
+    },
+    {
+      "id": "rate-my-openapi",
+      "name": "Rate My OpenAPI",
+      "description": "Reviews OpenAPI descriptions for REST API contract quality and security concerns through automated static checks.",
+      "website": "https://ratemyopenapi.com",
+      "categories": [
+        "contract",
+        "security"
+      ],
+      "interfaces": [
+        "cli",
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/zuplo/rate-my-openapi",
+        "https://ratemyopenapi.com"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/zuplo/rate-my-openapi"
+    },
+    {
       "id": "readyapi",
       "name": "ReadyAPI",
       "description": "A commercial API testing platform for REST functional scenarios, automated security scans, performance workloads, and service virtualization.",
@@ -772,6 +2935,49 @@
       "status": "active",
       "sources": ["https://smartbear.com/product/ready-api/"],
       "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "redocly-cli",
+      "name": "Redocly CLI",
+      "description": "Validates and lints OpenAPI descriptions with configurable rules for REST API contract quality and governance workflows.",
+      "website": "https://redocly.com/redocly-cli",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://redocly.com/redocly-cli"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/Redocly/redocly-cli"
+    },
+    {
+      "id": "redocly-vscode-extension",
+      "name": "Redocly VS Code Extension",
+      "description": "A VS Code extension that validates OpenAPI descriptions and reports REST API contract errors while editing.",
+      "website": "https://marketplace.visualstudio.com/items?itemName=Redocly.openapi-vs-code",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "ide"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/Redocly/redocly-vs-code",
+        "https://marketplace.visualstudio.com/items?itemName=Redocly.openapi-vs-code"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/Redocly/redocly-vs-code"
     },
     {
       "id": "rentgen",
@@ -828,6 +3034,50 @@
       "repository": "https://github.com/rest-assured/rest-assured"
     },
     {
+      "id": "restest",
+      "name": "RESTest",
+      "description": "Generates and executes model-based black-box REST API tests from OpenAPI descriptions and test configuration.",
+      "website": "https://github.com/isa-group/RESTest",
+      "categories": [
+        "generation",
+        "functional"
+      ],
+      "interfaces": [
+        "cli",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/isa-group/RESTest"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/isa-group/RESTest"
+    },
+    {
+      "id": "restish",
+      "name": "Restish",
+      "description": "A command-line HTTP client that discovers OpenAPI descriptions and supports authenticated REST requests and response inspection.",
+      "website": "https://rest.sh/",
+      "categories": [
+        "clients"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://rest.sh/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/danielgtaylor/restish"
+    },
+    {
       "id": "restler",
       "name": "RESTler",
       "description": "A stateful REST API fuzzer that derives request dependencies from OpenAPI specifications and generates sequences to find security and reliability faults.",
@@ -850,6 +3100,73 @@
       "sources": ["https://github.com/microsoft/restler-fuzzer"],
       "repository": "https://github.com/microsoft/restler-fuzzer",
       "lastVerified": "2026-10-27"
+    },
+    {
+      "id": "routebase",
+      "name": "Routebase",
+      "description": "An OpenAPI-oriented platform with REST API mocks, contract tests, and drift monitoring tied to API descriptions.",
+      "website": "https://routebase.dev/",
+      "categories": [
+        "contract",
+        "mocking",
+        "monitoring"
+      ],
+      "interfaces": [
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://routebase.dev/"
+      ],
+      "lastVerified": "2026-10-31"
+    },
+    {
+      "id": "rswag",
+      "name": "Rswag",
+      "description": "Extends Rails RSpec request tests with an OpenAPI-oriented DSL to exercise REST operations and validate responses.",
+      "website": "https://github.com/rswag/rswag",
+      "categories": [
+        "contract",
+        "functional"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/rswag/rswag"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/rswag/rswag"
+    },
+    {
+      "id": "scalar",
+      "name": "Scalar",
+      "description": "An API client and interactive OpenAPI reference interface for composing REST requests and inspecting responses.",
+      "website": "https://scalar.com",
+      "categories": [
+        "clients"
+      ],
+      "interfaces": [
+        "web",
+        "desktop"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/scalar/scalar",
+        "https://scalar.com"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/scalar/scalar"
     },
     {
       "id": "schemathesis",
@@ -877,6 +3194,28 @@
       ],
       "lastVerified": "2026-10-27",
       "repository": "https://github.com/schemathesis/schemathesis"
+    },
+    {
+      "id": "schemawatch",
+      "name": "SchemaWatch",
+      "description": "A Python command-line tool that compares OpenAPI descriptions to detect breaking REST API changes, with machine-readable reports and CI exit codes.",
+      "website": "https://pypi.org/project/schemawatch/",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/CemCelik79/schemawatch",
+        "https://pypi.org/project/schemawatch/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/CemCelik79/schemawatch"
     },
     {
       "id": "soapui",
@@ -913,6 +3252,271 @@
       "lastVerified": "2026-10-27"
     },
     {
+      "id": "speakeasy-openapi",
+      "name": "Speakeasy OpenAPI",
+      "description": "Go libraries and command-line tools that validate OpenAPI descriptions and prepare REST API contracts for downstream workflows.",
+      "website": "https://github.com/speakeasy-api/openapi",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/speakeasy-api/openapi"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/speakeasy-api/openapi"
+    },
+    {
+      "id": "specmatic",
+      "name": "Specmatic",
+      "description": "Uses OpenAPI descriptions as executable REST API contracts for provider conformance tests and service virtualization.",
+      "website": "https://specmatic.io/",
+      "categories": [
+        "contract",
+        "functional",
+        "mocking"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://specmatic.io/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/znsio/specmatic"
+    },
+    {
+      "id": "specshield",
+      "name": "SpecShield",
+      "description": "Compares OpenAPI descriptions and consumer contracts to detect REST API compatibility problems and gate deployment workflows.",
+      "website": "https://specshield.io",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/specshield-io/specshield-cli",
+        "https://specshield.io"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/specshield-io/specshield-cli"
+    },
+    {
+      "id": "spectator",
+      "name": "Spectator",
+      "description": "Laravel test helpers that validate REST API requests and responses against OpenAPI descriptions.",
+      "website": "https://github.com/hotmeteor/spectator",
+      "categories": [
+        "contract",
+        "functional"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/hotmeteor/spectator"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/hotmeteor/spectator"
+    },
+    {
+      "id": "spectral",
+      "name": "Spectral",
+      "description": "Lints OpenAPI descriptions with configurable rulesets, including rules for REST API design consistency and security review.",
+      "website": "https://stoplight.io/open-source/spectral",
+      "categories": [
+        "contract",
+        "security"
+      ],
+      "interfaces": [
+        "cli",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/stoplightio/spectral",
+        "https://stoplight.io/open-source/spectral"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/stoplightio/spectral"
+    },
+    {
+      "id": "stackhawk-hawkscan",
+      "name": "StackHawk HawkScan",
+      "description": "Scans running REST APIs for vulnerabilities and uses OpenAPI descriptions to discover endpoints and configure authenticated API testing.",
+      "website": "https://docs.stackhawk.com/hawkscan/",
+      "categories": [
+        "security"
+      ],
+      "interfaces": [
+        "cli",
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://docs.stackhawk.com/hawkscan/"
+      ],
+      "lastVerified": "2026-10-31"
+    },
+    {
+      "id": "step-ci",
+      "name": "Step CI",
+      "description": "Runs declarative multi-step HTTP API tests, with OpenAPI-based response validation and workflows for REST API checks in CI.",
+      "website": "https://stepci.com",
+      "categories": [
+        "functional",
+        "contract"
+      ],
+      "interfaces": [
+        "cli",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/stepci/stepci",
+        "https://stepci.com"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/stepci/stepci"
+    },
+    {
+      "id": "elements",
+      "name": "Stoplight Elements",
+      "description": "Embeddable OpenAPI reference components with a Try It console for manually calling REST endpoints and inspecting responses.",
+      "website": "https://stoplight.io/open-source/elements",
+      "categories": [
+        "clients"
+      ],
+      "interfaces": [
+        "web",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://stoplight.io/open-source/elements"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/stoplightio/elements"
+    },
+    {
+      "id": "stoplight-studio",
+      "name": "Stoplight Studio",
+      "description": "An OpenAPI design environment with linting and mock APIs for checking REST contracts and trying client integrations.",
+      "website": "https://stoplight.io/solutions",
+      "categories": [
+        "contract",
+        "mocking"
+      ],
+      "interfaces": [
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://stoplight.io/solutions"
+      ],
+      "lastVerified": "2026-10-31"
+    },
+    {
+      "id": "super-linter",
+      "name": "super-linter",
+      "description": "A repository linting workflow that can run OpenAPI checks with Spectral as part of REST API contract verification in CI.",
+      "website": "https://github.com/super-linter/super-linter",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/super-linter/super-linter"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/super-linter/super-linter"
+    },
+    {
+      "id": "swagger-editor",
+      "name": "Swagger Editor",
+      "description": "A browser-based OpenAPI editor with description validation and interactive API exploration for checking REST contracts and requests.",
+      "website": "https://github.com/swagger-api/swagger-editor",
+      "categories": [
+        "contract",
+        "clients"
+      ],
+      "interfaces": [
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/swagger-api/swagger-editor"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/swagger-api/swagger-editor"
+    },
+    {
+      "id": "swagger-parser",
+      "name": "Swagger Parser (Java)",
+      "description": "A Java library that reads and validates OpenAPI descriptions and reports issues in REST API contracts.",
+      "website": "https://github.com/swagger-api/swagger-parser",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/swagger-api/swagger-parser"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/swagger-api/swagger-parser"
+    },
+    {
       "id": "swagger-ui",
       "name": "Swagger UI",
       "description": "An interactive, OpenAPI-powered REST API explorer for sending requests, supplying authentication, and inspecting live responses directly in a browser.",
@@ -940,6 +3544,50 @@
       "lastVerified": "2026-10-27",
       "repository": "https://github.com/swagger-api/swagger-ui",
       "documentation": "https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/"
+    },
+    {
+      "id": "swagger-coverage-cli",
+      "name": "swagger-coverage-cli",
+      "description": "Measures REST API operation and response coverage by comparing OpenAPI descriptions with Postman collections or Newman reports.",
+      "website": "https://github.com/dreamquality/swagger-coverage-cli",
+      "categories": [
+        "functional",
+        "contract"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/dreamquality/swagger-coverage-cli"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/dreamquality/swagger-coverage-cli"
+    },
+    {
+      "id": "swaggerhub",
+      "name": "SwaggerHub",
+      "description": "An API design platform with OpenAPI validation, standardization checks, and REST API mocking for reviewing contracts and integrations.",
+      "website": "https://swagger.io/product/",
+      "categories": [
+        "contract",
+        "mocking"
+      ],
+      "interfaces": [
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://swagger.io/product/"
+      ],
+      "lastVerified": "2026-10-31",
+      "notes": "SwaggerHub capabilities are now presented as part of the Swagger platform. This entry covers API design validation and mocking."
     },
     {
       "id": "tavern",
@@ -970,6 +3618,29 @@
       "lastVerified": "2026-10-27"
     },
     {
+      "id": "tcases-for-openapi",
+      "name": "Tcases for OpenAPI",
+      "description": "Generates REST API test cases from OpenAPI descriptions and checks specification consistency with semantic linting.",
+      "website": "https://github.com/Cornutum/tcases/blob/master/tcases-openapi/README.md",
+      "categories": [
+        "generation",
+        "contract"
+      ],
+      "interfaces": [
+        "cli",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/Cornutum/tcases/blob/master/tcases-openapi/README.md"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/Cornutum/tcases/blob/master/tcases-openapi/README.md"
+    },
+    {
       "id": "thunder-client",
       "name": "Thunder Client",
       "description": "A REST API client inside VS Code and JetBrains editors, with local collections, visual response assertions, and a CLI for automated runs.",
@@ -996,6 +3667,96 @@
       "lastVerified": "2026-10-27"
     },
     {
+      "id": "treblle",
+      "name": "Treblle",
+      "description": "Captures REST API request and response telemetry through SDK integrations to investigate errors, latency, and API behavior.",
+      "website": "https://docs.treblle.com/",
+      "categories": [
+        "monitoring"
+      ],
+      "interfaces": [
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://docs.treblle.com/"
+      ],
+      "lastVerified": "2026-10-31"
+    },
+    {
+      "id": "vacuum",
+      "name": "vacuum",
+      "description": "Validates and lints OpenAPI descriptions with Spectral-compatible rulesets to check REST API contract quality.",
+      "website": "https://quobix.com/vacuum/",
+      "categories": [
+        "contract"
+      ],
+      "interfaces": [
+        "cli",
+        "library"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/daveshanley/vacuum",
+        "https://quobix.com/vacuum/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/daveshanley/vacuum"
+    },
+    {
+      "id": "vacuum-owasp",
+      "name": "vacuum OWASP Ruleset",
+      "description": "Applies OWASP-oriented static security rules to OpenAPI descriptions using vacuum. It reviews contracts rather than probing live REST endpoints.",
+      "website": "https://quobix.com/vacuum/rulesets/owasp/",
+      "categories": [
+        "contract",
+        "security"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/daveshanley/vacuum",
+        "https://quobix.com/vacuum/rulesets/owasp/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/daveshanley/vacuum"
+    },
+    {
+      "id": "vrest-ng",
+      "name": "vREST NG",
+      "description": "An API test automation application that imports OpenAPI descriptions and validates REST responses with assertions and JSON Schema checks.",
+      "website": "https://vrest.io/",
+      "categories": [
+        "functional",
+        "contract"
+      ],
+      "interfaces": [
+        "desktop",
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://vrest.io/",
+        "https://vrest.io/docs/app/"
+      ],
+      "lastVerified": "2026-10-31",
+      "documentation": "https://vrest.io/docs/app/"
+    },
+    {
       "id": "wiremock",
       "name": "WireMock",
       "description": "Create controllable HTTP service doubles to test REST integrations without relying on live downstream dependencies.",
@@ -1018,6 +3779,74 @@
       "sources": ["https://wiremock.org/", "https://wiremock.org/docs/"],
       "lastVerified": "2026-10-27",
       "repository": "https://github.com/wiremock/wiremock"
+    },
+    {
+      "id": "wiremock-cloud",
+      "name": "WireMock Cloud",
+      "description": "A hosted API simulation service with stateful REST API mocks, OpenAPI import, and configurable responses for integration testing.",
+      "website": "https://www.wiremock.io/platform/api-simulation",
+      "categories": [
+        "mocking"
+      ],
+      "interfaces": [
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://www.wiremock.io/platform/api-simulation"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/wiremock/wiremock"
+    },
+    {
+      "id": "wiretap",
+      "name": "Wiretap",
+      "description": "A validation proxy that checks REST requests and responses against OpenAPI descriptions and captures traffic for debugging and mock workflows.",
+      "website": "https://pb33f.io/wiretap/",
+      "categories": [
+        "contract",
+        "mocking",
+        "recording"
+      ],
+      "interfaces": [
+        "cli",
+        "web"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/pb33f/wiretap",
+        "https://pb33f.io/wiretap/"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/pb33f/wiretap"
+    },
+    {
+      "id": "wuppiefuzz",
+      "name": "WuppieFuzz",
+      "description": "A coverage-guided REST API fuzzer that uses OpenAPI descriptions to generate requests and discover implementation failures.",
+      "website": "https://github.com/TNO-S3/WuppieFuzz",
+      "categories": [
+        "generation",
+        "security"
+      ],
+      "interfaces": [
+        "cli"
+      ],
+      "tags": [
+        "REST",
+        "OpenAPI"
+      ],
+      "sources": [
+        "https://github.com/TNO-S3/WuppieFuzz"
+      ],
+      "lastVerified": "2026-10-31",
+      "repository": "https://github.com/TNO-S3/WuppieFuzz"
     },
     {
       "id": "yaak",

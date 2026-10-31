@@ -198,6 +198,21 @@
             "uniqueItems": true,
             "minItems": 1
           },
+          "startingPoints": {
+            "description": "Verified REST entry paths; supported paths are not necessarily sufficient on their own. See setupNotes.",
+            "type": "array",
+            "items": { "type": "string", "enum": ["curl", "manual-request", "openapi", "collection", "traffic-recording", "har", "code-tests", "endpoint-url", "http-message", "unknown"] },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "setupSources": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/url" },
+            "uniqueItems": true,
+            "minItems": 1,
+            "maxItems": 4
+          },
+          "setupNotes": { "type": "string", "minLength": 20, "maxLength": 700 },
           "testingPurposes": {
             "description": "Testing purposes supported by the listed REST capabilities; absence means not classified.",
             "type": "array",

@@ -87,6 +87,18 @@
       ide: "IDE extension",
       unknown: "Unknown",
     },
+    startingPoints: {
+      curl: "cURL",
+      "manual-request": "Manual request",
+      openapi: "OpenAPI / Swagger",
+      collection: "Request collection",
+      "traffic-recording": "Record live traffic",
+      har: "HAR import",
+      "code-tests": "Code / test definition",
+      "endpoint-url": "Endpoint URL",
+      "http-message": "HTTP request / response data",
+      unknown: "Not verified",
+    },
     testingPurposes: {
       discovery: "Discovery",
       verification: "Verification / regression",
@@ -141,6 +153,7 @@
     pricing: "",
     creation: "",
     purpose: "",
+    starts: [],
     ci: false,
     view: "map",
     saved: false,
@@ -263,6 +276,8 @@
       )
         return false;
     }
+    if (state.starts.length && !state.starts.some((point) =>
+      (tool.startingPoints || ["unknown"]).includes(point))) return false;
     if (state.ci && tool.ci !== true) return false;
     if (state.q) {
       const haystack = [
@@ -270,6 +285,7 @@
         tool.description,
         ...(tool.features || []),
         ...(tool.tags || []),
+        ...(tool.startingPoints || []).map((point) => labels.startingPoints[point] || ""),
         ...(tool.testingPurposes || []).map((id) => labels.testingPurposes[id] || ""),
         ...tool.categories.map((id) => categoryById.get(id)?.name || ""),
         tool.license || "",
@@ -318,6 +334,8 @@
     ]) {
       state[key] = Object.hasOwn(labels[type], p.get(key)) ? p.get(key) : "";
     }
+    state.starts = [...new Set((p.get("start") || "").split(",")
+      .filter((point) => Object.hasOwn(labels.startingPoints, point)))];
     state.ci = p.get("ci") === "1";
     state.saved = p.get("saved") === "1";
     state.view = p.get("view") === "list" ? "list" : "map";
@@ -341,6 +359,7 @@
     ])
       if (state[key]) p.set(key, state[key]);
     if (state.view !== "map") p.set("view", state.view);
+    if (state.starts.length) p.set("start", state.starts.join(","));
     if (state.ci) p.set("ci", "1");
     if (state.saved) p.set("saved", "1");
     if (state.tool) p.set("tool", state.tool);
@@ -366,7 +385,7 @@
       "creation",
       "purpose",
       "ci",
-    ].filter((key) => state[key]).length;
+    ].filter((key) => state[key]).length + Number(state.starts.length > 0);
   }
   function renderFilterChips() {
     const chips = [];
@@ -382,6 +401,7 @@
       ["purpose", "testingPurposes"],
     ])
       if (state[key]) chips.push([key, label(type, state[key])]);
+    for (const point of state.starts) chips.push([`start:${point}`, `Start: ${labels.startingPoints[point]}`]);
     if (state.ci) chips.push(["ci", "CI/CD ready"]);
     $("#active-filters").hidden = !chips.length;
     $("#active-filters").innerHTML = chips
@@ -428,6 +448,9 @@
       el.value = state[key];
       el.classList.toggle("is-active", !!state[key]);
     }
+    $$("[data-start]").forEach((input) => { input.checked = state.starts.includes(input.dataset.start); });
+    $("#start-filter-count").textContent = state.starts.length ? ` · ${state.starts.length} selected` : " · any";
+    $("#start-filter").classList.toggle("is-active", state.starts.length > 0);
     $("#ci-filter").checked = state.ci;
     $("#sort").value = state.sort;
     $$("[data-view]").forEach((button) => {
@@ -472,7 +495,7 @@
     $("#tools-table-body").innerHTML = result
       .map(
         (tool) =>
-          `<tr><td class="compare-col"><input class="compare-check" type="checkbox" data-compare="${escape(tool.id)}" aria-label="Compare ${escape(tool.name)}"${selected.includes(tool.id) ? " checked" : ""}></td><td><button class="table-tool" data-tool="${escape(tool.id)}">${avatar(tool)}<span><strong>${escape(tool.name)}</strong><span class="tool-desc">${escape(tool.description)}</span></span></button></td><td><div class="capability-tags">${tool.categories.slice(0, 2).map(categoryTag).join("")}${
+          `<tr><td class="compare-col"><input class="compare-check" type="checkbox" data-compare="${escape(tool.id)}" aria-label="Compare ${escape(tool.name)}"${selected.includes(tool.id) ? " checked" : ""}></td><td><button class="table-tool" data-tool="${escape(tool.id)}">${avatar(tool)}<span><strong>${escape(tool.name)}</strong><span class="tool-desc">${escape(tool.description)}</span><span class="tool-starts">Start: ${escape(joined("startingPoints", tool.startingPoints))}</span></span></button></td><td><div class="capability-tags">${tool.categories.slice(0, 2).map(categoryTag).join("")}${
             tool.categories.length > 2
               ? `<span class="category-tag" title="${escape(
                   tool.categories
@@ -711,7 +734,7 @@
       safeURL(data.project.repository) +
       `/issues/new?title=${encodeURIComponent("Update tool: " + tool.name)}&body=${encodeURIComponent("Tool: " + tool.name + " (" + tool.id + ")\n\nSuggested correction:\n\nOfficial source:\n")}`;
     $("#detail-content").innerHTML =
-      `<div class="detail-topbar"><span>TOOL OVERVIEW</span><div><button class="icon-button" data-action="share" aria-label="Copy a link to ${escape(tool.name)}">${icon("link")}</button><button class="icon-button" data-close="detail-dialog" aria-label="Close tool details">${icon("close")}</button></div></div><div class="detail-body"><div class="detail-heading">${avatar(tool, true)}<div><h2 id="detail-title">${escape(tool.name)}</h2><span class="license-badge">${icon("file")}${escape(label("licenseModel", tool.licenseModel))}</span></div></div><p class="detail-description">${escape(tool.description)}</p><div class="detail-categories">${tool.categories.map(categoryTag).join("")}</div><div class="detail-links"><a class="button button-primary" href="${escape(website)}" target="_blank" rel="noopener noreferrer">Visit website ${icon("arrow-up-right")}</a>${repo ? `<a class="button" href="${escape(repo)}" target="_blank" rel="noopener noreferrer">${icon("github")} Source code</a>` : ""}${!repo && docs ? `<a class="button" href="${escape(docs)}" target="_blank" rel="noopener noreferrer">Documentation ${icon("arrow-up-right")}</a>` : ""}</div><dl class="detail-facts"><div><dt>PRICING MODEL</dt><dd>${escape(label("pricing", tool.pricing))}</dd></div><div><dt>EXECUTION</dt><dd>${escape(joined("execution", tool.execution))}</dd></div><div><dt>INTERFACES</dt><dd>${escape(joined("interfaces", tool.interfaces))}</dd></div><div><dt>TESTING PURPOSE</dt><dd>${tool.testingPurposes?.length ? escape(joined("testingPurposes", tool.testingPurposes)) : "Not classified"}</dd></div><div><dt>TEST CREATION</dt><dd>${escape(joined("testCreation", tool.testCreation))}</dd></div><div><dt>CI/CD SUPPORT</dt><dd>${tool.ci === true ? "Supported" : tool.ci === false ? "Not supported" : "Unknown"}</dd></div><div><dt>LICENSE</dt><dd>${escape(tool.license || "Unknown")}</dd></div></dl>${tool.features?.length ? `<section class="detail-section"><h3>What it brings to your workflow</h3><ul class="feature-list">${tool.features.map((feature) => `<li>${icon("check")}<span>${escape(feature)}</span></li>`).join("")}</ul></section>` : ""}${tool.purposeNotes ? `<section class="detail-section"><h3>Testing purpose</h3><p>${escape(tool.purposeNotes)}</p></section>` : ""}${tool.notes ? `<section class="detail-section"><h3>Good to know</h3><p>${escape(tool.notes)}</p></section>` : ""}<section class="detail-section"><h3>Sources & verification</h3><ul class="source-list">${tool.sources
+      `<div class="detail-topbar"><span>TOOL OVERVIEW</span><div><button class="icon-button" data-action="share" aria-label="Copy a link to ${escape(tool.name)}">${icon("link")}</button><button class="icon-button" data-close="detail-dialog" aria-label="Close tool details">${icon("close")}</button></div></div><div class="detail-body"><div class="detail-heading">${avatar(tool, true)}<div><h2 id="detail-title">${escape(tool.name)}</h2><span class="license-badge">${icon("file")}${escape(label("licenseModel", tool.licenseModel))}</span></div></div><p class="detail-description">${escape(tool.description)}</p><div class="detail-categories">${tool.categories.map(categoryTag).join("")}</div><div class="detail-links"><a class="button button-primary" href="${escape(website)}" target="_blank" rel="noopener noreferrer">Visit website ${icon("arrow-up-right")}</a>${repo ? `<a class="button" href="${escape(repo)}" target="_blank" rel="noopener noreferrer">${icon("github")} Source code</a>` : ""}${!repo && docs ? `<a class="button" href="${escape(docs)}" target="_blank" rel="noopener noreferrer">Documentation ${icon("arrow-up-right")}</a>` : ""}</div><dl class="detail-facts"><div><dt>PRICING MODEL</dt><dd>${escape(label("pricing", tool.pricing))}</dd></div><div><dt>EXECUTION</dt><dd>${escape(joined("execution", tool.execution))}</dd></div><div><dt>INTERFACES</dt><dd>${escape(joined("interfaces", tool.interfaces))}</dd></div><div><dt>START FROM</dt><dd>${escape(joined("startingPoints", tool.startingPoints))}</dd></div><div><dt>TESTING PURPOSE</dt><dd>${tool.testingPurposes?.length ? escape(joined("testingPurposes", tool.testingPurposes)) : "Not classified"}</dd></div><div><dt>TEST CREATION</dt><dd>${escape(joined("testCreation", tool.testCreation))}</dd></div><div><dt>CI/CD SUPPORT</dt><dd>${tool.ci === true ? "Supported" : tool.ci === false ? "Not supported" : "Unknown"}</dd></div><div><dt>LICENSE</dt><dd>${escape(tool.license || "Unknown")}</dd></div></dl>${tool.features?.length ? `<section class="detail-section"><h3>What it brings to your workflow</h3><ul class="feature-list">${tool.features.map((feature) => `<li>${icon("check")}<span>${escape(feature)}</span></li>`).join("")}</ul></section>` : ""}${tool.setupNotes ? `<section class="detail-section"><h3>Getting started</h3><p>${escape(tool.setupNotes)}</p>${tool.setupSources?.length ? `<ul class="source-list">${tool.setupSources.filter(safeURL).map((source, i) => `<li><a href="${escape(safeURL(source))}" target="_blank" rel="noopener noreferrer">Input documentation${tool.setupSources.length > 1 ? ` · ${i + 1}` : ""} ${icon("arrow-up-right")}</a></li>`).join("")}</ul>` : ""}</section>` : ""}${tool.purposeNotes ? `<section class="detail-section"><h3>Testing purpose</h3><p>${escape(tool.purposeNotes)}</p></section>` : ""}${tool.notes ? `<section class="detail-section"><h3>Good to know</h3><p>${escape(tool.notes)}</p></section>` : ""}<section class="detail-section"><h3>Sources & verification</h3><ul class="source-list">${tool.sources
         .filter((s) => safeURL(s))
         .map(
           (source, i) =>
@@ -728,7 +751,7 @@
     const row = (name, fn) =>
       `<tr><th scope="row">${name}</th>${list.map((tool) => `<td>${fn(tool)}</td>`).join("")}</tr>`;
     $("#comparison-content").innerHTML =
-      `<table class="comparison-table"><thead><tr><th scope="col"><span class="sr-only">Capability</span></th>${list.map((tool) => `<th scope="col"><div class="comparison-tool">${avatar(tool)}<strong>${escape(tool.name)}</strong><span class="comparison-description">${escape(tool.description)}</span><button class="text-button" data-remove-compare="${escape(tool.id)}">Remove ${icon("close")}</button></div></th>`).join("")}</tr></thead><tbody>${row("Categories", (t) => t.categories.map(categoryTag).join(""))}${row("License model", (t) => escape(label("licenseModel", t.licenseModel)))}${row("License", (t) => escape(t.license || "Unknown"))}${row("Pricing", (t) => escape(label("pricing", t.pricing)))}${row("Execution", (t) => escape(joined("execution", t.execution)))}${row("Interfaces", (t) => escape(joined("interfaces", t.interfaces)))}${row("Testing purpose", (t) => t.testingPurposes?.length ? escape(joined("testingPurposes", t.testingPurposes)) : "Not classified")}${row("Purpose notes", (t) => escape(t.purposeNotes || "Not classified"))}${row("Test creation", (t) => escape(joined("testCreation", t.testCreation)))}${row("CI/CD", (t) => (t.ci === true ? "Supported" : t.ci === false ? "Not supported" : "Unknown"))}${row("Capabilities", (t) => (t.features?.length ? `<ul class="feature-list">${t.features.map((f) => `<li>${escape(f)}</li>`).join("")}</ul>` : "Unknown"))}${row("Good to know", (t) => escape(t.notes || "No additional notes."))}${row("Verified", (t) => escape(t.lastVerified))}${row("Explore", (t) => `<a class="button" href="${escape(safeURL(t.website))}" target="_blank" rel="noopener noreferrer">Website ${icon("arrow-up-right")}</a>`)}</tbody></table>`;
+      `<table class="comparison-table"><thead><tr><th scope="col"><span class="sr-only">Capability</span></th>${list.map((tool) => `<th scope="col"><div class="comparison-tool">${avatar(tool)}<strong>${escape(tool.name)}</strong><span class="comparison-description">${escape(tool.description)}</span><button class="text-button" data-remove-compare="${escape(tool.id)}">Remove ${icon("close")}</button></div></th>`).join("")}</tr></thead><tbody>${row("Categories", (t) => t.categories.map(categoryTag).join(""))}${row("License model", (t) => escape(label("licenseModel", t.licenseModel)))}${row("License", (t) => escape(t.license || "Unknown"))}${row("Pricing", (t) => escape(label("pricing", t.pricing)))}${row("Execution", (t) => escape(joined("execution", t.execution)))}${row("Interfaces", (t) => escape(joined("interfaces", t.interfaces)))}${row("Start from", (t) => escape(joined("startingPoints", t.startingPoints)))}${row("Setup requirements", (t) => escape(t.setupNotes || "Not verified"))}${row("Testing purpose", (t) => t.testingPurposes?.length ? escape(joined("testingPurposes", t.testingPurposes)) : "Not classified")}${row("Purpose notes", (t) => escape(t.purposeNotes || "Not classified"))}${row("Test creation", (t) => escape(joined("testCreation", t.testCreation)))}${row("CI/CD", (t) => (t.ci === true ? "Supported" : t.ci === false ? "Not supported" : "Unknown"))}${row("Capabilities", (t) => (t.features?.length ? `<ul class="feature-list">${t.features.map((f) => `<li>${escape(f)}</li>`).join("")}</ul>` : "Unknown"))}${row("Good to know", (t) => escape(t.notes || "No additional notes."))}${row("Verified", (t) => escape(t.lastVerified))}${row("Explore", (t) => `<a class="button" href="${escape(safeURL(t.website))}" target="_blank" rel="noopener noreferrer">Website ${icon("arrow-up-right")}</a>`)}</tbody></table>`;
   }
   async function copyText(value, message) {
     let success = false;
@@ -764,6 +787,7 @@
       pricing: "",
       creation: "",
       purpose: "",
+      starts: [],
       ci: false,
     });
     render({ fit: true });
@@ -830,6 +854,11 @@
       }
       if (target.dataset.removeFilter) {
         const key = target.dataset.removeFilter;
+        if (key.startsWith("start:")) {
+          state.starts = state.starts.filter((point) => point !== key.slice(6));
+          render({ fit: true });
+          return;
+        }
         state[key] = ["ci", "saved"].includes(key) ? false : "";
         render({ fit: true });
         return;
@@ -878,6 +907,10 @@
         state[key] = event.target.value;
         render({ fit: true });
       });
+    $$("[data-start]").forEach((input) => input.addEventListener("change", () => {
+      state.starts = $$("[data-start]").filter((item) => item.checked).map((item) => item.dataset.start);
+      render({ fit: true });
+    }));
     $("#ci-filter").addEventListener("change", (event) => {
       state.ci = event.target.checked;
       render({ fit: true });

@@ -106,7 +106,14 @@
         "discovery",
         "verification"
       ],
-      "purposeNotes": "Discovery: API Scan generates valid and malformed REST requests and reports conformance and security findings. Verification / regression: Contract audits and defined conformance checks verify OpenAPI requirements alongside live generated probes."
+      "purposeNotes": "Discovery: API Scan generates valid and malformed REST requests and reports conformance and security findings. Verification / regression: Contract audits and defined conformance checks verify OpenAPI requirements alongside live generated probes.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI contract and, for API Scan, a live REST endpoint plus any authentication. A contract alone supports static audit; it is not sufficient for a live scan.",
+      "setupSources": [
+        "https://42crunch.com/"
+      ]
     },
     {
       "id": "42crunch-intellij-openapi-editor",
@@ -134,7 +141,14 @@
         "discovery",
         "verification"
       ],
-      "purposeNotes": "Discovery: Run integrated API Scan to exercise a live REST API with generated conformance tests; editing and Audit alone do not qualify. Verification / regression: The editor verifies OpenAPI contracts and provides API Scan for generated live probes."
+      "purposeNotes": "Discovery: Run integrated API Scan to exercise a live REST API with generated conformance tests; editing and Audit alone do not qualify. Verification / regression: The editor verifies OpenAPI contracts and provides API Scan for generated live probes.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Open an OpenAPI document in a JetBrains IDE. Live API Scan additionally requires a reachable target and scan configuration.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/42Crunch/intellij-openapi-editor/HEAD/README.md"
+      ]
     },
     {
       "id": "vscode-openapi-editor",
@@ -162,7 +176,16 @@
         "discovery",
         "verification"
       ],
-      "purposeNotes": "Discovery: Use the API Scan integration for generated live REST probes; static OpenAPI linting alone does not qualify. Verification / regression: The editor verifies OpenAPI contracts and provides API Scan for generated live probes."
+      "purposeNotes": "Discovery: Use the API Scan integration for generated live REST probes; static OpenAPI linting alone does not qualify. Verification / regression: The editor verifies OpenAPI contracts and provides API Scan for generated live probes.",
+      "startingPoints": [
+        "openapi",
+        "collection",
+        "har"
+      ],
+      "setupNotes": "Open an OpenAPI document, or use API Contract Generator to convert a supported Postman collection or HAR into a contract. Live API Scan additionally needs a reachable target and scan configuration.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/42Crunch/vscode-openapi/HEAD/README.md"
+      ]
     },
     {
       "id": "nest-openapi-mock",
@@ -188,7 +211,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression support: supplies controlled HTTP responses, test data, or recorded interactions for repeatable integration checks. This is supporting infrastructure, not a standalone test runner."
+      "purposeNotes": "Verification / regression support: supplies controlled HTTP responses, test data, or recorded interactions for repeatable integration checks. This is supporting infrastructure, not a standalone test runner.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI description and configure the NestJS integration to serve mock responses; this generates mocks rather than testing a live target.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/ts-oas/nest-openapi/HEAD/README.md"
+      ]
     },
     {
       "id": "nest-openapi-validator",
@@ -213,7 +243,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires both an OpenAPI description and HTTP requests/responses from a configured NestJS application.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/ts-oas/nest-openapi/HEAD/README.md"
+      ]
     },
     {
       "id": "advanced-rest-client",
@@ -248,11 +286,20 @@
         "https://github.com/advanced-rest-client/arc-electron/blob/master/LICENSE.md"
       ],
       "repository": "https://github.com/advanced-rest-client/arc-electron",
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite."
+      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite.",
+      "startingPoints": [
+        "manual-request",
+        "curl",
+        "collection"
+      ],
+      "setupNotes": "Compose an HTTP request, import a cURL command, or load supported request collections. Authentication and request data must be supplied where needed.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/advanced-rest-client/arc-electron/HEAD/README.md"
+      ]
     },
     {
       "id": "aiopenapi3",
@@ -279,7 +326,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Load an OpenAPI description in Python, then supply operation parameters and any target authentication to call the REST service.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/commonism/aiopenapi3/HEAD/README.md"
+      ]
     },
     {
       "id": "api-insights-treblle",
@@ -307,7 +361,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Upload an OpenAPI description. Endpoint reachability and a server request are used for runtime insights; uploading a contract is not traffic recording.",
+      "setupSources": [
+        "https://docs.treblle.com/explore-treblle/api-toolkit/api-insights"
+      ]
     },
     {
       "id": "api-smart-diff",
@@ -332,7 +393,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Requires baseline and candidate API description documents for comparison; no running REST server is needed for static diffing.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/udamir/api-smart-diff/HEAD/README.md"
+      ]
     },
     {
       "id": "apidevtools-swagger-parser",
@@ -357,7 +425,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Supply a Swagger/OpenAPI document or its URL to the JavaScript parser/validator; this checks the description rather than running API requests.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/APIDevTools/swagger-parser/HEAD/README.md"
+      ]
     },
     {
       "id": "apidog",
@@ -410,7 +485,18 @@
         "discovery",
         "verification"
       ],
-      "purposeNotes": "Discovery: Generate negative and boundary test cases with AI, then execute them to investigate REST API behavior; AI access may depend on plan. Verification / regression: Saved requests, scripted assertions, or configured scenarios support repeatable verification and regression checks."
+      "purposeNotes": "Discovery: Generate negative and boundary test cases with AI, then execute them to investigate REST API behavior; AI access may depend on plan. Verification / regression: Saved requests, scripted assertions, or configured scenarios support repeatable verification and regression checks.",
+      "startingPoints": [
+        "manual-request",
+        "curl",
+        "openapi",
+        "collection",
+        "har"
+      ],
+      "setupNotes": "Compose requests or import supported cURL, OpenAPI, collection, or HAR data. Imported requests are a starting point; tests and authentication may need configuration.",
+      "setupSources": [
+        "https://docs.apidog.com/609656m0"
+      ]
     },
     {
       "id": "apifuzzer",
@@ -436,7 +522,14 @@
       "testingPurposes": [
         "discovery"
       ],
-      "purposeNotes": "Discovery: Mutate OpenAPI-derived request parameters, execute the variations, and inspect failures without authoring a regression suite. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite."
+      "purposeNotes": "Discovery: Mutate OpenAPI-derived request parameters, execute the variations, and inspect failures without authoring a regression suite. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Requires a Swagger/OpenAPI description and a reachable REST target. Configure authentication and fuzzing options before running.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/KissPeter/APIFuzzer/HEAD/README.md"
+      ]
     },
     {
       "id": "apigit",
@@ -462,7 +555,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior."
+      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior.",
+      "startingPoints": [
+        "manual-request",
+        "openapi"
+      ],
+      "setupNotes": "Design/import an OpenAPI description or compose REST requests in the workspace; mocks and automated tests need their respective configuration.",
+      "setupSources": [
+        "https://apigit.com"
+      ]
     },
     {
       "id": "apimatic-openapi-linter-github-app",
@@ -486,7 +587,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide OpenAPI files in a GitHub repository and configure the app to validate them during pull requests.",
+      "setupSources": [
+        "https://github.com/marketplace/apimatic-openapi-linter"
+      ]
     },
     {
       "id": "apiquality",
@@ -512,7 +620,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Start from an OpenAPI contract in the API-first project workflow. Live tests and integrations require target and runner configuration.",
+      "setupSources": [
+        "https://apiquality.io/"
+      ]
     },
     {
       "id": "apitally",
@@ -533,7 +648,14 @@
         "https://apitally.io"
       ],
       "lastVerified": "2026-10-31",
-      "purposeNotes": "Passive REST API telemetry and analytics help investigate traffic, but the listed capabilities do not establish an active discovery test or a defined regression check."
+      "purposeNotes": "Passive REST API telemetry and analytics help investigate traffic, but the listed capabilities do not establish an active discovery test or a defined regression check.",
+      "startingPoints": [
+        "traffic-recording"
+      ],
+      "setupNotes": "Install the appropriate SDK/middleware in the application to capture actual REST request/response telemetry. A cURL import alone does not enable monitoring.",
+      "setupSources": [
+        "https://github.com/apitally"
+      ]
     },
     {
       "id": "arazzo-cli",
@@ -560,7 +682,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "code-tests",
+        "openapi"
+      ],
+      "setupNotes": "Execute an Arazzo workflow definition, or generate workflow scaffolding from OpenAPI. A reachable REST target, workflow inputs, and authentication may still be required.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/strefethen/arazzo-cli/HEAD/README.md"
+      ]
     },
     {
       "id": "assertible",
@@ -586,7 +716,17 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "manual-request",
+        "curl",
+        "openapi",
+        "collection"
+      ],
+      "setupNotes": "Create an HTTP check or import supported cURL, OpenAPI, or Postman data, then configure assertions and any scheduling.",
+      "setupSources": [
+        "https://assertible.com/docs/guide/tests"
+      ]
     },
     {
       "id": "atlassian-openapi-request-validators",
@@ -613,7 +753,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI contract plus HTTP request/response objects, supplied through Java code or a supported testing-framework adapter.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/atlassian/openapi-request-validator/HEAD/README.md"
+      ]
     },
     {
       "id": "beeceptor-openapi-mock-server",
@@ -637,7 +785,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression support: supplies controlled HTTP responses, test data, or recorded interactions for repeatable integration checks. This is supporting infrastructure, not a standalone test runner."
+      "purposeNotes": "Verification / regression support: supplies controlled HTTP responses, test data, or recorded interactions for repeatable integration checks. This is supporting infrastructure, not a standalone test runner.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Upload an OpenAPI document to generate a hosted mock. Generating a mock does not scan a real REST service.",
+      "setupSources": [
+        "https://beeceptor.com/openapi-mock-server/"
+      ]
     },
     {
       "id": "blocklyautomation",
@@ -664,7 +819,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior."
+      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior.",
+      "startingPoints": [
+        "openapi",
+        "code-tests"
+      ],
+      "setupNotes": "Load an OpenAPI description to create API operation blocks, then compose a visual program to execute the calls.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/ignatandrei/BlocklyAutomation/HEAD/README.md"
+      ]
     },
     {
       "id": "bowire",
@@ -716,7 +879,17 @@
         "discovery",
         "verification"
       ],
-      "purposeNotes": "Discovery: Use REST security scan probes to investigate malformed-request handling and vulnerabilities; endpoint listing alone does not qualify. Verification / regression: Saved requests, scripted assertions, or configured scenarios support repeatable verification and regression checks."
+      "purposeNotes": "Discovery: Use REST security scan probes to investigate malformed-request handling and vulnerabilities; endpoint listing alone does not qualify. Verification / regression: Saved requests, scripted assertions, or configured scenarios support repeatable verification and regression checks.",
+      "startingPoints": [
+        "manual-request",
+        "openapi",
+        "traffic-recording",
+        "endpoint-url"
+      ],
+      "setupNotes": "Compose REST requests, load an OpenAPI description, capture sessions, or point security scanning at a target URL. Scan options and authentication depend on the mode.",
+      "setupSources": [
+        "https://bowire.io/docs/"
+      ]
     },
     {
       "id": "bruno",
@@ -753,12 +926,22 @@
         "https://www.usebruno.com/",
         "https://www.usebruno.com/pricing"
       ],
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "repository": "https://github.com/usebruno/bruno",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior."
+      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior.",
+      "startingPoints": [
+        "manual-request",
+        "curl",
+        "openapi",
+        "collection"
+      ],
+      "setupNotes": "Compose a request, paste cURL, or import supported OpenAPI and request collections. File-based collections can then be used by the test runner.",
+      "setupSources": [
+        "https://blog.usebruno.com/share-bruno-collections"
+      ]
     },
     {
       "id": "cats",
@@ -783,7 +966,14 @@
       "testingPurposes": [
         "discovery"
       ],
-      "purposeNotes": "Discovery: Automatically generate and execute negative REST requests with schema-aware fuzzers and inspect unexpected responses. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite."
+      "purposeNotes": "Discovery: Automatically generate and execute negative REST requests with schema-aware fuzzers and inspect unexpected responses. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Requires an OpenAPI description, target server, and any authentication or field configuration needed for the fuzzing session.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/Endava/cats/HEAD/README.md"
+      ]
     },
     {
       "id": "php-openapi",
@@ -809,7 +999,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Read or validate an OpenAPI description from a file/string using PHP or the CLI. No running target is required for document validation.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/cebe/php-openapi/HEAD/README.md"
+      ]
     },
     {
       "id": "chai-openapi-response-validator",
@@ -835,7 +1032,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI description and the HTTP response captured by an existing JavaScript/Chai test.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/openapi-library/OpenAPIValidators/master/packages/chai-openapi-response-validator/README.md"
+      ]
     },
     {
       "id": "chapar",
@@ -873,11 +1078,22 @@
         "https://github.com/chapar-rest/chapar/blob/main/LICENSE"
       ],
       "repository": "https://github.com/chapar-rest/chapar",
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior."
+      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior.",
+      "startingPoints": [
+        "manual-request",
+        "collection",
+        "code-tests",
+        "openapi",
+        "traffic-recording"
+      ],
+      "setupNotes": "Compose HTTP requests, import Postman collections/OpenAPI, or capture real traffic with the built-in HTTP(S) proxy. Python scripts and chained cases provide automation; capture requires proxy setup.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/chapar-rest/chapar/HEAD/README.md"
+      ]
     },
     {
       "id": "checkly",
@@ -914,12 +1130,21 @@
         "https://www.checklyhq.com/",
         "https://www.checklyhq.com/docs/api-checks/"
       ],
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "documentation": "https://www.checklyhq.com/docs/",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior."
+      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior.",
+      "startingPoints": [
+        "manual-request",
+        "curl",
+        "code-tests"
+      ],
+      "setupNotes": "Create a configured HTTP API check, paste cURL, or define the check as code. Supply target authentication and assertions as needed.",
+      "setupSources": [
+        "https://www.checklyhq.com/product/api-monitoring/"
+      ]
     },
     {
       "id": "committee",
@@ -944,7 +1169,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI contract and Rack HTTP requests/responses, supplied through middleware or test helpers in a Ruby application.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/interagent/committee/HEAD/README.md"
+      ]
     },
     {
       "id": "counterfact",
@@ -971,7 +1204,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI description to generate the simulated REST service; customize stateful behavior in TypeScript as needed.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/counterfact/api-simulator/HEAD/README.md"
+      ]
     },
     {
       "id": "delimit",
@@ -997,7 +1237,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Supply OpenAPI descriptions for linting or baseline/candidate comparison. Configure the CLI or pull-request integration for the chosen check.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/delimit-ai/delimit/HEAD/README.md"
+      ]
     },
     {
       "id": "django-contract-tester",
@@ -1023,7 +1270,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI description and Django test request/response interactions inside an existing Python test environment.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/maticardenas/django-contract-tester/HEAD/README.md"
+      ]
     },
     {
       "id": "dredd",
@@ -1052,7 +1307,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide a supported API description and a running backend URL; hooks and authentication may be needed. The official repository is archived.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/apiaryio/dredd/HEAD/README.md"
+      ]
     },
     {
       "id": "evomaster",
@@ -1093,7 +1355,14 @@
         "discovery",
         "verification"
       ],
-      "purposeNotes": "Discovery: Use search-based REST fuzzing to discover faults before choosing which generated cases to retain as regression tests. Verification / regression: Exported executable tests can be retained and maintained as regression suites."
+      "purposeNotes": "Discovery: Use search-based REST fuzzing to discover faults before choosing which generated cases to retain as regression tests. Verification / regression: Exported executable tests can be retained and maintained as regression suites.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Black-box REST testing starts from an API schema and running target. White-box exploration additionally needs application instrumentation and a driver.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/WebFuzzing/EvoMaster/HEAD/README.md"
+      ]
     },
     {
       "id": "express-openapi-validator",
@@ -1118,7 +1387,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI contract and HTTP requests/responses from an Express application configured with the middleware.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/cdimascio/express-openapi-validator/HEAD/README.md"
+      ]
     },
     {
       "id": "fakeit",
@@ -1144,7 +1421,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI description to start a mock server with generated responses and request validation.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/justinfeng/fakeit/HEAD/README.md"
+      ]
     },
     {
       "id": "firecamp",
@@ -1179,11 +1463,20 @@
         "https://github.com/firecamp-dev/firecamp"
       ],
       "repository": "https://github.com/firecamp-dev/firecamp",
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite."
+      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite.",
+      "startingPoints": [
+        "manual-request",
+        "curl",
+        "collection"
+      ],
+      "setupNotes": "Compose REST requests or import supported cURL and request collections; provide environment values and authentication as needed.",
+      "setupSources": [
+        "https://github.com/firecamp-dev/firecamp/issues"
+      ]
     },
     {
       "id": "fitting",
@@ -1209,7 +1502,16 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "code-tests",
+        "http-message"
+      ],
+      "setupNotes": "Requires API documentation plus Ruby RSpec/WebMock interactions. The library validates existing test traffic rather than generating a standalone request suite.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/tuwilof/fitting/HEAD/README.md"
+      ]
     },
     {
       "id": "fix-my-openapi-a-vscode-extension-by-apimatic",
@@ -1233,7 +1535,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Open an OpenAPI file in VS Code to run description validation, linting, and fixes.",
+      "setupSources": [
+        "https://marketplace.visualstudio.com/items?itemName=apimatic-developers.apimatic-for-vscode"
+      ]
     },
     {
       "id": "flowtest",
@@ -1268,11 +1577,19 @@
       "sources": [
         "https://flowtest.io/"
       ],
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior."
+      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior.",
+      "startingPoints": [
+        "manual-request",
+        "code-tests"
+      ],
+      "setupNotes": "Build a visual sequence of HTTP request steps and checks, with variable extraction and target authentication configured for the workflow.",
+      "setupSources": [
+        "https://flowtest.io/"
+      ]
     },
     {
       "id": "frisby",
@@ -1308,11 +1625,18 @@
       ],
       "repository": "https://github.com/vlucas/frisby",
       "documentation": "https://docs.frisbyjs.com/",
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior."
+      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior.",
+      "startingPoints": [
+        "code-tests"
+      ],
+      "setupNotes": "Author JavaScript tests that specify REST requests and assertions; a runnable Node/Jest environment and reachable API are needed.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/vlucas/frisby/HEAD/README.md"
+      ]
     },
     {
       "id": "gesso",
@@ -1339,7 +1663,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI document and HTTP request/response interactions supplied by PHPUnit or a supported framework adapter.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/studio-design/gesso/HEAD/README.md"
+      ]
     },
     {
       "id": "go-openapi-spec-code-diffs",
@@ -1364,7 +1696,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "code-tests"
+      ],
+      "setupNotes": "Requires both an OpenAPI description and Go source code with route declarations; compares the specification with implementation routes.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/RHEcosystemAppEng/go-openapi-spec-code-diffs/HEAD/README.md"
+      ]
     },
     {
       "id": "go-swagger",
@@ -1391,7 +1731,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide Swagger 2.0 descriptions for validation or baseline/candidate comparison. These document checks do not require a running server.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/go-swagger/go-swagger/HEAD/README.md"
+      ]
     },
     {
       "id": "hidi",
@@ -1416,7 +1763,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Supply an OpenAPI description to the CLI for validation or transformation; this is document processing rather than live REST testing.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/microsoft/openapi.net/HEAD/README.md"
+      ]
     },
     {
       "id": "hikaku",
@@ -1442,7 +1796,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "code-tests"
+      ],
+      "setupNotes": "Provide a REST specification and endpoint definitions from an implementation adapter in a JVM test project to compare them.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/codecentric/hikaku/HEAD/README.md"
+      ]
     },
     {
       "id": "hoppscotch",
@@ -1484,11 +1846,21 @@
       ],
       "repository": "https://github.com/hoppscotch/hoppscotch",
       "documentation": "https://docs.hoppscotch.io/",
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior."
+      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior.",
+      "startingPoints": [
+        "manual-request",
+        "curl",
+        "openapi",
+        "collection"
+      ],
+      "setupNotes": "Compose a request or import supported cURL, OpenAPI, or collection data; configure environments and assertions separately for repeatable testing.",
+      "setupSources": [
+        "https://github.com/hoppscotch/hoppscotch/blob/main/packages/hoppscotch-common/locales/en.json"
+      ]
     },
     {
       "id": "hot-potato",
@@ -1514,7 +1886,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI document and actual HTTP traffic through the validation proxy, or request/response interactions from a .NET integration test.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/davidmbillie/Hot-Potato/HEAD/README.md"
+      ]
     },
     {
       "id": "httpie",
@@ -1550,11 +1930,19 @@
         "https://github.com/httpie/cli"
       ],
       "repository": "https://github.com/httpie/cli",
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite."
+      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite.",
+      "startingPoints": [
+        "manual-request",
+        "code-tests"
+      ],
+      "setupNotes": "Construct the HTTP request in CLI arguments or a shell script. A URL alone sends a basic request; headers, body, authentication, and assertions require additional configuration.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/httpie/cli/HEAD/README.md"
+      ]
     },
     {
       "id": "hurl",
@@ -1589,11 +1977,19 @@
         "https://hurl.dev/docs/license.html"
       ],
       "documentation": "https://hurl.dev/docs/manual.html",
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior."
+      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior.",
+      "startingPoints": [
+        "code-tests",
+        "curl"
+      ],
+      "setupNotes": "Write a Hurl text file with requests and assertions, or convert a cURL command using hurlfmt before running. Conversion is not automatic test discovery.",
+      "setupSources": [
+        "https://hurl.dev/blog/2023/05/05/announcing-hurl-3.0.0.html"
+      ]
     },
     {
       "id": "openapi-validator",
@@ -1619,7 +2015,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Supply an OpenAPI document and optional lint rules to the IBM validator. This checks a description rather than executing a live endpoint test.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/IBM/openapi-validator/HEAD/README.md"
+      ]
     },
     {
       "id": "insomnia",
@@ -1658,12 +2061,23 @@
         "https://insomnia.rest/",
         "https://insomnia.rest/pricing"
       ],
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "repository": "https://github.com/Kong/insomnia",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior."
+      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior.",
+      "startingPoints": [
+        "manual-request",
+        "curl",
+        "openapi",
+        "collection",
+        "har"
+      ],
+      "setupNotes": "Compose requests or import supported cURL, OpenAPI, collection, or HAR data. Tests and authentication may require additional setup.",
+      "setupSources": [
+        "https://developer.konghq.com/insomnia/import-export/"
+      ]
     },
     {
       "id": "inspectr",
@@ -1692,7 +2106,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite."
+      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite.",
+      "startingPoints": [
+        "traffic-recording",
+        "openapi"
+      ],
+      "setupNotes": "Capture real HTTP traffic through Inspectr to inspect/replay requests, or supply OpenAPI for mock behavior. A recording path must be configured for capture.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/inspectr-hq/inspectr/HEAD/README.md"
+      ]
     },
     {
       "id": "jest-openapi",
@@ -1718,7 +2140,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI description and an HTTP response produced by an existing JavaScript/Jest test.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/openapi-library/OpenAPIValidators/master/packages/jest-openapi/README.md"
+      ]
     },
     {
       "id": "jetbrains-tools-intellij-idea-pycharm-etc",
@@ -1744,7 +2174,17 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "manual-request",
+        "curl",
+        "openapi",
+        "code-tests"
+      ],
+      "setupNotes": "Write HTTP request files, paste/convert cURL, or generate requests from OpenAPI. Add response-handler assertions for repeatable verification.",
+      "setupSources": [
+        "https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html"
+      ]
     },
     {
       "id": "jsonschema-validator",
@@ -1770,7 +2210,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Load the OpenAPI description and supply request/response data through Perl code; document validation alone does not exercise a live endpoint.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/skbkontur/perl-jsonschema-validator/HEAD/README.md"
+      ]
     },
     {
       "id": "k6",
@@ -1804,13 +2252,20 @@
       "sources": [
         "https://grafana.com/docs/k6/latest/"
       ],
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "repository": "https://github.com/grafana/k6",
       "documentation": "https://grafana.com/docs/k6/latest/",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: scripted workloads and configured thresholds check REST API performance expectations."
+      "purposeNotes": "Verification / regression: scripted workloads and configured thresholds check REST API performance expectations.",
+      "startingPoints": [
+        "code-tests"
+      ],
+      "setupNotes": "Write a JavaScript workload with HTTP requests and any thresholds/checks. Supply target URLs and credentials through the script or configuration.",
+      "setupSources": [
+        "https://grafana.com/docs/k6/latest/using-k6/http-requests/"
+      ]
     },
     {
       "id": "kaizen-openapi-parser",
@@ -1835,7 +2290,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Supply an OpenAPI description to the Java parser for validation and reference resolution.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/RepreZen/KaiZen-OpenApi-Parser/HEAD/README.md"
+      ]
     },
     {
       "id": "kappa",
@@ -1860,7 +2322,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI description plus HTTP request/response objects through Java middleware or test integration.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/erosb/kappa/HEAD/README.md"
+      ]
     },
     {
       "id": "karate",
@@ -1898,12 +2368,19 @@
         "https://karatelabs.io/",
         "https://github.com/karatelabs/karate"
       ],
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "repository": "https://github.com/karatelabs/karate",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior."
+      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior.",
+      "startingPoints": [
+        "code-tests"
+      ],
+      "setupNotes": "Author Karate feature files with REST requests and assertions; configure target URLs, data, and authentication for the scenarios.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/karatelabs/karate/HEAD/README.md"
+      ]
     },
     {
       "id": "karate-ide",
@@ -1931,7 +2408,16 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior."
+      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior.",
+      "startingPoints": [
+        "code-tests",
+        "openapi",
+        "curl"
+      ],
+      "setupNotes": "Open Karate tests, generate test/mock scaffolding from OpenAPI, or import cURL into a Karate request. Generated scaffolding may need editing before execution.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/ivangsa/karate-ide/HEAD/README.md"
+      ]
     },
     {
       "id": "keploy",
@@ -1972,11 +2458,21 @@
         "https://github.com/keploy/keploy"
       ],
       "repository": "https://github.com/keploy/keploy",
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior."
+      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior.",
+      "startingPoints": [
+        "traffic-recording",
+        "openapi",
+        "curl",
+        "collection"
+      ],
+      "setupNotes": "Choose application traffic capture/replay, or the separate AI generation workflow from OpenAPI, cURL, or Postman collections. Capture requires application/environment integration; generation modes have separate prerequisites.",
+      "setupSources": [
+        "https://keploy.io/docs/"
+      ]
     },
     {
       "id": "kin-openapi",
@@ -2001,7 +2497,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Load an OpenAPI description in Go; request/response validation additionally requires the HTTP messages and routing context.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/getkin/kin-openapi/HEAD/README.md"
+      ]
     },
     {
       "id": "kreya",
@@ -2038,11 +2542,23 @@
         "https://kreya.app/",
         "https://kreya.app/pricing/"
       ],
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior."
+      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior.",
+      "startingPoints": [
+        "manual-request",
+        "curl",
+        "openapi",
+        "collection",
+        "har"
+      ],
+      "setupNotes": "Compose REST requests or import supported cURL, OpenAPI, collection, or HAR data. OpenAPI importers can keep operations in sync; file imports are snapshots. Tests need their own assertions.",
+      "setupSources": [
+        "https://kreya.app/docs/import-from-other-tools/",
+        "https://kreya.app/docs/importers/"
+      ]
     },
     {
       "id": "mayhem-for-api",
@@ -2070,7 +2586,15 @@
       "testingPurposes": [
         "discovery"
       ],
-      "purposeNotes": "Discovery: Run generated API fuzz inputs against REST endpoints and investigate security and reliability findings. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite."
+      "purposeNotes": "Discovery: Run generated API fuzz inputs against REST endpoints and investigate security and reliability findings. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite.",
+      "startingPoints": [
+        "openapi",
+        "collection"
+      ],
+      "setupNotes": "Provide an OpenAPI/Swagger description or supported Postman collection and a running REST target. Configure authentication and fuzzing options; private collection IDs may require a Postman API key.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/ForAllSecure/mapi-action/HEAD/README.md"
+      ]
     },
     {
       "id": "microcks",
@@ -2098,7 +2622,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "collection"
+      ],
+      "setupNotes": "Import OpenAPI with examples or supported Postman/SoapUI project assets to create REST mocks. Live conformance tests additionally require a deployed implementation and test configuration.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/microcks/microcks/HEAD/README.md"
+      ]
     },
     {
       "id": "microsoft-openapi-net",
@@ -2123,7 +2655,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Read an OpenAPI description using the .NET API; document validation does not require a live REST server.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/Microsoft/OpenAPI.NET/HEAD/README.md"
+      ]
     },
     {
       "id": "middlebrick",
@@ -2148,7 +2687,14 @@
       "testingPurposes": [
         "discovery"
       ],
-      "purposeNotes": "Discovery: Run automated REST endpoint security probes and review authentication, input-validation, and data-exposure findings. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite."
+      "purposeNotes": "Discovery: Run automated REST endpoint security probes and review authentication, input-validation, and data-exposure findings. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite.",
+      "startingPoints": [
+        "endpoint-url"
+      ],
+      "setupNotes": "Point the scanner at a REST endpoint URL; authenticated scans and local-agent operation require their own configuration.",
+      "setupSources": [
+        "https://middlebrick.com"
+      ]
     },
     {
       "id": "mockintosh",
@@ -2172,7 +2718,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression support: supplies controlled HTTP responses, test data, or recorded interactions for repeatable integration checks. This is supporting infrastructure, not a standalone test runner."
+      "purposeNotes": "Verification / regression support: supplies controlled HTTP responses, test data, or recorded interactions for repeatable integration checks. This is supporting infrastructure, not a standalone test runner.",
+      "startingPoints": [
+        "openapi",
+        "code-tests"
+      ],
+      "setupNotes": "Provide an OpenAPI description for conversion or author a mock configuration. Starting a mock server does not execute tests against a real backend.",
+      "setupSources": [
+        "https://mockintosh.io"
+      ]
     },
     {
       "id": "mockzilla",
@@ -2199,7 +2753,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide OpenAPI descriptions to the mock server; configure the optional real-backend proxy separately.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/mockzilla/mockzilla/HEAD/README.md"
+      ]
     },
     {
       "id": "mokapi",
@@ -2224,7 +2785,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression support: supplies controlled HTTP responses, test data, or recorded interactions for repeatable integration checks. This is supporting infrastructure, not a standalone test runner."
+      "purposeNotes": "Verification / regression support: supplies controlled HTTP responses, test data, or recorded interactions for repeatable integration checks. This is supporting infrastructure, not a standalone test runner.",
+      "startingPoints": [
+        "openapi",
+        "code-tests"
+      ],
+      "setupNotes": "Supply an OpenAPI description and optional JavaScript behavior to configure the REST simulation.",
+      "setupSources": [
+        "https://mokapi.io/docs/"
+      ]
     },
     {
       "id": "oa-client",
@@ -2250,7 +2819,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI schema to the JavaScript client, then supply operation arguments, server details, and authentication for actual calls.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/ninofiliu/oa-client/HEAD/README.md"
+      ]
     },
     {
       "id": "oas-tools",
@@ -2275,7 +2851,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI description plus requests/responses flowing through the configured Express application.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/isa-group/oas-tools/HEAD/README.md"
+      ]
     },
     {
       "id": "oas-normalize",
@@ -2300,7 +2884,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Load an OpenAPI/Swagger description from a file, object, or URL for normalization and validation.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/readmeio/oas/HEAD/README.md"
+      ]
     },
     {
       "id": "oasdiff",
@@ -2327,7 +2918,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Supply baseline and candidate OpenAPI descriptions to compare compatibility, or a single description for validation.",
+      "setupSources": [
+        "https://github.com/oasdiff/oasdiff"
+      ]
     },
     {
       "id": "oasforge",
@@ -2354,7 +2952,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "collection"
+      ],
+      "setupNotes": "Load/edit an OpenAPI description in the browser; supported Postman collection import converts existing requests. Mocking uses the resulting contract.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/dikeckaan/swagger-dark-ui/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-breaking-change-checker",
@@ -2378,7 +2984,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide baseline and candidate OpenAPI descriptions in the browser for compatibility comparison.",
+      "setupSources": [
+        "https://martingruner.com/tools/openapi-breaking-change-checker"
+      ]
     },
     {
       "id": "openapi-dev-tool",
@@ -2405,7 +3018,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Supply OpenAPI files and configuration to validate descriptions/examples and serve interactive reference views.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/lyra/openapi-dev-tool/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-enforcer",
@@ -2431,7 +3051,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Load an OpenAPI contract. Request/response validation additionally requires the corresponding HTTP data supplied by the application.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/byu-oit/openapi-enforcer/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-enforcer-middleware",
@@ -2457,7 +3085,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI contract and an Express application with incoming/outgoing HTTP interactions; mock behavior is configured separately.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/byu-oit/openapi-enforcer-middleware/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-explorer",
@@ -2483,7 +3119,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite."
+      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Load an OpenAPI description to populate the API console, then provide operation inputs and authentication before sending requests.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/Authress-Engineering/openapi-explorer/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-httpfoundation-testing",
@@ -2509,7 +3152,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI contract and HttpFoundation request/response objects from a PHP test or application.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/osteel/openapi-httpfoundation-testing/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-mocker",
@@ -2535,7 +3186,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Supply an OpenAPI document and mock-server configuration; generated responses simulate a backend rather than test one.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/jormaechea/open-api-mocker/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-psr7-validator",
@@ -2560,7 +3218,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI document and PSR-7 request/response objects supplied through PHP code or middleware.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/thephpleague/openapi-psr7-validator/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-spring-webflux-validator",
@@ -2585,7 +3251,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires a Swagger/OpenAPI description and Spring WebFlux request/response interactions in the configured application.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/cdimascio/openapi-spring-webflux-validator/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-style-validator",
@@ -2611,7 +3285,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Supply an OpenAPI description and optional style configuration to check description conventions.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/OpenAPITools/openapi-style-validator/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-to-postman",
@@ -2637,7 +3318,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite."
+      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide a Swagger/OpenAPI description to create a Postman collection. Running the resulting collection requires Postman/Newman and test configuration.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/postmanlabs/openapi-to-postman/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-validator-bundle",
@@ -2662,7 +3350,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI contract and Symfony request/response interactions, with the bundle configured in the PHP application.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/cydrickn/openapi-validator-bundle/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-validator-junit",
@@ -2688,7 +3384,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "code-tests"
+      ],
+      "setupNotes": "Requires an OpenAPI description plus a Kotlin ruleset and JUnit/Gradle test configuration defining what should be checked.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/stefankoppier/openapi-validator/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-backend",
@@ -2714,7 +3418,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Load an OpenAPI contract and supply HTTP request data through the JavaScript integration; mock responses and live handlers are configured separately.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/anttiviljami/openapi-backend/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-changes",
@@ -2739,7 +3451,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Supply two OpenAPI descriptions or a Git history containing the description files to inspect changes.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/pb33f/openapi-changes/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-comparator",
@@ -2765,7 +3484,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Requires baseline and candidate OpenAPI descriptions, supplied through the C# library or CLI.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/criteo/openapi-comparator/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-core",
@@ -2790,7 +3516,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI contract and request/response objects supplied through the Python API or a framework integration.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/p1c2u/openapi-core/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-data-mocker",
@@ -2815,7 +3549,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression support: supplies controlled HTTP responses, test data, or recorded interactions for repeatable integration checks. This is supporting infrastructure, not a standalone test runner."
+      "purposeNotes": "Verification / regression support: supplies controlled HTTP responses, test data, or recorded interactions for repeatable integration checks. This is supporting infrastructure, not a standalone test runner.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Supply OpenAPI schema/type definitions through PHP code to generate mock values. This is test-data generation, not live API execution.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/ybelenko/openapi-data-mocker/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-data-validator",
@@ -2841,7 +3582,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Provide an OpenAPI schema plus request data to validate through the JavaScript API.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/Rhosys/openapi-data-validator.js/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-diff",
@@ -2867,7 +3616,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Supply baseline and candidate OpenAPI descriptions to compare REST API compatibility.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/quen2404/openapi-diff/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-examples-validator",
@@ -2893,7 +3649,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Supply an OpenAPI description containing examples and schemas; checks the examples without contacting the backend.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/codekie/openapi-examples-validator/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-fuzzer",
@@ -2918,7 +3681,14 @@
       "testingPurposes": [
         "discovery"
       ],
-      "purposeNotes": "Discovery: Generate random REST inputs from OpenAPI, execute requests, and investigate failures from the fuzzing session. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite."
+      "purposeNotes": "Discovery: Generate random REST inputs from OpenAPI, execute requests, and investigate failures from the fuzzing session. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI description and a reachable REST target, with any authentication required for generated requests.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/matusf/openapi-fuzzer/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-processor-openapi-parser",
@@ -2943,7 +3713,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Supply an OpenAPI description to the Java parser/validator; a live API target is not required for document checks.",
+      "setupSources": [
+        "https://github.com/openapi-processor/openapi-parser"
+      ]
     },
     {
       "id": "openapi-request-response-validation",
@@ -2968,7 +3745,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI description and request/response data submitted to the validator integration/service.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/gcatanese/openapi-request-response-validation/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-schema-validator",
@@ -2993,7 +3778,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI description to validate its structure against the specification schema.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/seriousme/openapi-schema-validator/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-spec-validator",
@@ -3019,7 +3811,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Supply a Swagger/OpenAPI document from a file or URL to the Python API or CLI for document validation.",
+      "setupSources": [
+        "https://github.com/python-openapi/openapi-spec-validator"
+      ]
     },
     {
       "id": "openapi-to-hurl",
@@ -3044,7 +3843,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior."
+      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI description to generate Hurl request files. Configure variables/authentication and use Hurl to run the resulting requests.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/ethancarlsson/openapi-to-hurl/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-validator-middleware",
@@ -3069,7 +3875,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI description and HTTP interactions inside an Express, Koa, or Fastify application configured with the middleware.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/PayU/openapi-validator-middleware/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-viewer",
@@ -3095,7 +3909,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite."
+      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Load an OpenAPI description to browse operations, then provide request inputs and authentication before using the REST console.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/koumoul-dev/openapi-viewer/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-tanna-dev-go-validator",
@@ -3121,7 +3942,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI description and HTTP requests/responses in Go tests; this is a test helper, not a standalone request generator.",
+      "setupSources": [
+        "https://gitlab.com/jamietanna/httptest-openapi/-/tree/feature/libopenapi"
+      ]
     },
     {
       "id": "openapi3",
@@ -3147,7 +3976,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI description to the Python client/validator, then supply operation parameters and authentication for actual requests.",
+      "setupSources": [
+        "https://github.com/Dorthu/openapi3"
+      ]
     },
     {
       "id": "openapi3-fuzzer",
@@ -3174,7 +4010,14 @@
       "testingPurposes": [
         "discovery"
       ],
-      "purposeNotes": "Discovery: Send generated attack patterns to OpenAPI-described REST endpoints and investigate response failures. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite."
+      "purposeNotes": "Discovery: Send generated attack patterns to OpenAPI-described REST endpoints and investigate response failures. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI description and live REST target to send generated payloads/attack patterns; target authentication may require configuration.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/vwt-digital/openapi3-fuzzer/master/README.md"
+      ]
     },
     {
       "id": "openapi3-parser",
@@ -3199,7 +4042,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Supply an OpenAPI description from a file, URL, or data object for Ruby document parsing and validation.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/kevindew/openapi3_parser/HEAD/README.md"
+      ]
     },
     {
       "id": "openapi-modern",
@@ -3225,7 +4075,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Provide an OpenAPI description to the Perl validator; validating an interaction additionally requires HTTP request/response data.",
+      "setupSources": [
+        "https://github.com/karenetheridge/OpenAPI-Modern"
+      ]
     },
     {
       "id": "openapi-first",
@@ -3250,7 +4108,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI contract and Rack HTTP interactions or messages supplied through the Ruby API.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/ahx/openapi_first/HEAD/README.md"
+      ]
     },
     {
       "id": "openapikit",
@@ -3275,7 +4141,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Supply an OpenAPI description to Swift decoding/validation APIs; this validates the contract rather than sending REST requests.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/mattpolzin/openapikit/HEAD/README.md"
+      ]
     },
     {
       "id": "orval",
@@ -3301,7 +4174,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression support: supplies controlled HTTP responses, test data, or recorded interactions for repeatable integration checks. This is supporting infrastructure, not a standalone test runner."
+      "purposeNotes": "Verification / regression support: supplies controlled HTTP responses, test data, or recorded interactions for repeatable integration checks. This is supporting infrastructure, not a standalone test runner.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI description and generator configuration to produce client code and mock handlers; executing tests requires a separate test environment.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/anymaniax/orval/HEAD/README.md"
+      ]
     },
     {
       "id": "pact",
@@ -3335,12 +4215,20 @@
       "sources": [
         "https://docs.pact.io/"
       ],
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "repository": "https://github.com/pact-foundation",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "code-tests",
+        "http-message"
+      ],
+      "setupNotes": "Define consumer interactions and assertions in code. Provider verification additionally requires a generated Pact contract and a running provider; Pact contracts are not OpenAPI files.",
+      "setupSources": [
+        "https://docs.pact.io/getting_started/how_pact_works"
+      ]
     },
     {
       "id": "pactumjs",
@@ -3378,11 +4266,18 @@
       ],
       "repository": "https://github.com/pactumjs/pactum",
       "documentation": "https://pactumjs.github.io/",
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "code-tests"
+      ],
+      "setupNotes": "Author JavaScript test steps with HTTP requests, data, and assertions, then run them against the REST target.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/pactumjs/pactum/HEAD/README.md"
+      ]
     },
     {
       "id": "parasoft-soatest",
@@ -3431,7 +4326,16 @@
         "discovery",
         "verification"
       ],
-      "purposeNotes": "Discovery: Apply penetration-testing rules to REST client traffic to generate security variations; licensed security components may be required. Verification / regression: Saved requests, scripted assertions, or configured scenarios support repeatable verification and regression checks."
+      "purposeNotes": "Discovery: Apply penetration-testing rules to REST client traffic to generate security variations; licensed security components may be required. Verification / regression: Saved requests, scripted assertions, or configured scenarios support repeatable verification and regression checks.",
+      "startingPoints": [
+        "manual-request",
+        "openapi",
+        "traffic-recording"
+      ],
+      "setupNotes": "Create REST client tests, import OpenAPI, or generate tests from recorded traffic. Recording, security testing, and other capabilities depend on licensed components.",
+      "setupSources": [
+        "https://www.parasoft.com/products/parasoft-soatest/"
+      ]
     },
     {
       "id": "php-openapi-faker",
@@ -3456,7 +4360,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression support: supplies controlled HTTP responses, test data, or recorded interactions for repeatable integration checks. This is supporting infrastructure, not a standalone test runner."
+      "purposeNotes": "Verification / regression support: supplies controlled HTTP responses, test data, or recorded interactions for repeatable integration checks. This is supporting infrastructure, not a standalone test runner.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide OpenAPI request/response/schema definitions through PHP code to generate test data; this does not execute REST calls.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/canvural/php-openapi-faker/HEAD/README.md"
+      ]
     },
     {
       "id": "pororoca",
@@ -3496,11 +4407,21 @@
       ],
       "repository": "https://github.com/alexandrehtrb/Pororoca",
       "documentation": "https://pororoca.io/docs/",
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior."
+      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior.",
+      "startingPoints": [
+        "manual-request",
+        "curl",
+        "openapi",
+        "collection"
+      ],
+      "setupNotes": "Compose requests or import supported cURL, OpenAPI, and collection formats; automation requires assertions and execution configuration.",
+      "setupSources": [
+        "https://pororoca.io/docs/export-and-import"
+      ]
     },
     {
       "id": "portman",
@@ -3542,7 +4463,14 @@
         "discovery",
         "verification"
       ],
-      "purposeNotes": "Discovery: Generate variation or fuzz requests from OpenAPI and execute through Newman; collection conversion alone does not qualify. Verification / regression: Generated Postman collections contain defined contract assertions and run repeatedly through Newman."
+      "purposeNotes": "Discovery: Generate variation or fuzz requests from OpenAPI and execute through Newman; collection conversion alone does not qualify. Verification / regression: Generated Postman collections contain defined contract assertions and run repeatedly through Newman.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Start from an OpenAPI description and optional Portman configuration. Generated Postman collections run through Newman; the output format is not an input prerequisite.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/apideck-libraries/portman/HEAD/README.md"
+      ]
     },
     {
       "id": "posting",
@@ -3576,11 +4504,21 @@
         "https://github.com/darrenburns/posting"
       ],
       "repository": "https://github.com/darrenburns/posting",
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite."
+      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite.",
+      "startingPoints": [
+        "manual-request",
+        "curl",
+        "openapi",
+        "collection"
+      ],
+      "setupNotes": "Compose a request or import supported cURL, OpenAPI, and request collections into local files. Imported operations may still need environment values and authentication.",
+      "setupSources": [
+        "https://posting.sh/guide/importing/"
+      ]
     },
     {
       "id": "postman",
@@ -3627,7 +4565,19 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: saved collections, scripted assertions, collection runners, and monitors check defined REST API expectations. Classified here by this repeatable verification workflow."
+      "purposeNotes": "Verification / regression: saved collections, scripted assertions, collection runners, and monitors check defined REST API expectations. Classified here by this repeatable verification workflow.",
+      "startingPoints": [
+        "manual-request",
+        "curl",
+        "openapi",
+        "collection",
+        "har",
+        "traffic-recording"
+      ],
+      "setupNotes": "Compose requests, import supported cURL/OpenAPI/collections/HAR, or capture HTTP traffic using the configured capture tools. Add assertions for verification.",
+      "setupSources": [
+        "https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/"
+      ]
     },
     {
       "id": "prism",
@@ -3654,7 +4604,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Provide an OpenAPI description for mocks. Validation-proxy mode additionally needs a real upstream service and HTTP traffic routed through the proxy.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/stoplightio/prism/HEAD/README.md"
+      ]
     },
     {
       "id": "rapidoc",
@@ -3681,7 +4639,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite."
+      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Load an OpenAPI description to build the reference and Try console, then provide operation data and authentication for live requests.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/mrin9/RapiDoc/HEAD/README.md"
+      ]
     },
     {
       "id": "rate-my-openapi",
@@ -3709,7 +4674,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI description or its URL for static quality/security review; this does not generate live REST traffic.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/zuplo/rate-my-openapi/HEAD/README.md"
+      ]
     },
     {
       "id": "readyapi",
@@ -3757,7 +4729,17 @@
         "discovery",
         "verification"
       ],
-      "purposeNotes": "Discovery: Use generated security scans, including fuzzing and invalid inputs, to investigate REST endpoint behavior. Verification / regression: Saved requests, scripted assertions, or configured scenarios support repeatable verification and regression checks."
+      "purposeNotes": "Discovery: Use generated security scans, including fuzzing and invalid inputs, to investigate REST endpoint behavior. Verification / regression: Saved requests, scripted assertions, or configured scenarios support repeatable verification and regression checks.",
+      "startingPoints": [
+        "manual-request",
+        "openapi",
+        "collection",
+        "traffic-recording"
+      ],
+      "setupNotes": "Create REST request tests, import API descriptions, import Postman collections through the SmartBear plugin, or use HTTP recording. Component/plugin versions, licensing, and authentication apply.",
+      "setupSources": [
+        "https://github.com/SmartBear/readyapi-postman-plugin"
+      ]
     },
     {
       "id": "redocly-cli",
@@ -3782,7 +4764,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide OpenAPI description files plus any rules/configuration for validation and linting.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/Redocly/redocly-cli/HEAD/README.md"
+      ]
     },
     {
       "id": "redocly-vscode-extension",
@@ -3808,7 +4797,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Open an OpenAPI description in VS Code; the extension checks contracts and references while editing.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/Redocly/redocly-vs-code/HEAD/README.md"
+      ]
     },
     {
       "id": "rentgen",
@@ -3854,7 +4850,16 @@
         "discovery",
         "verification"
       ],
-      "purposeNotes": "Discovery: Expand a working cURL into negative, boundary, and protocol probes, execute them, and investigate discovered REST API issues. Verification / regression: Saved request collections provide repeatable verification alongside generated discovery tests."
+      "purposeNotes": "Discovery: Expand a working cURL into negative, boundary, and protocol probes, execute them, and investigate discovered REST API issues. Verification / regression: Saved request collections provide repeatable verification alongside generated discovery tests.",
+      "startingPoints": [
+        "curl",
+        "manual-request",
+        "openapi"
+      ],
+      "setupNotes": "Start from a working cURL, enter a REST request manually, or import OpenAPI. OpenAPI is optional. Rentgen does not record live traffic.",
+      "setupSources": [
+        "https://rentgen.io/"
+      ]
     },
     {
       "id": "rest-assured",
@@ -3888,12 +4893,19 @@
         "https://rest-assured.io/",
         "https://github.com/rest-assured/rest-assured"
       ],
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "repository": "https://github.com/rest-assured/rest-assured",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior."
+      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior.",
+      "startingPoints": [
+        "code-tests"
+      ],
+      "setupNotes": "Author Java tests specifying REST requests and assertions. Configure the target and authentication in code or shared test settings.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/rest-assured/rest-assured/HEAD/README.md"
+      ]
     },
     {
       "id": "restest",
@@ -3920,7 +4932,14 @@
       "testingPurposes": [
         "discovery"
       ],
-      "purposeNotes": "Discovery: Generate and execute REST request variations and sequences from an OpenAPI description and inspect fault reports. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite."
+      "purposeNotes": "Discovery: Generate and execute REST request variations and sequences from an OpenAPI description and inspect fault reports. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI description and configuration for the running REST target to generate and execute exploration tests.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/isa-group/RESTest/HEAD/README.md"
+      ]
     },
     {
       "id": "restish",
@@ -3945,7 +4964,16 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite."
+      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite.",
+      "startingPoints": [
+        "manual-request",
+        "openapi",
+        "endpoint-url"
+      ],
+      "setupNotes": "Use HTTP method/URL CLI arguments or discover/import an API description through the REST client. Operation inputs and authentication are still required where applicable.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/danielgtaylor/restish/HEAD/README.md"
+      ]
     },
     {
       "id": "restler",
@@ -3984,7 +5012,14 @@
       "testingPurposes": [
         "discovery"
       ],
-      "purposeNotes": "Discovery: Explore generated stateful REST request sequences to uncover security and reliability failures. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite."
+      "purposeNotes": "Discovery: Explore generated stateful REST request sequences to uncover security and reliability failures. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Requires an OpenAPI specification, compiler/engine configuration, and reachable target. Authentication and dependency settings may need configuration.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/microsoft/restler/HEAD/README.md"
+      ]
     },
     {
       "id": "routebase",
@@ -4010,7 +5045,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Start from an OpenAPI contract in the platform; live contract/drift checks additionally require target and environment configuration.",
+      "setupSources": [
+        "https://routebase.dev/"
+      ]
     },
     {
       "id": "rswag",
@@ -4036,7 +5078,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "code-tests"
+      ],
+      "setupNotes": "Author Rails/RSpec request specs with the Rswag DSL; those tests describe requests and expected responses and can generate OpenAPI output.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/rswag/rswag/HEAD/README.md"
+      ]
     },
     {
       "id": "scalar",
@@ -4063,7 +5112,17 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite."
+      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite.",
+      "startingPoints": [
+        "manual-request",
+        "curl",
+        "openapi",
+        "collection"
+      ],
+      "setupNotes": "Use the API client to compose/import requests or load OpenAPI for the reference console. Authentication and environment values may still need setup.",
+      "setupSources": [
+        "https://scalar.com/products/api-client"
+      ]
     },
     {
       "id": "schemathesis",
@@ -4105,7 +5164,14 @@
       "testingPurposes": [
         "discovery"
       ],
-      "purposeNotes": "Discovery: Generate and execute property-based REST requests from OpenAPI and investigate minimized failure examples. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite."
+      "purposeNotes": "Discovery: Generate and execute property-based REST requests from OpenAPI and investigate minimized failure examples. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "REST testing requires an OpenAPI schema, supplied as a file, URL, or application integration, plus a running/loaded API and any required authentication.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/schemathesis/schemathesis/HEAD/README.md"
+      ]
     },
     {
       "id": "schemawatch",
@@ -4131,7 +5197,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Requires baseline and candidate OpenAPI description files to detect breaking changes; a running REST target is not needed.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/CemCelik79/schemawatch/HEAD/README.md"
+      ]
     },
     {
       "id": "soapui",
@@ -4179,7 +5252,16 @@
         "discovery",
         "verification"
       ],
-      "purposeNotes": "Discovery: Use the Fuzzing Security Scan to mutate REST request parameters and investigate unexpected responses; ordinary replay alone does not qualify. Verification / regression: Saved requests, scripted assertions, or configured scenarios support repeatable verification and regression checks."
+      "purposeNotes": "Discovery: Use the Fuzzing Security Scan to mutate REST request parameters and investigate unexpected responses; ordinary replay alone does not qualify. Verification / regression: Saved requests, scripted assertions, or configured scenarios support repeatable verification and regression checks.",
+      "startingPoints": [
+        "manual-request",
+        "openapi",
+        "traffic-recording"
+      ],
+      "setupNotes": "Create REST request steps, import supported API descriptions, or capture HTTP requests through the recorder. Add assertions and configure security scans separately.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/SmartBear/soapui/HEAD/README.md"
+      ]
     },
     {
       "id": "speakeasy-openapi",
@@ -4205,7 +5287,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Supply OpenAPI description documents to the Go library or CLI for validation and document processing.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/speakeasy-api/openapi/HEAD/README.md"
+      ]
     },
     {
       "id": "specmatic",
@@ -4234,7 +5323,14 @@
         "discovery",
         "verification"
       ],
-      "purposeNotes": "Discovery: Enable generative contract testing to exercise REST endpoints with generated positive and negative input combinations. Verification / regression: Contract tests verify specified request/response behavior; generative mode also explores positive and negative combinations."
+      "purposeNotes": "Discovery: Enable generative contract testing to exercise REST endpoints with generated positive and negative input combinations. Verification / regression: Contract tests verify specified request/response behavior; generative mode also explores positive and negative combinations.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI contract for REST contract testing/mocking. Testing additionally requires a reachable implementation; generative mode and authentication are configured separately.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/znsio/specmatic/HEAD/README.md"
+      ]
     },
     {
       "id": "specshield",
@@ -4260,7 +5356,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "har"
+      ],
+      "setupNotes": "Provide OpenAPI descriptions/consumer contracts for compatibility checks, or import an externally recorded HAR to derive a consumer contract. HAR import does not itself record traffic.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/specshield-io/specshield-cli/HEAD/README.md"
+      ]
     },
     {
       "id": "spectator",
@@ -4286,7 +5390,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "http-message"
+      ],
+      "setupNotes": "Requires an OpenAPI description and request/response interactions inside a Laravel test suite.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/hotmeteor/spectator/HEAD/README.md"
+      ]
     },
     {
       "id": "spectral",
@@ -4314,7 +5426,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Supply an OpenAPI description and a built-in/custom ruleset. The linter checks JSON/YAML documents rather than sending REST requests.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/stoplightio/spectral/HEAD/README.md"
+      ]
     },
     {
       "id": "stackhawk-hawkscan",
@@ -4339,7 +5458,16 @@
       "testingPurposes": [
         "discovery"
       ],
-      "purposeNotes": "Discovery: Run active API security scans against OpenAPI-discovered REST endpoints and investigate generated vulnerability probes. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite."
+      "purposeNotes": "Discovery: Run active API security scans against OpenAPI-discovered REST endpoints and investigate generated vulnerability probes. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite.",
+      "startingPoints": [
+        "openapi",
+        "har",
+        "endpoint-url"
+      ],
+      "setupNotes": "Configure the application URL and a REST endpoint-discovery source such as OpenAPI or HAR. API paths, authentication, and scan scope need configuration; a bare URL may not discover all API operations.",
+      "setupSources": [
+        "https://docs.stackhawk.com/hawkscan/configuration/"
+      ]
     },
     {
       "id": "step-ci",
@@ -4367,7 +5495,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "code-tests",
+        "openapi"
+      ],
+      "setupNotes": "Write a YAML/JSON test workflow or generate a starting workflow from OpenAPI. Configure checks, input values, and credentials before execution.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/stepci/stepci/HEAD/README.md"
+      ]
     },
     {
       "id": "elements",
@@ -4393,7 +5529,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite."
+      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Load an OpenAPI description into the reference component, then provide request parameters and authentication to use Try It.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/stoplightio/elements/HEAD/README.md"
+      ]
     },
     {
       "id": "stoplight-studio",
@@ -4418,7 +5561,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Create or import an OpenAPI description for validation and mocks. This is not an HTTP traffic recorder.",
+      "setupSources": [
+        "https://stoplight.io/solutions"
+      ]
     },
     {
       "id": "super-linter",
@@ -4443,7 +5593,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "code-tests"
+      ],
+      "setupNotes": "Provide OpenAPI files in a repository and configure the linting workflow/rules; this validates descriptions rather than running API endpoints.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/super-linter/super-linter/HEAD/README.md"
+      ]
     },
     {
       "id": "swagger-editor",
@@ -4469,7 +5627,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Create or load a Swagger/OpenAPI description. Interactive requests additionally need operation inputs, authentication, and a reachable server.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/swagger-api/swagger-editor/HEAD/README.md"
+      ]
     },
     {
       "id": "swagger-parser",
@@ -4494,7 +5659,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI description to the Java parser for parsing, reference resolution, and validation.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/swagger-api/swagger-parser/HEAD/README.md"
+      ]
     },
     {
       "id": "swagger-ui",
@@ -4530,13 +5702,20 @@
         "https://github.com/swagger-api/swagger-ui",
         "https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/"
       ],
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "repository": "https://github.com/swagger-api/swagger-ui",
       "documentation": "https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite."
+      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI description to populate the REST explorer; supply operation values and authentication before trying live calls.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/swagger-api/swagger-ui/HEAD/README.md"
+      ]
     },
     {
       "id": "swagger-coverage-cli",
@@ -4562,7 +5741,15 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "collection"
+      ],
+      "setupNotes": "Requires an OpenAPI description plus Postman collection data or a Newman execution report to calculate coverage; a specification alone is insufficient.",
+      "setupSources": [
+        "https://github.com/dreamquality/swagger-coverage-cli"
+      ]
     },
     {
       "id": "swaggerhub",
@@ -4588,7 +5775,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Create or import an OpenAPI description for contract validation, governance, and mocks; execution capabilities depend on the selected platform component.",
+      "setupSources": [
+        "https://swagger.io/product/"
+      ]
     },
     {
       "id": "tavern",
@@ -4625,11 +5819,18 @@
       ],
       "repository": "https://github.com/taverntesting/tavern",
       "documentation": "https://tavern.readthedocs.io/en/stable/",
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior."
+      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior.",
+      "startingPoints": [
+        "code-tests"
+      ],
+      "setupNotes": "Write YAML REST test stages and assertions for pytest, with target URLs, input data, and authentication configured as needed.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/taverntesting/tavern/HEAD/README.md"
+      ]
     },
     {
       "id": "tcases-for-openapi",
@@ -4657,7 +5858,14 @@
         "discovery",
         "verification"
       ],
-      "purposeNotes": "Discovery: Generate input combinations and execute generated REST tests against a live API to investigate schema and implementation edge cases. Verification / regression: Generated executable test cases can be retained with defined expectations for repeated verification."
+      "purposeNotes": "Discovery: Generate input combinations and execute generated REST tests against a live API to investigate schema and implementation edge cases. Verification / regression: Generated executable test cases can be retained with defined expectations for repeated verification.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI description to generate input combinations and tests. Running the generated tests requires a target API and execution configuration.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/Cornutum/tcases/master/tcases-openapi/README.md"
+      ]
     },
     {
       "id": "thunder-client",
@@ -4693,11 +5901,21 @@
         "https://www.thunderclient.com/",
         "https://www.thunderclient.com/pricing"
       ],
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior."
+      "purposeNotes": "Verification / regression: authored scenarios, saved requests, assertions, or recorded baselines check defined REST API behavior.",
+      "startingPoints": [
+        "manual-request",
+        "curl",
+        "openapi",
+        "collection"
+      ],
+      "setupNotes": "Compose requests or import supported cURL, OpenAPI, and collection formats. CLI and other capabilities depend on the edition.",
+      "setupSources": [
+        "https://docs.thunderclient.com/features/import"
+      ]
     },
     {
       "id": "treblle",
@@ -4718,7 +5936,14 @@
         "https://docs.treblle.com/"
       ],
       "lastVerified": "2026-10-31",
-      "purposeNotes": "Passive REST API telemetry and analytics help investigate traffic, but the listed capabilities do not establish an active discovery test or a defined regression check."
+      "purposeNotes": "Passive REST API telemetry and analytics help investigate traffic, but the listed capabilities do not establish an active discovery test or a defined regression check.",
+      "startingPoints": [
+        "traffic-recording"
+      ],
+      "setupNotes": "Integrate a Treblle SDK/middleware in the application to capture request/response telemetry. Sending a cURL without that integration is not traffic capture.",
+      "setupSources": [
+        "https://docs.treblle.com/"
+      ]
     },
     {
       "id": "vacuum",
@@ -4745,7 +5970,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI description and optional ruleset/configuration for static validation and linting.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/daveshanley/vacuum/HEAD/README.md"
+      ]
     },
     {
       "id": "vacuum-owasp",
@@ -4772,7 +6004,14 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI description and enable the vacuum OWASP ruleset. This reviews the contract without recording or executing REST traffic.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/daveshanley/vacuum/HEAD/README.md"
+      ]
     },
     {
       "id": "vrest-ng",
@@ -4800,7 +6039,16 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "manual-request",
+        "openapi",
+        "collection"
+      ],
+      "setupNotes": "Create REST test cases or import Swagger/OpenAPI and supported Postman collections. The CLI runs configured tests; schema and generation features can depend on edition.",
+      "setupSources": [
+        "https://vrest.io/docs/app/"
+      ]
     },
     {
       "id": "wiremock",
@@ -4841,12 +6089,20 @@
         "https://wiremock.org/",
         "https://wiremock.org/docs/"
       ],
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "repository": "https://github.com/wiremock/wiremock",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression support: supplies controlled HTTP responses, test data, or recorded interactions for repeatable integration checks. This is supporting infrastructure, not a standalone test runner."
+      "purposeNotes": "Verification / regression support: supplies controlled HTTP responses, test data, or recorded interactions for repeatable integration checks. This is supporting infrastructure, not a standalone test runner.",
+      "startingPoints": [
+        "code-tests",
+        "traffic-recording"
+      ],
+      "setupNotes": "Define HTTP stub mappings in JSON/code or record interactions through the configured proxy. Recording needs a real upstream service; mock playback is a separate step.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/wiremock/wiremock/HEAD/README.md"
+      ]
     },
     {
       "id": "wiremock-cloud",
@@ -4871,7 +6127,16 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression support: supplies controlled HTTP responses, test data, or recorded interactions for repeatable integration checks. This is supporting infrastructure, not a standalone test runner."
+      "purposeNotes": "Verification / regression support: supplies controlled HTTP responses, test data, or recorded interactions for repeatable integration checks. This is supporting infrastructure, not a standalone test runner.",
+      "startingPoints": [
+        "manual-request",
+        "openapi",
+        "traffic-recording"
+      ],
+      "setupNotes": "Create mock request/response mappings, import OpenAPI, or record a real upstream service with the platform's recorder. This prepares mocks rather than testing a target automatically.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/wiremock/wiremock/HEAD/README.md"
+      ]
     },
     {
       "id": "wiretap",
@@ -4900,7 +6165,16 @@
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests."
+      "purposeNotes": "Verification / regression: checks defined OpenAPI contracts, schemas, examples, compatibility rules, or request/response expectations. Static validators check description files rather than executing live API tests.",
+      "startingPoints": [
+        "openapi",
+        "har",
+        "traffic-recording"
+      ],
+      "setupNotes": "Supply OpenAPI for validation/mocks, route real HTTP traffic through the proxy, or replay a HAR. Live capture and HAR replay are separate entry paths.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/pb33f/wiretap/HEAD/README.md"
+      ]
     },
     {
       "id": "wuppiefuzz",
@@ -4926,7 +6200,14 @@
       "testingPurposes": [
         "discovery"
       ],
-      "purposeNotes": "Discovery: Use coverage-guided REST request generation and mutation to discover failures in the target implementation. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite."
+      "purposeNotes": "Discovery: Use coverage-guided REST request generation and mutation to discover failures in the target implementation. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite.",
+      "startingPoints": [
+        "openapi"
+      ],
+      "setupNotes": "Provide an OpenAPI description, target, and configuration for stateful fuzzing. Coverage-guided instrumentation depends on the chosen testing mode.",
+      "setupSources": [
+        "https://raw.githubusercontent.com/TNO-S3/WuppieFuzz/HEAD/README.md"
+      ]
     },
     {
       "id": "yaak",
@@ -4961,11 +6242,21 @@
         "https://yaak.app/",
         "https://yaak.app/pricing"
       ],
-      "lastVerified": "2026-10-27",
+      "lastVerified": "2026-10-31",
       "testingPurposes": [
         "verification"
       ],
-      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite."
+      "purposeNotes": "Verification support: sends defined REST requests for inspection or reuse. Manual request composition and OpenAPI import do not constitute automated discovery or a regression test suite.",
+      "startingPoints": [
+        "manual-request",
+        "curl",
+        "openapi",
+        "collection"
+      ],
+      "setupNotes": "Compose REST requests or import supported cURL, OpenAPI, and request collections. Configure environment values and authentication for live calls.",
+      "setupSources": [
+        "https://github.com/mountain-loop/yaak"
+      ]
     },
     {
       "id": "zap",
@@ -5006,7 +6297,16 @@
       "testingPurposes": [
         "discovery"
       ],
-      "purposeNotes": "Discovery: Import REST API definitions and run active security probes; passive inspection alone does not qualify. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite."
+      "purposeNotes": "Discovery: Import REST API definitions and run active security probes; passive inspection alone does not qualify. This classification covers the exploration engine; rerunning it in CI alone does not establish a maintained regression suite.",
+      "startingPoints": [
+        "openapi",
+        "traffic-recording",
+        "endpoint-url"
+      ],
+      "setupNotes": "Import OpenAPI or discover endpoints by proxying existing HTTP/API tests through ZAP. A target URL starts scanning, but API endpoint discovery and authentication still need configuration.",
+      "setupSources": [
+        "https://www.zaproxy.org/faq/how-can-you-use-zap-to-scan-apis/"
+      ]
     }
   ]
 }

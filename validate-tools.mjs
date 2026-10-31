@@ -121,7 +121,7 @@ export function validateCatalogue(data, schema) {
     for (const id of Array.isArray(tool.categories) ? tool.categories : [])
       if (!categoryIds.has(id))
         fail(`tools[${i}].categories`, `unknown category "${id}"`);
-    for (const field of ["execution", "interfaces", "testCreation"])
+    for (const field of ["execution", "interfaces", "testCreation", "startingPoints"])
       if (
         Array.isArray(tool[field]) &&
         tool[field].includes("unknown") &&

@@ -109,3 +109,40 @@ test("obsolete or unsupported purpose values are ignored and rejected in catalog
     assert.ok(validateCatalogue(invalid, schema).some(e => e.includes("testingPurposes")));
   }
 });
+
+
+test("every reviewed entry has input paths, setup requirements and official input evidence", () => {
+  for (const tool of catalogue.tools) {
+    assert.ok(tool.startingPoints?.length, tool.id);
+    assert.ok(tool.setupNotes?.length >= 20, tool.id);
+    assert.ok(tool.setupSources?.length, tool.id);
+  }
+  const rentgen = catalogue.tools.find(t => t.id === "rentgen");
+  assert.deepEqual(rentgen.startingPoints, ["curl", "manual-request", "openapi"]);
+  assert.match(rentgen.setupNotes, /OpenAPI is optional/);
+  assert.ok(!rentgen.startingPoints.includes("traffic-recording"));
+  const schemathesis = catalogue.tools.find(t => t.id === "schemathesis");
+  assert.deepEqual(schemathesis.startingPoints, ["openapi"]);
+});
+
+test("start URL values are deduplicated, validated and round-trip with other filters", () => {
+  const { api, context } = app("?start=curl,openapi,curl,invalid&purpose=discovery");
+  assert.deepEqual(Array.from(api.state.starts), ["curl", "openapi"]);
+  const result = catalogue.tools.filter(t => api.matches(t));
+  assert.ok(result.some(t => t.id === "rentgen"));
+  assert.ok(result.some(t => t.id === "schemathesis"));
+  assert.ok(!result.some(t => t.id === "postman"));
+  api.writeURL();
+  assert.equal(new URL(context.sharedURL, "https://example.com").searchParams.get("start"), "curl,openapi");
+  api.resetFilters();
+  assert.equal(api.state.starts.length, 0);
+  assert.equal(api.activeFilterCount(), 0);
+});
+
+test("schema rejects unsupported inputs and mixing unknown with verified inputs", () => {
+  for (const points of [["invented"], ["unknown", "curl"]]) {
+    const invalid = structuredClone(catalogue);
+    invalid.tools[0].startingPoints = points;
+    assert.ok(validateCatalogue(invalid, schema).some(e => e.includes("startingPoints")));
+  }
+});

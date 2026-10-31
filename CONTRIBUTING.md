@@ -61,6 +61,25 @@ Replace the example values and date. Add a comma between neighboring objects. JS
 }
 ```
 
+## Starting points and setup requirements
+
+The **Start from** filter matches any of the selected inputs (OR); other filters such as testing purpose and category still apply together (AND). List only documented REST input paths in `startingPoints`, and cite the official input/import documentation in `setupSources`. Every reviewed entry includes `setupNotes` explaining prerequisites, supported formats, and relevant version/edition restrictions.
+
+| Value | Input path |
+| --- | --- |
+| `curl` | Import/convert an existing cURL request; exporting cURL or using it to install a tool does not qualify. |
+| `manual-request` | Compose a request or request/response mock mapping in the tool. Editing a specification-generated request alone does not establish a separate manual entry path. |
+| `openapi` | Supply a Swagger/OpenAPI description as input. Generating OpenAPI as output alone does not qualify. |
+| `collection` | Open/import an existing supported request collection or project. Generating a Postman collection as output alone does not qualify. |
+| `traffic-recording` | The tool or its integration captures actual HTTP interactions. Document required proxy/SDK/application integration. Capture can be for telemetry, tests, or mocks; it does not imply all three. |
+| `har` | Import/replay a previously recorded HTTP Archive file. This alone does not establish live recording support. |
+| `code-tests` | Start from authored code, DSL/YAML test steps, visual workflows, or mock configuration. Merely needing to install a library does not qualify. |
+| `endpoint-url` | A tool can start a target-level scan or operation from a URL. Explain endpoint-discovery and authentication limitations. |
+| `http-message` | Supply existing HTTP request/response data to a validator or test helper. This is not automatic network capture. |
+| `unknown` | The input paths have not been verified; do not combine with verified values. |
+
+A supported starting point is not a promise that it is sufficient by itself. For example, middleware validation needs **both** OpenAPI and HTTP messages; a diff tool needs **two** descriptions; a fuzzer also needs a running target. Keep these AND/OR requirements in `setupNotes`. Collection formats are tool-specific, and import does not promise full preservation of scripts/authentication. Do not infer inputs from product categories, internal transport libraries, or export formats. User-confirmed Rentgen entry paths are cURL, manual requests, and optional OpenAPI import; live traffic recording is not supported.
+
 ## Testing purpose
 
 Use `testingPurposes` to describe the REST testing capabilities covered by an entry. The filter offers two purposes and tools can support both:
@@ -94,6 +113,9 @@ Names and values are case-sensitive. Unknown fields are rejected to catch typos.
 | `pricing` | No | Enum below | Access/pricing model. Defaults to `unknown`. Do not infer revenue. |
 | `interfaces` | No | Nonempty array of enums below | How users interact with the tool. |
 | `execution` | No | Nonempty array of enums below | Where tests/checks execute, not where a collection is stored. |
+| `startingPoints` | No | Nonempty array of the values above | Verified input paths, used by the multi-select Start from filter. |
+| `setupNotes` | No | String, 20–700 characters | Required combinations, target/authentication setup, format and edition limitations. |
+| `setupSources` | No | Array of 1–4 official HTTP(S) URLs | Evidence for entry paths and setup requirements, shown with Getting started. |
 | `testingPurposes` | No | Nonempty array of `discovery`, `verification` | Purposes supported by the listed REST capabilities; a tool may support both. |
 | `purposeNotes` | No | String, 20–700 characters | Explain the classification, relevant mode, and supporting-tool limitations. |
 | `testCreation` | No | Nonempty array of enums below | How test cases or inputs are created. |

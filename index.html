@@ -10,8 +10,8 @@
     />
     <title>REST Atlas — Find your next testing tool</title>
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./styles.css" />
-    <script src="./app.js?v=e19535550848" defer></script>
+    <link rel="stylesheet" href="./styles.css?v=5a25a4e4d921" />
+    <script src="./app.js?v=542cfc712686" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to tools</a>
@@ -228,6 +228,25 @@
               <option value="verification">Verification / regression</option>
             </select>
           </label>
+          <details class="start-filter" id="start-filter">
+            <summary>Start from<span id="start-filter-count"> · any</span></summary>
+            <div class="start-filter-panel">
+              <fieldset>
+                <legend>What do you already have?</legend>
+                <label><input type="checkbox" data-start="curl" /> cURL</label>
+                <label><input type="checkbox" data-start="manual-request" /> Manual request</label>
+                <label><input type="checkbox" data-start="openapi" /> OpenAPI / Swagger</label>
+                <label><input type="checkbox" data-start="collection" /> Request collection</label>
+                <label><input type="checkbox" data-start="traffic-recording" /> Record live traffic</label>
+                <label><input type="checkbox" data-start="har" /> HAR import</label>
+                <label><input type="checkbox" data-start="code-tests" /> Code / test definition</label>
+                <label><input type="checkbox" data-start="endpoint-url" /> Endpoint URL</label>
+                <label><input type="checkbox" data-start="http-message" /> HTTP request / response data</label>
+                <label><input type="checkbox" data-start="unknown" /> Not verified</label>
+              </fieldset>
+              <p>Matches any selected starting point. Some modes need additional inputs or configuration; see the tool’s setup requirements.</p>
+            </div>
+          </details>
           <label class="ci-filter"
             ><input id="ci-filter" type="checkbox" /><span
               >CI/CD ready</span
